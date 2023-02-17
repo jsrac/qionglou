@@ -1,0 +1,45 @@
+{
+  "name": "qionglou",
+  "version": "0.0.1",
+  "description": "An atomic component library for Vue 3",
+  "scripts": {
+    "start": "pnpm run -C start dev",
+    "build": "vite build",
+    "lint": "prettier --write ."
+  },
+  "author": "Rhyme, Loyal <rhyme@npo.network>",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "start"
+  ],
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@qionglou/components": "workspace:*",
+    "@qionglou/utils": "workspace:*",
+    "@qionglou/theme": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.0.0",
+    "prettier": "^2.8.4",
+    "vite": "^4.1.1",
+    "vite-plugin-dts": "^1.7.3",
+    "vue": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiangxue-team/qionglou.git"
+  },
+  "keywords": [
+    "qionglou"
+  ],
+  "bugs": {
+    "url": "https://github.com/Jiangxue-team/qionglou/issues"
+  },
+  "homepage": "https://github.com/Jiangxue-team/qionglou#readme"
+}

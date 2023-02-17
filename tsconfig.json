@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "sourceMap": true,
+    "strict": false,
+    "allowJs": true
+  },
+  "exclude": ["node_modules"]
+}
