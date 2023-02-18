@@ -1,4 +1,4 @@
-import finePer from "./finePer.vue";
+import finePer from './finePer.vue'
 
 import { withInstall } from '@qionglou/utils'
 
