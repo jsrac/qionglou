@@ -1,22 +1,14 @@
-<template>
-    <FineMain layout="center" wide="100%" high="10vw" style="border: 1px solid red">
-      <div>Main content here</div>
-    </FineMain>
-</template>
+<script setup>
+import fineMain from "@qionglou/components/src/fineMain.vue";
+import fineFix from "@qionglou/components/src/fineFix.vue";
 
-<script>
-import FineMain from "@qionglou/components/src/FineMain.vue";
-
-export default {
-  components: {
-    FineMain
-  }
-};
 </script>
 
+<template>
+<fine-main wide="100%" high="15vw" style="border: 1px solid red">
+  <fine-fix position="bottom"><div>bottom</div></fine-fix>
+</fine-main>
+</template>
+
 <style>
-html, body {
-  height: 100%;
-  margin: 0;
-}
 </style>

@@ -1,6 +1,6 @@
 {
   "name": "qionglou",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "An atomic component library for Vue 3",
   "scripts": {
     "start": "pnpm run -C start dev",
@@ -20,7 +20,8 @@
     "@qionglou/components": "workspace:*",
     "@qionglou/theme": "workspace:*",
     "@qionglou/utils": "workspace:*",
-    "gsap": "^3.11.4"
+    "gsap": "^3.11.4",
+    "qionglou": "workspace:^0.0.9"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
