@@ -8,13 +8,14 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
+      staticImport: true,
       tsConfigFilePath: resolve(__dirname, 'tsconfig.json'),
-      include: ['packages/qionglou']
+      include: ['./packages/qionglou']
     })
   ],
   build: {
     target: 'modules',
-    minify: false,
+    minify: true,
     outDir: resolve(__dirname, 'dist'),
     lib: {
       entry: resolve(__dirname, 'packages/qionglou/index.js'),
@@ -24,7 +25,33 @@ export default defineConfig({
       external: ['vue'],
       output: [
         {
+          format: 'umd',
+          dir: 'dist',
+          name: 'qionglou',
+          exports: 'named',
+          sourcemap: false,
+          entryFileNames: 'index.umd.js',
+          chunkFileNames: '[name].js',
+          namespaceToStringTag: true,
+          manualChunks: undefined,
+          inlineDynamicImports: false,
+          globals: { vue: 'Vue' }
+        },
+        {
+          format: 'cjs',
+          exports: 'named',
+          dir: 'dist/lib',
+          sourcemap: false,
+          entryFileName: 'index.js',
+          chunkFileNames: '[name].js',
+          namespaceToStringTag: true,
+          inlineDynamicImports: false,
+          manualChunks: undefined,
+          preserveModules: true
+        },
+        {
           format: 'es',
+          dir: 'dist/es',
           exports: 'named',
           sourcemap: false,
           entryFileNames: '[name].js',

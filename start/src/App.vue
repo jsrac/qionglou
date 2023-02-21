@@ -1,7 +1,5 @@
 <script setup>
-import fineMain from "@qionglou/components/src/fineMain.vue";
-import fineFix from "@qionglou/components/src/fineFix.vue";
-
+  import { FineFix, FineMain } from '@qionglou/components'
 </script>
 
 <template>
