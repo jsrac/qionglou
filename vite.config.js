@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
+import visualizer from 'rollup-plugin-visualizer'
 
 export default defineConfig({
   mode: 'production',
@@ -10,6 +11,8 @@ export default defineConfig({
     vue(),
     dts({
       staticImport: true,
+      insertTypesEntry: true,
+      cleanVueFileName: true,
       outputDir: ['./dist/lib', './dist/es'],
       include: ['./packages/qionglou'],
       afterBuild: () => {
@@ -27,7 +30,8 @@ export default defineConfig({
           copyFileSync(file.input, file.output)
         })
       }
-    })
+    }),
+    visualizer()
   ],
   build: {
     target: 'modules',
@@ -36,8 +40,7 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'packages/qionglou/index.js'),
-      name: 'qionglou',
-      formats: ['umd', 'cjs', 'es']
+      name: 'qionglou'
     },
     rollupOptions: {
       external: ['vue'],
@@ -49,13 +52,12 @@ export default defineConfig({
           sourcemap: false,
           name: 'qionglou',
           entryFileNames: 'index.umd.js',
+          assetFileNames: '[name].[ext]',
           chunkFileNames: '[name].js',
-          namespaceToStringTag: true,
+          generatedCode: { symbols: true },
           manualChunks: undefined,
           inlineDynamicImports: false,
-          globals: {
-            vue: 'Vue'
-          }
+          globals: { vue: 'Vue' }
         },
         {
           format: 'cjs',
@@ -63,7 +65,9 @@ export default defineConfig({
           exports: 'named',
           sourcemap: false,
           entryFileNames: 'index.js',
+          assetFileNames: '[name].[ext]',
           chunkFileNames: '[name].js',
+          generatedCode: { symbols: true },
           namespaceToStringTag: true,
           inlineDynamicImports: false,
           manualChunks: undefined,
@@ -74,6 +78,7 @@ export default defineConfig({
           dir: 'dist/es',
           exports: 'named',
           sourcemap: false,
+          assetFileNames: '[name].[ext]',
           entryFileNames: '[name].js',
           preserveModules: true,
           inlineDynamicImports: false

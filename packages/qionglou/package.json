@@ -10,6 +10,7 @@
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
+  "types": "es/index.d.ts",
   "exports": {
     ".": {
       "import": "./es/index.js",
