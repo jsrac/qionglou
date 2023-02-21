@@ -16,6 +16,11 @@
       "import": "./es/index.js",
       "require": "./lib/index.js"
     },
+    "./resolver": {
+      "require": "./resolver/index.js",
+      "import": "./resolver/index.js",
+      "types": "./resolver/index.d.ts"
+    },
     "./dist": "./dist/",
     "./es": "./es/index.js",
     "./es/*": "./es/*.js",
@@ -25,6 +30,8 @@
     "./lib/*.js": "./lib/*.js",
     "./*": "./*"
   },
+  "unpkg": "dist/index.umd.js",
+  "style": "dist/style.css",
   "peerDependencies": {
     "vue": "^3.2.0"
   },

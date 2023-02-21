@@ -47,7 +47,7 @@ export default defineConfig({
       output: [
         {
           format: 'umd',
-          dir: 'dist',
+          dir: 'dist/dist',
           exports: 'named',
           sourcemap: false,
           name: 'qionglou',
@@ -68,7 +68,6 @@ export default defineConfig({
           assetFileNames: '[name].[ext]',
           chunkFileNames: '[name].js',
           generatedCode: { symbols: true },
-          namespaceToStringTag: true,
           inlineDynamicImports: false,
           manualChunks: undefined,
           preserveModules: true
