@@ -20,8 +20,7 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@qionglou/components": "workspace:*",
-    "@qionglou/theme": "workspace:*",
+    "qionglou": "workspace:*",
     "@qionglou/utils": "workspace:*",
     "@vitejs/plugin-vue": "^4.0.0",
     "gsap": "^3.11.4",

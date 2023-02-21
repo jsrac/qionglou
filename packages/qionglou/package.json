@@ -1,6 +1,41 @@
 {
   "name": "qionglou",
-  "version": "0.0.2",
-  "dependencies": {
-  }
+  "description": "An atomic component library for Vue 3",
+  "version": "0.1.0",
+  "keywords": [
+    "qionglou",
+    "ui",
+    "vue",
+    "javascript"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js"
+    },
+    "./dist": "./dist/",
+    "./es": "./es/index.js",
+    "./es/*": "./es/*.js",
+    "./es/*.js": "./es/*.js",
+    "./lib": "./lib/index.js",
+    "./lib/*": "./lib/*.js",
+    "./lib/*.js": "./lib/*.js",
+    "./*": "./*"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiangxue-team/qionglou.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Jiangxue-team/qionglou/issues"
+  },
+  "homepage": "https://github.com/Jiangxue-team/qionglou#readme"
 }
