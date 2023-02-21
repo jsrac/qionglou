@@ -11,8 +11,6 @@ export default defineConfig({
     vue(),
     dts({
       staticImport: true,
-      insertTypesEntry: true,
-      cleanVueFileName: true,
       outputDir: ['./dist/lib', './dist/es'],
       include: ['./packages/qionglou'],
       afterBuild: () => {
