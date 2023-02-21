@@ -36,15 +36,31 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'packages/qionglou/index.js'),
-      name: 'qionglou'
+      name: 'qionglou',
+      formats: ['umd', 'cjs', 'es']
     },
     rollupOptions: {
       external: ['vue'],
       output: [
         {
-          format: 'cjs',
+          format: 'umd',
+          dir: 'dist',
           exports: 'named',
+          sourcemap: false,
+          name: 'qionglou',
+          entryFileNames: 'index.umd.js',
+          chunkFileNames: '[name].js',
+          namespaceToStringTag: true,
+          manualChunks: undefined,
+          inlineDynamicImports: false,
+          globals: {
+            vue: 'Vue'
+          }
+        },
+        {
+          format: 'cjs',
           dir: 'dist/lib',
+          exports: 'named',
           sourcemap: false,
           entryFileNames: 'index.js',
           chunkFileNames: '[name].js',
@@ -61,21 +77,6 @@ export default defineConfig({
           entryFileNames: '[name].js',
           preserveModules: true,
           inlineDynamicImports: false
-        },
-        {
-          format: 'umd',
-          exports: 'named',
-          name: 'qionglou',
-          sourcemap: false,
-          dir: 'dist',
-          entryFileNames: 'index.umd.js',
-          chunkFileNames: '[name].js',
-          namespaceToStringTag: true,
-          manualChunks: undefined,
-          inlineDynamicImports: false,
-          globals: {
-            vue: 'Vue'
-          }
         }
       ]
     }
