@@ -17,17 +17,17 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
-    "@qionglou/components": "workspace:*",
-    "@qionglou/theme": "workspace:*",
-    "@qionglou/utils": "workspace:*"
+    "vue": "^3.2.0"
   },
   "devDependencies": {
+    "@qionglou/components": "workspace:*",
+    "@qionglou/theme": "workspace:*",
+    "@qionglou/utils": "workspace:*",
     "@vitejs/plugin-vue": "^4.0.0",
     "gsap": "^3.11.4",
     "prettier": "^2.8.4",
     "vite": "^4.1.1",
-    "vite-plugin-dts": "^1.7.3",
-    "vue": "^3.2.0"
+    "vite-plugin-dts": "^1.7.3"
   },
   "engines": {
     "node": ">=16.0.0"
