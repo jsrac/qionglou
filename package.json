@@ -19,12 +19,11 @@
   "dependencies": {
     "@qionglou/components": "workspace:*",
     "@qionglou/theme": "workspace:*",
-    "@qionglou/utils": "workspace:*",
-    "gsap": "^3.11.4",
-    "qionglou": "workspace:^0.0.9"
+    "@qionglou/utils": "workspace:*"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
+    "gsap": "^3.11.4",
     "prettier": "^2.8.4",
     "vite": "^4.1.1",
     "vite-plugin-dts": "^1.7.3",

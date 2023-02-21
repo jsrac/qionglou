@@ -9,7 +9,7 @@ export default defineConfig({
     vue(),
     dts({
       tsConfigFilePath: resolve(__dirname, 'tsconfig.json'),
-      include: ['packages/components', 'packages/utils']
+      include: ['packages/qionglou']
     })
   ],
   build: {
@@ -17,7 +17,7 @@ export default defineConfig({
     minify: false,
     outDir: resolve(__dirname, 'dist'),
     lib: {
-      entry: resolve(__dirname, 'packages/components/index.js'),
+      entry: resolve(__dirname, 'packages/qionglou/index.js'),
       name: 'qionglou'
     },
     rollupOptions: {
