@@ -1,7 +1,0 @@
-{
-  "name": "@qionglou/utils",
-  "version": "1.0.0",
-  "peerDependencies": {
-    "vue": "^3.2.0"
-  }
-}

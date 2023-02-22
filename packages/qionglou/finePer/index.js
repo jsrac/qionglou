@@ -1,4 +1,4 @@
-import { withInstall } from '@qionglou/utils'
+import { withInstall } from '../_utils'
 import finePer from './finePer.vue'
 
 export const FinePer = withInstall(finePer)

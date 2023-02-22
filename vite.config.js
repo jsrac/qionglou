@@ -41,16 +41,15 @@ export default defineConfig({
       name: 'qionglou'
     },
     rollupOptions: {
-      external: ['vue'],
+      external: ['vue', 'start'],
       output: [
         {
           format: 'umd',
-          dir: 'dist/dist',
+          dir: 'dist',
           exports: 'named',
           sourcemap: false,
           name: 'qionglou',
           entryFileNames: 'index.umd.js',
-          assetFileNames: '[name].[ext]',
           chunkFileNames: '[name].js',
           generatedCode: { symbols: true },
           manualChunks: undefined,
@@ -63,7 +62,6 @@ export default defineConfig({
           exports: 'named',
           sourcemap: false,
           entryFileNames: 'index.js',
-          assetFileNames: '[name].[ext]',
           chunkFileNames: '[name].js',
           generatedCode: { symbols: true },
           inlineDynamicImports: false,
