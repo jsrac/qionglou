@@ -1,4 +1,4 @@
 import { install } from './install'
-import Components from './components'
+import * as Components from './components'
 
-export default install([Components])
+export default install(Components)

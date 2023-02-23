@@ -8,11 +8,22 @@
     "vue",
     "javascript"
   ],
-  "module": "es/index.js",
   "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
   "unpkg": "index.umd.js",
   "style": "style.css",
+  "jsdelivr": "index.umd.js",
+  "sideEffects": [
+    "dist/*"
+  ],
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "import": "./es/index.mjs",
+      "require": "./lib/index.js"
+    }
+  },
   "files": [
     "dist",
     "lib",

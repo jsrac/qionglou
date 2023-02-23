@@ -2,9 +2,10 @@ import { version } from './package.json'
 
 export const install = (components) => {
   const install = (app) => {
-    components.forEach((component) => {
-      app.use(component)
+    Object.entries(components).forEach(([key, value]) => {
+      app.component(key, value)
     })
+    return app
   }
 
   return {

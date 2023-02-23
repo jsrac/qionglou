@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
-import visualizer from 'rollup-plugin-visualizer'
+import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig({
   mode: 'production',
@@ -29,7 +29,7 @@ export default defineConfig({
         })
       }
     }),
-    visualizer()
+    terser()
   ],
   build: {
     target: 'modules',
@@ -38,21 +38,20 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'packages/qionglou/index.js'),
-      name: 'qionglou'
+      name: 'qionglou',
     },
     rollupOptions: {
-      external: ['vue', 'start'],
+      external: ['vue'],
+      input: resolve(__dirname, 'packages/qionglou/index.js'),
       output: [
         {
           format: 'umd',
           dir: 'dist',
           exports: 'named',
-          sourcemap: false,
           name: 'qionglou',
           entryFileNames: 'index.umd.js',
           chunkFileNames: '[name].js',
           generatedCode: { symbols: true },
-          manualChunks: undefined,
           inlineDynamicImports: false,
           globals: { vue: 'Vue' }
         },
@@ -60,21 +59,16 @@ export default defineConfig({
           format: 'cjs',
           dir: 'dist/lib',
           exports: 'named',
-          sourcemap: false,
-          entryFileNames: 'index.js',
-          chunkFileNames: '[name].js',
+          entryFileNames: '[name].js',
           generatedCode: { symbols: true },
           inlineDynamicImports: false,
-          manualChunks: undefined,
           preserveModules: true
         },
         {
           format: 'es',
           dir: 'dist/es',
           exports: 'named',
-          sourcemap: false,
-          assetFileNames: '[name].[ext]',
-          entryFileNames: '[name].js',
+          entryFileNames: '[name].mjs',
           preserveModules: true,
           inlineDynamicImports: false
         }
