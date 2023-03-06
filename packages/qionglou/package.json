@@ -1,7 +1,7 @@
 {
   "name": "qionglou",
   "description": "An atomic component library for Vue 3",
-  "version": "0.2.6-alpha.4",
+  "version": "0.2.7",
   "keywords": [
     "qionglou",
     "ui",
@@ -11,9 +11,9 @@
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "types": "es/index.d.ts",
-  "unpkg": "index.umd.js",
-  "style": "style.css",
-  "jsdelivr": "index.umd.js",
+  "unpkg": "dist/index.umd.js",
+  "style": "dist/style.css",
+  "jsdelivr": "dist/index.umd.js",
   "sideEffects": [
     "dist/*"
   ],

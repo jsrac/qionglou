@@ -46,7 +46,7 @@ export default defineConfig({
       output: [
         {
           format: 'umd',
-          dir: 'dist',
+          dir: 'dist/dist',
           exports: 'named',
           name: 'qionglou',
           entryFileNames: 'index.umd.js',
