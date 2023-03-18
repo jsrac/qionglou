@@ -8,6 +8,8 @@
     "vue",
     "javascript"
   ],
+  "author": "Rhyme, Loyal <rhyme@npo.network>",
+  "license": "MIT",
   "main": "lib/index.js",
   "module": "es/index.mjs",
   "types": "es/index.d.ts",

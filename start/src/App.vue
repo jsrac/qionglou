@@ -1,11 +1,23 @@
 <script setup>
-  import { FineFix, FineMain } from 'qionglou'
+  import FineHeader from '../../packages/qionglou/fineHeader/fineHeader.vue'
+  import FinePer from '../../packages/qionglou/finePer/finePer.vue'
+
+  const customWidth = {
+    1: '10%',
+    2: '20%'
+  }
+  defineExpose({ customWidth });
 </script>
 
 <template>
-  <fine-main wide="100%" high="15vw" style="border: 1px solid red">
-    <fine-fix position="bottom"><div>bottom</div></fine-fix>
-  </fine-main>
+  <fine-per wide="10">
+    <fine-header
+        :col="customWidth"
+    >
+      <div>1</div>
+      <div>2</div>
+    </fine-header>
+  </fine-per>
 </template>
 
 <style></style>

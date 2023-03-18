@@ -7,8 +7,8 @@
     name: 'finePer',
     props: {
       wide: {
-        type: Number,
-        default: 10
+        type: String,
+        default: '10'
       },
       unit: {
         type: String,

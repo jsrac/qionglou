@@ -24,11 +24,11 @@
         validator: (value) => ['center', 'left', 'right'].includes(value)
       },
       wide: {
-        type: Number,
+        type: String,
         default: 'auto'
       },
       high: {
-        type: Number,
+        type: String,
         default: 'auto'
       }
     },
