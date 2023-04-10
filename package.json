@@ -4,6 +4,7 @@
   "description": "An atomic component library for Vue 3",
   "scripts": {
     "start": "pnpm run -C start dev",
+    "start:docs": "pnpm run -C docs dev",
     "build": "pnpm run clean && vite build",
     "lint": "prettier --write .",
     "clean": "rimraf dist"
@@ -18,6 +19,8 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
+    "@qionglou/theme": "workspace:*",
+    "sass": "^1.61.0",
     "vue": "^3.2.0"
   },
   "devDependencies": {

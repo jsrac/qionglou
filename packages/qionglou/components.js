@@ -9,3 +9,6 @@ export * from './fineHeader'
 
 export { FinePer } from './finePer'
 export * from './finePer'
+
+export { Qdialog } from './dialog'
+export * from './dialog'

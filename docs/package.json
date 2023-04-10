@@ -1,0 +1,16 @@
+{
+  "name": "@qionglou/docs",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
+  },
+  "keywords": [],
+  "author": "XiaoLi_1456",
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-alpha.65"
+  }
+}
