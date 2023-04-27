@@ -1,0 +1,7 @@
+{
+  "name": "@qionglou/theme",
+  "version": "1.0.0",
+  "description": "Qionglou Theme",
+  "main": "index.scss",
+  "type": "module"
+}

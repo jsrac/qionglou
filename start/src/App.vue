@@ -1,23 +1,33 @@
 <script setup>
-  import FineHeader from '../../packages/qionglou/fineHeader/fineHeader.vue'
-  import FinePer from '../../packages/qionglou/finePer/finePer.vue'
+  import { ref } from 'vue'
+  import Qdialog from '../../packages/qionglou/dialog/src/dialog.vue'
 
-  const customWidth = {
-    1: '10%',
-    2: '20%'
+  const visible = ref(false)
+
+  function close() {
+    visible.value = false
   }
-  defineExpose({ customWidth });
+
+  function open() {
+    visible.value = true
+  }
 </script>
 
 <template>
-  <fine-per wide="10">
-    <fine-header
-        :col="customWidth"
-    >
-      <div>1</div>
-      <div>2</div>
-    </fine-header>
-  </fine-per>
+  <div>
+    <button @click="open()">打开</button>
+    <Qdialog
+      v-model:visible="visible"
+      title="标题"
+      width="500px"
+      height="500px"
+      :center="true"
+      :fullscreen="false"
+      @close="close()"
+      >
+      <div>内容</div>
+    </Qdialog>
+  </div>
 </template>
 
 <style></style>
