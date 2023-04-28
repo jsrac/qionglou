@@ -1,7 +1,16 @@
 ---
-page: true
-sidebar: false
-title: 'Welcome to the docs'
+layout: home
+title: My Page
 ---
 
-niu
+<Home />
+
+<script setup>
+import Home from '.vitepress/theme/Home.vue'
+</script>
+
+<style>
+.VPHome {
+  padding-bottom: 0 !important
+}
+</style>

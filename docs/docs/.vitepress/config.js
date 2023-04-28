@@ -4,6 +4,8 @@ export default defineConfig({
   title: 'Qionglou',
   description: 'A Vue.js 3 UI Toolkit for Web',
   themeConfig: {
+    logo: 'https://raw.githubusercontent.com/rhyme-qing/rhyme-qing/main/assets/202304281442899.png',
+    siteTitle: '',
     nav: [
       {
         text: 'Getting Started',

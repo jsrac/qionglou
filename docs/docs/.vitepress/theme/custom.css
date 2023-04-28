@@ -1,3 +1,8 @@
+.VPImage {
+    width: 154px; /* 调整 logo 的宽度 */
+    height: auto !important;
+}
+
 /**
  * Colors Base
  *
@@ -346,7 +351,7 @@
  * -------------------------------------------------------------------------- */
 
 :root {
-    --vp-nav-height: 64px;
+    --vp-nav-height: 113px;
     --vp-nav-bg-color: var(--vp-c-bg);
     --vp-nav-screen-bg-color: var(--vp-c-bg);
 }
