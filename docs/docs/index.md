@@ -1,6 +1,6 @@
 ---
 layout: home
-title: My Page
+title: An atomic component library for Vue 3
 ---
 
 <Home />
