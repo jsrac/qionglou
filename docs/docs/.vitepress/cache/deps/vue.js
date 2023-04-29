@@ -4276,7 +4276,7 @@ function applyOptions(instance) {
     // public API
     expose,
     inheritAttrs,
-    // assets
+    // public
     components,
     directives,
     filters
@@ -4566,7 +4566,7 @@ var internalOptionMergeStrats = {
   deactivated: mergeAsArray,
   errorCaptured: mergeAsArray,
   serverPrefetch: mergeAsArray,
-  // assets
+  // public
   components: mergeObjectOptions,
   directives: mergeObjectOptions,
   // watch
@@ -7257,7 +7257,7 @@ function createComponentInstance(vnode, parent, suspense) {
     provides: parent ? parent.provides : Object.create(appContext.provides),
     accessCache: null,
     renderCache: [],
-    // local resolved assets
+    // local resolved public
     components: null,
     directives: null,
     // resolved props and emits options

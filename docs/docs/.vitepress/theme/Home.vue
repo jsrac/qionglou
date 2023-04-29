@@ -62,6 +62,7 @@ onMounted(() => {
   font-weight: 500;
   color: #505050;
 }
+
 .ql-home-title-layout {
   margin-top: 110px;
   z-index: 19;

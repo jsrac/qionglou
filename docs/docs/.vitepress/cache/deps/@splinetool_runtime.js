@@ -29715,7 +29715,7 @@ var ao = class {
     let e;
     if (typeof t == "string") {
       let n = this.getColor(t);
-      n ? e = n : (console.warn("Tried to create color layer params with a color key that does not exist in the assets manager"), e = new Yt(0, 0, 0, 0));
+      n ? e = n : (console.warn("Tried to create color layer params with a color key that does not exist in the public manager"), e = new Yt(0, 0, 0, 0));
     } else
       return "a" in t ? new Yt(t.r, t.g, t.b, t.a) : new Yt(t.r, t.g, t.b, 1);
     return e;
