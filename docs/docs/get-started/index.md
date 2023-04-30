@@ -1,13 +1,85 @@
----
-aside: false
----
+# Markdown Extension Examples
 
-# 了解qionglou
+This page demonstrates some of the built-in markdown extensions provided by VitePress.
 
-Qionglou(ˈqiónglóuː, 琼楼)，是一个基于江雪前端开发团队快速开发需求所编写的基于 Vue3 的前端原子化组件库，面向原型设计实现等场景的自定义前端样式开发框架，提供了基础排版和交互需求及数据可视化。帮助产品设计师，和开发人员通过提供的组件进行自定义样式实现产品原型设计效果，快速建立自适应和可交互应用。
+## Syntax Highlighting
 
-琼楼是一个原子 Vue 3 前端开发框架，它允许您使用 qionglou.js 轻松地布局您的网站并自定义您的样式，你可以通过包管理器来进行安装和基本脚手架的构建：
+VitePress `provides` Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
 
-```bash
-pnpm install qionglou
+**Input**
+
+````
+```js{4}
+export default {
+  data () {
+    return {
+      msg: 'Highlighted!'
+    }
+  }
+}
 ```
+````
+
+**Output**
+
+```js{4}
+export default {
+  data () {
+    return {
+      msg: 'Highlighted!'
+    }
+  }
+}
+```
+
+## Custom Containers
+
+**Input**
+
+```md
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: details
+This is a details block.
+:::
+```
+
+**Output**
+
+::: info
+This is an info box.
+:::
+
+::: tip
+This is a tip.
+:::
+
+::: warning
+This is a warning.
+:::
+
+::: danger
+This is a dangerous warning.
+:::
+
+::: details
+This is a details block.
+:::
+
+## More
+
+Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
