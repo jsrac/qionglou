@@ -63,6 +63,10 @@ onMounted(() => {
   color: #505050;
 }
 
+.dark .ql-home-peculiarity li {
+  color: #FFFFF5DB;
+}
+
 .ql-home-title-layout {
   margin-top: 110px;
   z-index: 19;
@@ -90,6 +94,10 @@ onMounted(() => {
   z-index: 16;
   height: 40%;
 }
+.dark .ql-homeback {
+  background: linear-gradient(180deg, #00000073 2%, rgba(0, 0, 0, 0) 54.35%);
+}
+
 .ql-homeback_bottom {
   transform: rotate(-180deg);
   position: fixed;
@@ -99,9 +107,15 @@ onMounted(() => {
   z-index: 16;
   height: 19%;
 }
+.dark .ql-homeback_bottom {
+  background: linear-gradient(180deg, #1E1E20 22%, rgba(0, 0, 0, 0) 54.35%);
+}
 .canvas3d {
   height: 100%;
   display: block;
+}
+.dark .canvas3d {
+  opacity: 0.1;
 }
 .container {
   height: 100vh;
@@ -119,6 +133,14 @@ onMounted(() => {
   font-size: 17px;
   display: inline-flex;
   align-items: center;
+}
+
+.dark .ql-home-todco {
+  background: #FFFFF5DB;
+  color: #000000;
+}
+.dark .ql-home-todco span svg path {
+  stroke: black;
 }
 .ql-home-todco span {
   margin-left: 14px;

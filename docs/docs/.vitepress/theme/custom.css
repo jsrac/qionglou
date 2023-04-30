@@ -9,6 +9,22 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+.dark .VPNav {
+    border-bottom: 1px solid #afafaf70;
+}
+.dark .VPSidebar {
+    background-color: #1E1E20;
+    border-right: 1px solid #5e5e5f;
+}
+.dark .curtain {
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+}
+
+.curtain {
+    display: none;
+}
+
 /**
  * Colors Base
  *

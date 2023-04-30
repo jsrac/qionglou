@@ -1,7 +1,9 @@
 import DefaultTheme from 'vitepress/theme'
 import './custom.css'
+import './index.dark.css'
+
 export default {
-  // ...DefaultTheme,
+  ...DefaultTheme,
   Layout: {
     ...DefaultTheme.Layout,
   },
