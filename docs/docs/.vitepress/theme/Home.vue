@@ -10,14 +10,12 @@
   </div>
   <div class="ql-home-title-layout">
     <div class="ql-home-title">
-      <p>Unlock your creativity with<br>use Qionglou.js</p>
+      <p v-html="titleContent"></p>
     </div>
     <div class="ql-home-peculiarity">
-      <li>√ user-defined</li>
-      <li>√ community</li>
-      <li>√ be thoughtful</li>
+      <li v-for="item in peculiarityList" :key="item">{{ item }}</li>
     </div>
-    <a class="ql-home-todco" href="/">Make vue great again<span>
+    <a class="ql-home-todco" :href="todcoTo">{{ todcoText }}<span>
       <svg width="25" height="11" viewBox="0 0 25 11" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M24 5L0 5" stroke="white" stroke-width="2" stroke-linejoin="bevel"/>
 <path d="M19 1L24 5.5L19 10" stroke="white" stroke-width="2" stroke-linejoin="bevel"/>
@@ -27,6 +25,7 @@
 </template>
 
 <script setup>
+import { defineProps } from 'vue'
 import { Application } from '@splinetool/runtime'
 import {onMounted} from "vue";
 const { page, frontmatter } = useData()
@@ -36,6 +35,32 @@ onMounted(() => {
   const canvas = document.getElementById('canvas3d');
   const app = new Application(canvas);
   app.load('https://prod.spline.design/tuCZo1YVk-AJCBzr/scene.splinecode');
+})
+
+const props = defineProps({
+  titleContent: {
+    type: String,
+    default: 'Unlock your creativity with<br>use Qionglou.js',
+    required: true
+  },
+  peculiarityList: {
+    type: Array,
+    default: () => [
+      '√ user-defined',
+      '√ community',
+      '√ be thoughtful'
+    ],
+    required: true
+  },
+  todcoText: {
+    type: String,
+    default: 'Make vue great again',
+    required: true
+  },
+  todcoTo: {
+    type: String,
+    default: '',
+  }
 })
 </script>
 
