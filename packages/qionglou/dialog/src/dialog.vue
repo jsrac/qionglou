@@ -1,18 +1,15 @@
 <template>
-  <div
-    :class="dialogClass"
-    v-show="props.visible"
-  >
+  <div :class="dialogClass" v-show="props.visible">
     <div class="dialog__wapper">
-      <div class='dialog__header'>
-        <div class='dialog__title'>
-          <slot name='title'>{{props.title}}</slot>
+      <div class="dialog__header">
+        <div class="dialog__title">
+          <slot name="title">{{ props.title }}</slot>
         </div>
-        <div class='dialog__close'>
-          <i class='q-icon-close' @click='emit("close")'>x</i>
+        <div class="dialog__close">
+          <i class="q-icon-close" @click="emit('close')">x</i>
         </div>
       </div>
-      <div class='dialog__content'>
+      <div class="dialog__content">
         <slot />
       </div>
     </div>
@@ -32,7 +29,7 @@
       'q-dialog.md',
       props.fullscreen ? 'q-dialog.md-fullscreen' : '',
       props.center ? 'q-dialog.md-center' : '',
-      props.customClass ? props.customClass : '',
+      props.customClass ? props.customClass : ''
     ]
   })
 

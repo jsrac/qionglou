@@ -8,3 +8,5 @@ node_modules
 
 pnpm-lock.yaml
 package.json
+
+/docs/docs/.vitepress/cache

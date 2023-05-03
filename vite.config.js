@@ -38,7 +38,7 @@ export default defineConfig({
     emptyOutDir: false,
     lib: {
       entry: resolve(__dirname, 'packages/qionglou/index.js'),
-      name: 'qionglou',
+      name: 'qionglou'
     },
     rollupOptions: {
       external: ['vue'],

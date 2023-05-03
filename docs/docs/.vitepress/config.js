@@ -35,12 +35,7 @@ export default defineConfig({
           {
             text: 'Getting Started',
             link: '/get-started',
-            items: [
-              { text: '快速上手' },
-              { text: '指南' },
-              { text: '指令' },
-              { text: '加入我们' },
-            ]
+            items: [{ text: '快速上手' }, { text: '指南' }, { text: '指令' }, { text: '加入我们' }]
           }
         ]
       }
@@ -78,12 +73,7 @@ export default defineConfig({
           {
             text: 'Getting Started',
             link: '/get-started',
-            items: [
-              { text: '快速上手' },
-              { text: '指南' },
-              { text: '指令' },
-              { text: '加入我们' },
-            ]
+            items: [{ text: '快速上手' }, { text: '指南' }, { text: '指令' }, { text: '加入我们' }]
           }
         ]
       }
@@ -94,7 +84,7 @@ export default defineConfig({
       light: '/logo/light.svg',
       dark: '/logo/dark.svg'
     },
-    siteTitle: false,
+    siteTitle: false
   },
   markdown: {
     lineNumbers: true

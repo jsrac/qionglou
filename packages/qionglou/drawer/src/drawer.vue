@@ -1,18 +1,9 @@
 <template>
   <transition name="drawer">
-    <div
-      :class="[
-        'q-drawer'
-      ]"
-    >
-
-    </div>
+    <div :class="['q-drawer']"></div>
   </transition>
 </template>
 
-<script setup>
-</script>
+<script setup></script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-  import {computed, onDeactivated, onMounted,ref} from 'vue'
+  import { computed, onDeactivated, onMounted, ref } from 'vue'
 
   const props = defineProps({
     // 间距
@@ -15,7 +15,7 @@
     },
     col: {
       type: Object
-    },
+    }
   })
 
   const containerStyle = computed(() => {

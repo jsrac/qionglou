@@ -86,5 +86,5 @@ export const Props = {
 }
 
 export const Emits = {
-  close: () => {},
+  close: () => {}
 }
