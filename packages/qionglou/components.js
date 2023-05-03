@@ -12,3 +12,6 @@ export * from './finePer'
 
 export { Qdialog } from './dialog'
 export * from './dialog'
+
+export { Qloading } from './loading'
+export * from './loading'

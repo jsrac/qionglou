@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "serve": "vitepress serve docs"
+    "serve": "vitepress serve docs",
+    "crowdin:upload": "crowdin upload sources"
   },
   "keywords": [],
   "author": "XiaoLi_1456",
@@ -11,6 +12,7 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@crowdin/cli": "^3.11.0",
     "vitepress": "1.0.0-alpha.65"
   },
   "dependencies": {
