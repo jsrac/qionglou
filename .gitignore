@@ -7,3 +7,5 @@ dist
 start/node_modules
 start/node_modules/**
 pnpm-lock.yaml
+
+/docs/docs/.vitepress/cache/**

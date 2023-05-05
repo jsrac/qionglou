@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script setup>
-  import { computed, onDeactivated, onMounted, ref } from 'vue'
+<script setup lang="ts">
+  import { computed } from 'vue'
 
   const props = defineProps({
     // 间距
