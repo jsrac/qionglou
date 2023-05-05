@@ -6,6 +6,7 @@
     "start": "pnpm run -C start dev",
     "start:docs": "pnpm run -C docs dev",
     "build": "pnpm run clean && vite build",
+    "build:docs": "pnpm run -C docs build",
     "lint": "prettier --write .",
     "clean": "rimraf dist"
   },
