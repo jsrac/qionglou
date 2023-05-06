@@ -3,6 +3,7 @@ node_modules
 dist
 .vscode
 .idea
+.env
 
 start/node_modules
 start/node_modules/**
