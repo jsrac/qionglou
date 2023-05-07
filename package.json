@@ -8,7 +8,8 @@
     "build": "pnpm run clean && vite build",
     "build:docs": "pnpm run -C docs build",
     "lint": "prettier --write .",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "prepare": "husky install"
   },
   "author": "Rhyme, Loyal <rhyme@npo.network>",
   "license": "MIT",
@@ -25,8 +26,11 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^17.6.3",
     "@vitejs/plugin-vue": "^4.0.0",
     "gsap": "^3.11.4",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2",
     "prettier": "^2.8.4",
     "rimraf": "^4.1.2",
     "rollup-plugin-terser": "^7.0.2",
@@ -47,5 +51,16 @@
   "bugs": {
     "url": "https://github.com/Jiangxue-team/qionglou/issues"
   },
-  "homepage": "https://github.com/Jiangxue-team/qionglou#readme"
+  "homepage": "https://github.com/Jiangxue-team/qionglou#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,vue}": [
+      "prettier --write",
+      "git add"
+    ]
+  }
 }
