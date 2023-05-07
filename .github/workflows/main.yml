@@ -25,9 +25,17 @@ jobs:
         run: pnpm i
 
       - name: Build docs
-        run: pnpm build:docs
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        run: pnpm run build:docs
+      - uses: actions/configure-pages@v2
+      - uses: actions/upload-pages-artifact@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/docs/.vitepress/dist
+          path: docs/.vitepress/dist
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v1
+        publish_dir: docs/docs/.vitepress/dist
+
+#      - name: Deploy
+#        uses: peaceiris/actions-gh-pages@v3
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}

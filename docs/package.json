@@ -4,6 +4,7 @@
     "dev": "vitepress dev docs",
     "build": "vitepress build docs",
     "serve": "vitepress serve docs",
+    "preview": "vitepress preview docs",
     "crowdin:upload": "crowdin upload sources"
   },
   "keywords": [],
