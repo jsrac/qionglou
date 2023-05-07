@@ -6,7 +6,7 @@
 
 ## Start
 
-You can visit [docs.jiangxue.team/qionglou]() to read or consult our official documentation for your starting operations.
+You can visit [qionglou](https://jiangxue-team.github.io/qionglou/) to read or consult our official documentation for your starting operations.
 
 ```bash
 pnpm install qionglou
