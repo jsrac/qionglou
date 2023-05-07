@@ -1,4 +1,4 @@
-## 贡献指南
+# 贡献指南
 
 首先，感谢您对 QiongLou 的支持，目前该组件库任在飞速的构建中，我们欢迎任何形式的贡献。
 
@@ -27,6 +27,7 @@ pnpm run start
 ```
 该命令会帮助您启动本地开发环境， 您可以将组件 添加到 `packages/qionglou` 目录下，然后在 `packages/qionglou/components.ts` 中导出。
 在 `start/src/App.vue` 中导入您开发的组件进行测试预览。
+
 6. 提交代码
 
 当您完成开发后，您可以提交代码到您 fork 的仓库，然后提交 pr 到本仓库，我们会尽快进行审核。

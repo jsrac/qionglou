@@ -7,7 +7,7 @@ export default {
   Layout: {
     ...DefaultTheme.Layout
   },
-  enhanceApp({ app }) {
+  enhanceApp({ app }: { app: any }) {
     // ...
   }
 }

@@ -11,10 +11,15 @@ export default defineConfig({
         nav: [
           {
             text: 'Getting Started',
-            link: '/get-started/',
+            link: '/zh-cn/get-started/',
             items: [
               {
-                text: '了解qionglou'
+                text: '了解qionglou',
+                link: '/get-started/'
+              },
+              {
+                text: '贡献指南',
+                link: '/get-started/dev_guides'
               }
             ]
           },
@@ -57,7 +62,8 @@ export default defineConfig({
             link: '/zh-cn/get-started/',
             items: [
               {
-                text: '了解qionglou'
+                text: '了解qionglou',
+                link: '/zh-cn/get-started/'
               }
             ]
           },
@@ -77,11 +83,11 @@ export default defineConfig({
         sidebar: [
           {
             text: 'Getting Started',
-            link: '/get-started',
+            link: '/zh-cn/get-started',
             items: [
               { text: '快速上手' },
-              { text: '指南' },
-              { text: '指令' },
+              { text: '贡献指南', link: '/zh-cn/get-started/dev_guides' },
+              { text: '提交规范', link: '/zh-cn/get-started/commit_stand' },
               { text: '加入我们' }
             ]
           }

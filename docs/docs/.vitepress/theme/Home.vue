@@ -57,7 +57,7 @@
   const props = defineProps({
     titleContent: {
       type: String,
-      default: 'Unlock your creativity with<br>use Qionglou.js',
+      default: 'Unlock your creativity with<br>use Qionglou',
       required: true
     },
     peculiarityList: {
