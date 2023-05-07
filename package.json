@@ -11,11 +11,12 @@
     "clean": "rimraf dist",
     "prepare": "husky install"
   },
-  "author": "Rhyme, Loyal <rhyme@npo.network>",
+  "author": "Rhyme, Loyal",
   "license": "MIT",
   "workspaces": [
     "packages/*",
-    "start"
+    "start",
+    "docs"
   ],
   "peerDependencies": {
     "vue": "^3.2.0"
@@ -28,6 +29,10 @@
   "devDependencies": {
     "@commitlint/config-conventional": "^17.6.3",
     "@vitejs/plugin-vue": "^4.0.0",
+    "commitizen": "^4.3.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "gsap": "^3.11.4",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",

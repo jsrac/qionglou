@@ -10,3 +10,4 @@ pnpm-lock.yaml
 
 docs/docs/.vitepress/cache/**
 /docs/docs/.vitepress/cache/**
+/docs/docs/.vitepress/cache/
