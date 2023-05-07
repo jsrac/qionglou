@@ -33,7 +33,8 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
-        publish_dir: docs/docs/.vitepress/dist
+        with:
+          publish_dir: docs/docs/.vitepress/dist
 
 #      - name: Deploy
 #        uses: peaceiris/actions-gh-pages@v3
