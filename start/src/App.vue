@@ -24,7 +24,7 @@
       :center="true"
       :fullscreen="false"
       @close="close()"
-      >
+    >
       <div>内容</div>
     </Qdialog>
   </div>
