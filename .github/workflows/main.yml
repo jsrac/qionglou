@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
+          cache: 'pnpm'
       - name: Setup pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -29,7 +30,7 @@ jobs:
       - uses: actions/configure-pages@v2
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/.vitepress/dist
+          path: docs/docs/.vitepress/dist
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v1
