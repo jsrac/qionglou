@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o}from"./chunks/framework.ec21e09c.js";const m=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/components/dialog.md"}'),a={name:"zh-cn/components/dialog.md"};function n(c,r,s,p,d,i){return t(),o("div")}const l=e(a,[["render",n]]);export{m as __pageData,l as default};
