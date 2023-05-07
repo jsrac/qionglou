@@ -37,12 +37,12 @@ export default defineConfig({
     outDir: resolve(__dirname, 'dist'),
     emptyOutDir: false,
     lib: {
-      entry: resolve(__dirname, 'packages/qionglou/index.js'),
+      entry: resolve(__dirname, 'packages/qionglou/index.ts'),
       name: 'qionglou'
     },
     rollupOptions: {
       external: ['vue'],
-      input: resolve(__dirname, 'packages/qionglou/index.js'),
+      input: resolve(__dirname, 'packages/qionglou/index.ts'),
       output: [
         {
           format: 'umd',

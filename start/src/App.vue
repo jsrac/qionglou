@@ -1,6 +1,7 @@
 <script setup>
   import { ref } from 'vue'
   import Qdialog from '../../packages/qionglou/dialog/src/dialog.vue'
+  import Qloading from '../../packages/qionglou/loading/src/loading.vue'
 
   const visible = ref(false)
 
@@ -10,6 +11,10 @@
 
   function open() {
     visible.value = true
+
+    setTimeout(() => {
+      close()
+    }, 3000)
   }
 </script>
 
@@ -27,6 +32,10 @@
     >
       <div>内容</div>
     </Qdialog>
+
+    <div style="width: 600px; height: 300px; background: pink">
+      <Qloading :visible="visible" :fullscreen="false" text="Loading..." />
+    </div>
   </div>
 </template>
 
