@@ -8,6 +8,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
   "devDependencies": {
     "unplugin-vue-components": "^0.23.0"
   },

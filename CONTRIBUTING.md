@@ -26,7 +26,7 @@ pnpm run start:docs
 pnpm run start
 ```
 该命令会帮助您启动本地开发环境， 您可以将组件 添加到 `packages/qionglou` 目录下，然后在 `packages/qionglou/components.ts` 中导出。
-在 `start/src/App.vue` 中导入您开发的组件进行测试预览。
+在 `start/App.vue` 中导入您开发的组件进行测试预览。
 
 ### 结构
  - `packages/qionglou` 组件源码
