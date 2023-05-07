@@ -1,11 +1,15 @@
-import { defineConfig, mergeConfig } from 'vitest/config'
-import viteConfig from './vite.config'
+/// <reference types="vitest" />
 
-export default mergeConfig(
-  viteConfig,
-  defineConfig({
+import vue from '@vitejs/plugin-vue'
+import type { UserConfigExport } from 'vite'
+
+export default (): UserConfigExport => {
+  return {
+    plugins: [vue()],
     test: {
-      exclude: ['packages/qionglou/*']
+      environment: 'happy-dom',
+      exclude: ['packages/qionglou/*'],
+      include: ['**/__test__/*.{test,spec}.{ts,tsx}']
     }
-  })
-)
+  } as UserConfigExport
+}

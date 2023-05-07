@@ -8,6 +8,7 @@
     "build": "pnpm run clean && vite build",
     "build:docs": "pnpm run -C docs build",
     "lint": "prettier --write .",
+    "test": "vitest",
     "clean": "rimraf dist",
     "prepare": "husky install"
   },
@@ -27,14 +28,16 @@
     "vue": "^3.2.0"
   },
   "devDependencies": {
-    "@types/node": "^18.16.3",
     "@commitlint/config-conventional": "^17.6.3",
+    "@types/node": "^18.16.3",
     "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/test-utils": "^2.3.2",
     "commitizen": "^4.3.0",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
     "gsap": "^3.11.4",
+    "happy-dom": "^9.10.9",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.4",
