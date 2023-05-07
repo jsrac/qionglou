@@ -29,7 +29,9 @@ pnpm run start
 在 `start/App.vue` 中导入您开发的组件进行测试预览。
 
 ### 结构
+我们在每个目录下都添加了一个 `README.md` 文件，里面的内容或许对您有所帮助。
  - `packages/qionglou` 组件源码
+ - `packages/themes` 组件样式
  - `docs` 文档源码
  - `start` 文档预览源码
 
