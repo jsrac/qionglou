@@ -3,7 +3,13 @@
     <div class="q-loading__container">
       <div class="q-loading__icon">
         <svg viewBox="25 25 50 50" class="q-loading__circular">
-          <circle cx="50" cy="50" r="20" fill="none" class="q-loading__path"></circle>
+          <circle
+            cx="50"
+            cy="50"
+            r="20"
+            fill="none"
+            class="q-loading__path"
+          ></circle>
         </svg>
       </div>
       <div class="q-loading__text">

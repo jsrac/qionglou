@@ -16,7 +16,9 @@
         type: String,
         default: 'default',
         validator: (value) =>
-          ['default', 'center', 'right', 'left', 'top', 'bottom'].includes(value)
+          ['default', 'center', 'right', 'left', 'top', 'bottom'].includes(
+            value
+          )
       },
       site: {
         type: String,

@@ -13,9 +13,9 @@
     <div class="ql-home-peculiarity">
       <li v-for="item in peculiarityList" :key="item">{{ item }}</li>
     </div>
-    <a class="ql-home-todco" :href="todcoTo"
-      >{{ todcoText
-      }}<span>
+    <a class="ql-home-todco" :href="todcoTo">
+      {{ todcoText }}
+      <span>
         <svg
           width="25"
           height="11"
@@ -23,10 +23,21 @@
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <path d="M24 5L0 5" stroke="white" stroke-width="2" stroke-linejoin="bevel" />
-          <path d="M19 1L24 5.5L19 10" stroke="white" stroke-width="2" stroke-linejoin="bevel" />
-        </svg> </span
-    ></a>
+          <path
+            d="M24 5L0 5"
+            stroke="white"
+            stroke-width="2"
+            stroke-linejoin="bevel"
+          />
+          <path
+            d="M19 1L24 5.5L19 10"
+            stroke="white"
+            stroke-width="2"
+            stroke-linejoin="bevel"
+          />
+        </svg>
+      </span>
+    </a>
   </div>
 </template>
 
@@ -117,7 +128,11 @@
     position: fixed;
     width: 100%;
     top: 0;
-    background: linear-gradient(180deg, #ffffff 0%, rgba(255, 255, 255, 0) 79.35%);
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      rgba(255, 255, 255, 0) 79.35%
+    );
     z-index: 16;
     height: 40%;
   }
@@ -130,7 +145,11 @@
     position: fixed;
     width: 100%;
     bottom: 0;
-    background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0) 99.35%);
+    background: linear-gradient(
+      180deg,
+      #ffffff 20%,
+      rgba(255, 255, 255, 0) 99.35%
+    );
     z-index: 16;
     height: 19%;
   }

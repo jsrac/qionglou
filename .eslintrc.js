@@ -31,9 +31,19 @@ module.exports = {
     'no-return-await': 'error',
     'no-var': 'error',
     'no-empty': ['error', { allowEmptyCatch: true }],
-    'prefer-const': ['warn', { destructuring: 'all', ignoreReadBeforeAssign: true }],
-    'prefer-arrow-callback': ['error', { allowNamedFunctions: false, allowUnboundThis: true }],
-    'object-shorthand': ['error', 'always', { ignoreConstructors: false, avoidQuotes: true }],
+    'prefer-const': [
+      'warn',
+      { destructuring: 'all', ignoreReadBeforeAssign: true }
+    ],
+    'prefer-arrow-callback': [
+      'error',
+      { allowNamedFunctions: false, allowUnboundThis: true }
+    ],
+    'object-shorthand': [
+      'error',
+      'always',
+      { ignoreConstructors: false, avoidQuotes: true }
+    ],
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
     'prefer-template': 'error',
@@ -65,7 +75,10 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
-    '@typescript-eslint/consistent-type-imports': ['error', { disallowTypeAnnotations: false }],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      { disallowTypeAnnotations: false }
+    ],
     '@typescript-eslint/ban-ts-comment': ['off', { 'ts-ignore': false }],
 
     // vue
