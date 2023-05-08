@@ -4,6 +4,9 @@
 <h1>Welcome to Qionglou</h1>
 <p>Qionglou is a flexible and customizable component library that empowers developers to create unique and personalized user interfaces. With a focus on design freedom and community collaboration, Qionglou offers a thoughtfully crafted development experience.</p>
 
+[简体中文](https://github.com/Jiangxue-team/qionglou/wiki/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E7%90%BC%E6%A5%BC%E7%BB%B4%E5%9F%BA) -
+[English](https://github.com/Jiangxue-team/qionglou/wiki)
+
 ---
 
 [Design freedom through flexible customization](https://en.wikipedia.org/wiki/Diffuse_design#cite_note-2)
