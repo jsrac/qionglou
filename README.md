@@ -32,7 +32,7 @@ pnpm install qionglou
 ```
 
 ## Changelog
-We welcome contributions from the community. Please review our [Contributing Guidelines](CHANGELOG.md) for more information on how to get involved and contribute to Qionglou.
+We welcome contributions from the community. Please review our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved and contribute to Qionglou.
 
 ### Security Policy
 For information on how we handle security-related issues and vulnerabilities, please read our [Security Policy](SECURITY.md).
