@@ -28,7 +28,7 @@
   By componentizing your design, complexity is transformed into simplicity, bringing richness and vibrancy to your projects.
 
 ## Start
-You can visit [qionglou]() to read or consult our official documentation for your starting operations.
+You can visit [Contribution Guide](https://github.com/jsrac/qionglou/wiki/Contribution-Gui) to read or consult Our [Official Documentation]() to start further operations.
 
 ```bash
 pnpm install qionglou

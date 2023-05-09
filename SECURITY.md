@@ -1,4 +1,9 @@
+<img alt="logo"  src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+
 # Security Policy
+
+[简体中文](https://github.com/jsrac/qionglou/wiki/%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5) -
+[English](https://github.com/jsrac/qionglou/wiki/Security-Policy/)
 
 ## Reporting Security Issues
 
@@ -26,7 +31,7 @@ These audits involve:
 
 To further encourage the community's involvement in ensuring the security of our component library, we have established a Bug Bounty Program. This program rewards security researchers who discover and responsibly disclose security vulnerabilities according to our responsible disclosure guidelines.
 
-If you are interested in participating in our Bug Bounty Program, please refer to our [Bug Bounty Program Policy](link-to-bug-bounty-program-policy) for detailed information on eligibility, scope, rewards, and submission guidelines.
+If you are interested in participating in our Bug Bounty Program, please refer to our [Bug Bounty Program Policy](https://github.com/jsrac/qionglou/wiki/Security-Policy/) for detailed information on eligibility, scope, rewards, and submission guidelines.
 
 ## Responsible Disclosure Guidelines
 

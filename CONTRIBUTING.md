@@ -1,3 +1,5 @@
+<img alt="logo" src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+
 # Contribution Guidelines
 
 [简体中文](https://github.com/Jiangxue-team/qionglou/wiki/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97) -
@@ -84,5 +86,5 @@ At the same time, we encourage ideas to be action-oriented. You can read our [Co
 Special thanks to the authors of the following open-source projects. We extend our gratitude for your contributions.
 
 <a href="https://github.com/Jiangxue-team/qionglou/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" />
+  <img alt="contributor" src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" />
 </a>

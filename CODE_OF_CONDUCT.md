@@ -1,4 +1,9 @@
+<img alt="logo" src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+
 # Community Code of Conduct
+
+[简体中文](https://github.com/jsrac/qionglou/wiki/%E7%A4%BE%E5%8C%BA%E8%A1%8C%E4%B8%BA%E5%87%86%E5%88%99) -
+[English](https://github.com/jsrac/qionglou/wiki/Community-Code-of-Conduct)
 
 ## Our Pledge
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers of this community pledge to respect all individuals participating in our project and community, regardless of their background, identity, or experience level. We aim to create a safe and inclusive space where everyone feels valued, heard, and empowered to contribute.
