@@ -10,11 +10,11 @@
     <div class="ql-home-title">
       <p v-html="titleContent"></p>
     </div>
-    <div class="ql-home-peculiarity">
+    <ul class="ql-home-peculiarity">
       <li v-for="item in peculiarityList" :key="item">{{ item }}</li>
-    </div>
+    </ul>
     <a class="ql-home-todco" :href="todcoTo">
-      {{ todcoText }}
+      <p>{{ todcoText }}</p>
       <span>
         <svg
           width="25"
@@ -90,7 +90,6 @@
     }
   }
   .ql-home-peculiarity li {
-    list-style: none;
     list-style: none;
     margin-left: 15px;
     margin-right: 15px;
@@ -170,25 +169,60 @@
     z-index: 16;
     width: 100vw;
   }
+
   .ql-home-todco {
     background: black;
     padding: 15px;
-    color: white;
     border-radius: 11px;
     /* font-weight: 200; */
     font-size: 17px;
     display: inline-flex;
     align-items: center;
+    transition: 0.9s ease;
+  }
+
+  .ql-home-todco p {
+    position: relative;
+    color: white;
+    display: inline-block;
+  }
+
+  .ql-home-todco p::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.21);
+    transition: width 0.3s ease;
   }
 
   .dark .ql-home-todco {
     background: #fffff5db;
     color: #000000;
   }
+
   .dark .ql-home-todco span svg path {
     stroke: black;
   }
+
   .ql-home-todco span {
     margin-left: 14px;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .ql-home-todco:hover span {
+    transform: translateX(3px);
+  }
+
+  .ql-home-todco:hover {
+    color: #e7e0e0;
+    background: #272525;
+  }
+
+  .ql-home-todco:hover p::after {
+    width: 100%;
   }
 </style>

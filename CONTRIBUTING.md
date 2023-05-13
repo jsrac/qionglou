@@ -46,6 +46,7 @@ pnpm run start
 This command will set up the local development environment. You can add your components to the `packages/qionglou` directory and export them in `packages/qionglou/components.ts`. To test and preview your developed components, import them in `start/App.vue`.
 
 ## Project Structure
+
 Within each directory, you'll find a `README.md` file that contains helpful information related to that specific directory:
 
 - `packages/qionglou`: Component source code.
@@ -55,21 +56,22 @@ Within each directory, you'll find a `README.md` file that contains helpful info
 
 ## Commit Guidelines
 
-| Type | Description |
-| --- | --- |
-| feat | Introduce a new feature |
-| fix | Rectify a bug |
-| docs | Update documentation |
-| style | Code formatting (e.g., spacing, semicolons) |
-| refactor | 	Restructure code without impacting functionality |
-| perf | Enhance performance |
-| test | 	Add or update tests |
-| build | 	Modify project build or external dependencies (e.g., scopes: webpack, gulp, npm) |
-| ci | Adjust continuous integration configuration files or package scripts (e.g., scopes: Travis, Circle) |
-| chore | Alter build process or auxiliary tools |
-| revert | Revert previous code changes |
+| Type     | Description                                                                                         |
+|----------|-----------------------------------------------------------------------------------------------------|
+| feat     | Introduce a new feature                                                                             |
+| fix      | Rectify a bug                                                                                       |
+| docs     | Update documentation                                                                                |
+| style    | Code formatting (e.g., spacing, semicolons)                                                         |
+| refactor | Restructure code without impacting functionality                                                    |
+| perf     | Enhance performance                                                                                 |
+| test     | Add or update tests                                                                                 |
+| build    | Modify project build or external dependencies (e.g., scopes: webpack, gulp, npm)                    |
+| ci       | Adjust continuous integration configuration files or package scripts (e.g., scopes: Travis, Circle) |
+| chore    | Alter build process or auxiliary tools                                                              |
+| revert   | Revert previous code changes                                                                        |
 
 ### Code Submission
+
 Before submitting your code, we kindly request that you carefully review it to ensure its accuracy. Additionally, we encourage you to utilize the project's built-in `vitest` to thoroughly test your components.
 
 Once you've completed the development process, please submit your code to your forked repository and create a pull request to this repository. We will promptly review your submission.
@@ -77,6 +79,7 @@ Once you've completed the development process, please submit your code to your f
 We kindly ask you to ensure that your forked repository is up to date before submitting your code.
 
 ## Final Thoughts
+
 We firmly believe in fostering an environment that promotes independent thinking and development rather than replication of existing component library source code.
 
 We genuinely appreciate the opportunity for personal growth that comes with self-initiated solutions. If you encounter any challenges or require assistance, please do not hesitate to reach out to the project manager, who will be more than willing to provide support.

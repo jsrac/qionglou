@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+<img alt="logo" src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
 <p></p>
 
 <h1>Welcome to Qionglou</h1>
@@ -10,6 +10,7 @@
 ---
 
 [Design freedom through flexible customization](https://en.wikipedia.org/wiki/Diffuse_design#cite_note-2)
+
 - **User-defined Customization**:
   The concept of user-defined customization emphasizes the flexibility and personalization of the component library. It empowers users to define and configure the styles and behaviors of components according to their specific needs.
 
@@ -28,6 +29,7 @@
   By componentizing your design, complexity is transformed into simplicity, bringing richness and vibrancy to your projects.
 
 ## Start
+
 You can visit [Contribution Guide](https://github.com/jsrac/qionglou/wiki/Contribution-Gui) to read or consult Our [Official Documentation]() to start further operations.
 
 ```bash
@@ -35,13 +37,20 @@ pnpm install qionglou
 ```
 
 ## Changelog
-We welcome contributions from the community. Please review our [Contributing Guidelines](CONTRIBUTING.md) for more information on how to get involved and contribute to Qionglou.
+
+We welcome contributions from the community. Please review our [Contributing Guidelines](CONTRIBUTING.md) for more
+information on how to get involved and contribute to Qionglou.
 
 ### Security Policy
-For information on how we handle security-related issues and vulnerabilities, please read our [Security Policy](SECURITY.md).
+
+For information on how we handle security-related issues and vulnerabilities, please read
+our [Security Policy](SECURITY.md).
 
 ### Code of Conduct
-We expect all community members to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). It outlines the standards of behavior we uphold within our community and promotes a respectful and inclusive environment.
+
+We expect all community members to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). It outlines the standards of
+behavior we uphold within our community and promotes a respectful and inclusive environment.
 
 ## LICENSE
-Qionglou is released under the [MIT License](LICENSE.md)
+
+Qionglou is released under the [MIT License](LICENSE)

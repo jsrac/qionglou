@@ -7,6 +7,16 @@ export default defineConfig({
       lang: 'en',
       title: 'Qionglou',
       description: 'A Vue.js 3 UI Toolkit for Web',
+      head: [
+        [
+          'link',
+          {
+            rel: 'icon',
+            type: 'image/png',
+            href: '/favicon.svg'
+          }
+        ]
+      ],
       themeConfig: {
         nav: [
           {

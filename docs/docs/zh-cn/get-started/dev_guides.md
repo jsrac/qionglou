@@ -9,26 +9,35 @@
 1. fork 本仓库
 2. clone 到本地
 3. 安装依赖
- ```bash
+
+```bash
 pnpm i
 ```
+
 该命令会帮助您安装所有的依赖，如果您没有安装 pnpm，可以通过以下命令安装：
+
 ```bash
 npm i -g pnpm
 ```
+
 4. 启动文档预览
+
 ```bash
 pnpm run start:docs
 ```
-该命令会帮助您启动文档预览所有组件。
-5. 在本地进行开发
+
+该命令会帮助您启动文档预览所有组件。 5. 在本地进行开发
+
 ```bash
 pnpm run start
 ```
-该命令会帮助您启动本地开发环境， 您可以将组件 添加到 `packages/qionglou` 目录下，然后在 `packages/qionglou/components.ts` 中导出。
+
+该命令会帮助您启动本地开发环境， 您可以将组件 添加到 `packages/qionglou` 目录下，然后在 `packages/qionglou/components.ts`
+中导出。
 在 `start/App.vue` 中导入您开发的组件进行测试预览。
 
 ### 结构
+
 - `packages/qionglou` 组件源码
 - `docs` 文档源码
 - `start` 文档预览源码
@@ -36,19 +45,21 @@ pnpm run start
 ### 提交规范
 
 ---
-| type | 描述 |
-| --- | --- |
-| feat | 新增功能 |
-| fix | 修复 bug |
-| docs | 文档变更 |
-| style | 代码格式（不影响功能，例如空格、分号等格式修正） |
-| refactor | 代码重构 |
-| perf | 改善性能 |
-| test | 测试 |
-| build | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等） |
-| ci | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis、Circle 等 |
-| chore | 变更构建流程或辅助工具 |
-| revert | 代码回退 |
+
+| type     | 描述                                                              |
+|----------|-----------------------------------------------------------------|
+| feat     | 新增功能                                                            |
+| fix      | 修复 bug                                                          |
+| docs     | 文档变更                                                            |
+| style    | 代码格式（不影响功能，例如空格、分号等格式修正）                                        |
+| refactor | 代码重构                                                            |
+| perf     | 改善性能                                                            |
+| test     | 测试                                                              |
+| build    | 变更项目构建或外部依赖（例如 scopes: webpack、gulp、npm 等）                      |
+| ci       | 更改持续集成软件的配置文件和 package 中的 scripts 命令，例如 scopes: Travis、Circle 等 |
+| chore    | 变更构建流程或辅助工具                                                     |
+| revert   | 代码回退                                                            |
+
 ---
 
 ### 提交代码
@@ -62,6 +73,5 @@ pnpm run start
 感谢以下开源项目的作者们，感谢您的阅读。
 
 <a href="https://github.com/Jiangxue-team/qionglou/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" />
+  <img src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" alt="contributor" />
 </a>
-
