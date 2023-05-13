@@ -1,6 +1,6 @@
 {
   "name": "qionglou",
-  "version": "0.2.6-alpha.4",
+  "version": "1.0.0",
   "description": "An atomic component library for Vue 3",
   "scripts": {
     "start": "pnpm run -C start dev",
