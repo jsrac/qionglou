@@ -6,9 +6,11 @@
 [English](https://github.com/jsrac/qionglou/wiki/Community-Code-of-Conduct)
 
 ## Our Pledge
+
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers of this community pledge to respect all individuals participating in our project and community, regardless of their background, identity, or experience level. We aim to create a safe and inclusive space where everyone feels valued, heard, and empowered to contribute.
 
 ## Our Standards
+
 We expect all members of our community to adhere to the following standards of behavior:
 
 - **Inclusivity:** We welcome and encourage participation from individuals of all backgrounds and experiences. Discrimination, harassment, and exclusionary practices have no place in our community.
@@ -28,15 +30,19 @@ We expect all members of our community to adhere to the following standards of b
 - **Source Attribution:** While we encourage learning from various channels like YouTube, we discourage exact copies. If you draw inspiration from other sources, please provide relevant attributions and acknowledgments in your submissions. We appreciate contributions from other communities and will merge them in accordance with their open-source license requirements.
 
 ## Our Responsibilities
+
 As community maintainers, we are responsible for upholding these standards and ensuring a positive community environment. We will take appropriate and fair action in response to any reported incidents of unacceptable behavior. Our aim is to foster a healthy and inclusive community where all members can thrive and contribute.
 
 ## Reporting Incidents
+
 If you experience or witness any behavior that violates the Community Code of Conduct, we encourage you to report it. Incidents can be reported to the project maintainers by contacting opensource-conduct@jiangxue.org. All reports will be handled with discretion and confidentiality. We are committed to addressing and resolving reported issues promptly and fairly.
 
 ## Enforcement
+
 In cases where a community member violates the Community Code of Conduct, we will take appropriate action. This may include issuing warnings, temporary or permanent bans from community participation, or other measures deemed necessary to maintain a safe and inclusive environment. Our enforcement actions will be fair, unbiased, and focused on fostering a positive community culture.
 
 ## Our Shared Commitment
+
 By participating in this community, you are expected to uphold these standards and contribute to creating a welcoming and inclusive environment. We encourage all community members to help cultivate a positive community culture and to hold each other accountable to these principles. Let's work together to build a thriving and supportive community.
 
 This Community Code of Conduct is adapted from the Contributor Covenant, version 2.1, available at https://www.contributor-covenant.org/version/2/1/code_of_conduct.html.

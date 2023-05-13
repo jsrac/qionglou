@@ -57,7 +57,7 @@ Within each directory, you'll find a `README.md` file that contains helpful info
 ## Commit Guidelines
 
 | Type     | Description                                                                                         |
-|----------|-----------------------------------------------------------------------------------------------------|
+| -------- | --------------------------------------------------------------------------------------------------- |
 | feat     | Introduce a new feature                                                                             |
 | fix      | Rectify a bug                                                                                       |
 | docs     | Update documentation                                                                                |
