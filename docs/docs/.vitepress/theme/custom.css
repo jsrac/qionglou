@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,400&display=swap');
 
 .VPImage {
-  width: 154px; /* 调整 logo 的宽度 */
+  width: 6.5vw; /* 调整 logo 的宽度 */
   height: auto !important;
 }
 
@@ -414,7 +414,7 @@ body {
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-nav-height: 113px;
+  --vp-nav-height: 3.7vw !important;
   --vp-nav-bg-color: var(--vp-c-bg);
   --vp-nav-screen-bg-color: var(--vp-c-bg);
 }

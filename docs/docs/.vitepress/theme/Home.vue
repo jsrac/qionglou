@@ -153,12 +153,12 @@
 
     &-title {
       text-align: center;
-      font-size: 50px;
+      font-size: 2.05vw;
       line-height: initial;
       font-weight: 500;
 
       &-layout {
-        margin-top: 110px;
+        margin-top: 5vw;
         z-index: 19;
         position: relative;
         display: flex;
@@ -218,6 +218,9 @@
 
   .dark .ql-home-todco {
     background: #fffff5db;
+    color: #000000;
+  }
+  .dark .ql-home-todco p {
     color: #000000;
   }
 
