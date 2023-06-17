@@ -1,4 +1,4 @@
 import { install } from './install'
-import * as Components from './components'
+import Components from '@qionglou/components'
 
 export default install(Components)

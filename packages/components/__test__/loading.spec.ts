@@ -1,10 +1,10 @@
 import { mount } from '@vue/test-utils'
 import { test, expect, describe } from 'vitest'
-import { Qloading } from '../loading'
+import { QlLoading } from '@qionglou/components'
 
 describe('Qloading', async () => {
   test('text', () => {
-    const wrapper = mount(Qloading, {
+    const wrapper = mount(QlLoading, {
       props: {
         text: 'test loading...'
       }

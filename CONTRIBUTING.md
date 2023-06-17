@@ -43,7 +43,7 @@ This command will help you initiate the documentation preview, allowing you to e
 pnpm run start
 ```
 
-This command will set up the local development environment. You can add your components to the `packages/qionglou` directory and export them in `packages/qionglou/components.ts`. To test and preview your developed components, import them in `start/App.vue`.
+This command will set up the local development environment. You can add your components to the `packages/qionglou` directory and export them in `packages/qionglou/index.ts`. To test and preview your developed components, import them in `start/App.vue`.
 
 ## Project Structure
 

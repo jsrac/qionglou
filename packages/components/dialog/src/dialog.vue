@@ -26,9 +26,9 @@
 
   const dialogClass = computed(() => {
     return [
-      'q-dialog.md',
-      props.fullscreen ? 'q-dialog.md-fullscreen' : '',
-      props.center ? 'q-dialog.md-center' : '',
+      'q-dialog',
+      props.fullscreen ? 'q-dialog-fullscreen' : '',
+      props.center ? 'q-dialog-center' : '',
       props.customClass ? props.customClass : ''
     ]
   })

@@ -1,0 +1,10 @@
+{
+  "name": "@qionglou/components",
+  "version": "0.0.1",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.d.ts",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  }
+}

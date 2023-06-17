@@ -2,14 +2,13 @@
   "name": "@qionglou/start",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.3.4"
   },
   "devDependencies": {
     "unplugin-vue-components": "^0.23.0"
