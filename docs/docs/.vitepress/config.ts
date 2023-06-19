@@ -1,4 +1,4 @@
-import { defineConfig } from 'vitepress'
+import {defineConfig} from 'vitepress'
 
 export default defineConfig({
   locales: {
@@ -15,7 +15,15 @@ export default defineConfig({
             type: 'image/png',
             href: '/favicon.svg'
           }
-        ]
+        ],
+        ['meta', {
+          name: 'keywords',
+          content: 'component library, customizable UI components, frontend design system, theme customization, atomic design, Vue.js, UI/UX, web development, front-end framework, responsive design, modern UI, scalable components, developer tools.'
+        }],
+        ['meta', {
+          name: 'description',
+          content: 'Qionglou is an atomized and highly customizable component library that allows you to create and deploy different themes. With Qionglou, you can build your own frontend design system, tailored to your unique needs.'
+        }]
       ],
       themeConfig: {
         nav: [
@@ -93,12 +101,12 @@ export default defineConfig({
         sidebar: [
           {
             text: 'Getting Started',
-            link: '/zh-cn/get-started',
+            link: '/zh-cn/get-started/',
             items: [
-              { text: '快速上手' },
-              { text: '贡献指南', link: '/zh-cn/get-started/dev_guides' },
-              { text: '提交规范', link: '/zh-cn/get-started/commit_stand' },
-              { text: '加入我们' }
+              {text: '快速上手'},
+              {text: '贡献指南', link: '/zh-cn/get-started/dev_guides'},
+              {text: '提交规范', link: '/zh-cn/get-started/commit_stand'},
+              {text: '加入我们'}
             ]
           }
         ]
