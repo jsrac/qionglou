@@ -25,6 +25,7 @@
   import { computed, defineProps } from 'vue'
   import { Props } from './props'
 
+  defineOptions({ name: 'QlLoading' })
   const props = defineProps(Props)
 
   const loadingClass = computed(() => {

@@ -8,7 +8,7 @@
   import { computed } from 'vue'
   import { Props } from './props'
 
-  const name = 'q-button'
+  defineOptions({ name: 'QlButton' })
   const props = defineProps(Props)
 
   const buttonStyle = computed(() => {

@@ -24,7 +24,8 @@
       "types": "./es/index.d.ts",
       "import": "./es/index.mjs",
       "require": "./lib/index.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "files": [
     "dist",
@@ -32,7 +33,7 @@
     "es"
   ],
   "peerDependencies": {
-    "vue": "^3.2.0"
+    "vue": "^3.3.0"
   },
   "engines": {
     "node": ">=16.0.0"
