@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "lib": ["ESNext"],
+    "types": ["vite/client", "undertaker"],
+    "skipLibCheck": true
+  },
+  "include": ["build", "typings/vue-shim.d.ts", "packages"],
+  "exclude": ["dist", "docs", "packages", "node_modules", "**/*.js"]
+}

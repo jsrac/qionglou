@@ -2,3 +2,4 @@ packages:
   - packages/*
   - start
   - docs
+  - build

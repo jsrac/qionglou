@@ -1,14 +1,17 @@
 {
+  "private": true,
   "workspaces": [
     "packages/*",
     "start",
-    "docs"
+    "docs",
+    "build"
   ],
   "scripts": {
     "start": "pnpm run -C start dev",
     "start:docs": "pnpm run -C docs dev",
     "build": "pnpm run clean && vite build",
     "build:docs": "pnpm run -C docs build",
+    "build:gulp": "pnpm run -C build build",
     "lint": "prettier --write .",
     "test": "vitest",
     "clean": "rimraf dist",
@@ -17,12 +20,12 @@
   "author": "Rhyme, Loyal",
   "license": "MIT",
   "peerDependencies": {
-    "vue": "^3.3.4"
+    "vue": "^3.3.0"
   },
   "dependencies": {
-    "@qionglou/utils": "workspace:*",
     "@qionglou/components": "workspace:*",
     "@qionglou/theme": "workspace:*",
+    "@qionglou/utils": "workspace:*",
     "sass": "^1.61.0",
     "vue": "^3.3.4"
   },
@@ -36,6 +39,7 @@
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "fast-glob": "^3.3.0",
     "gsap": "^3.11.4",
     "happy-dom": "^9.10.9",
     "husky": "^8.0.0",
@@ -52,17 +56,6 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jiangxue-team/qionglou.git"
-  },
-  "keywords": [
-    "qionglou"
-  ],
-  "bugs": {
-    "url": "https://github.com/Jiangxue-team/qionglou/issues"
-  },
-  "homepage": "https://github.com/Jiangxue-team/qionglou#readme",
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
