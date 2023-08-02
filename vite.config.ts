@@ -3,10 +3,12 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
 import { copyFileSync } from 'fs'
-import { terser } from 'rollup-plugin-terser'
 
 export default defineConfig({
   mode: 'production',
+  server: {
+    host: true
+  },
   plugins: [
     vue(),
     dts({
@@ -28,8 +30,7 @@ export default defineConfig({
           copyFileSync(file.input, file.output)
         })
       }
-    }),
-    terser()
+    })
   ],
   build: {
     target: 'modules',
