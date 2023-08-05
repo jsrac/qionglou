@@ -1,10 +1,10 @@
 {
   "name": "@qionglou/docs",
   "scripts": {
-    "dev": "vitepress dev docs --host",
-    "build": "vitepress build docs",
-    "serve": "vitepress serve docs",
-    "preview": "vitepress preview docs",
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "serve": "vitepress serve .",
+    "preview": "vitepress preview .",
     "crowdin:upload": "crowdin upload sources"
   },
   "keywords": [],
@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "@crowdin/cli": "^3.11.0",
+    "monaco-editor": "^0.40.0",
+    "unocss": "^0.53.6",
     "vitepress": "1.0.0-alpha.65"
   },
   "dependencies": {
