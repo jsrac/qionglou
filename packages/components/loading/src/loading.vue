@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-  import { computed, defineProps } from 'vue'
+  import { computed } from 'vue'
   import { Props } from './props'
 
   defineOptions({ name: 'QlLoading' })

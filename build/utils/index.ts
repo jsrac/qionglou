@@ -1,5 +1,6 @@
 import { spawn } from 'child_process'
 import { projectRoot } from './paths'
+
 export const withTaskName = <T>(name: string, fn: () => T) =>
   Object.assign(fn, { displayName: name })
 

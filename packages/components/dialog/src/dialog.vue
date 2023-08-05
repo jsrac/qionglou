@@ -19,8 +19,8 @@
 <script setup>
   import { Props, Emits } from './props'
   import { computed } from 'vue'
-  import { defineProps, defineEmits } from 'vue'
 
+  defineOptions({ name: 'QlDialog' })
   const props = defineProps(Props)
   const emit = defineEmits(Emits)
 

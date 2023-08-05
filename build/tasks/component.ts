@@ -14,6 +14,7 @@ export const excludeFiles = (files: string[]) => {
   )
 }
 
+// 构建包
 export const buildPackage = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
@@ -57,6 +58,7 @@ export const buildPackage = async () => {
   return Promise.all(options.map((option) => bundle.write(option)))
 }
 
+// 打包成cdn
 export const buildCdn = async () => {
   const bundle = await rollup({
     input: resolve(projectEntry, 'index.ts'),

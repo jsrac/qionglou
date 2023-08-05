@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils'
 import { test, expect, describe } from 'vitest'
 import { QlLoading } from '@qionglou/components'
 
-describe('Qloading', async () => {
+describe('QlButton', async () => {
   test('text', () => {
     const wrapper = mount(QlLoading, {
       props: {

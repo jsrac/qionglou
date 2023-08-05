@@ -1,0 +1,105 @@
+.ql-button {
+  text-align: center;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  line-height: 1;
+  position: relative;
+  transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -moz-transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -o-transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -ms-transition: all .3s cubic-bezier(.645,.045,.355,1);
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px;
+}
+
+.ql-button.hover-border:hover {
+  border: 1px solid transparent;
+}
+
+.ql-button--default {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #d9d9d9;
+}
+
+.ql-button--default:hover {
+  background-color: #fafafa;
+  border-color: #d9d9d9;
+}
+
+.ql-button--primary {
+  background-color: #1890ff;
+  color: #fff;
+  border: 1px solid #1890ff;
+}
+
+.ql-button--primary:hover {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.ql-button--danger {
+  background-color: #ff4d4f;
+  color: #fff;
+  border: 1px solid #ff4d4f;
+}
+
+.ql-button--danger:hover {
+  background-color: #ff7875;
+  border-color: #ff7875;
+}
+
+.ql-button.is-disabled {
+  cursor: not-allowed;
+}
+
+.ql-button.is-disabled:hover {
+  background-color: transparent;
+}
+
+.ql-button--large {
+  width: 80px;
+  padding: 12px 20px;
+  font-size: 16px;
+}
+
+.ql-button--normal {
+  width: 70px;
+  padding: 8px 16px;
+  font-size: 14px;
+}
+
+.ql-button--small {
+  width: 50px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+.ql-button--mini {
+  width: 40px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+
+.ql-button.is-circle {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.ql-button.is-link {
+  background-color: transparent;
+  color: #1890ff;
+  border: none;
+}
+
+.ql-button.is-plain {
+  background-color: transparent;
+  color: #000;
+  border: none;
+}
