@@ -1,10 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,400&display=swap');
 
 .VPImage {
-  width: 6.5vw; /* 调整 logo 的宽度 */
+  width: 7.5vw; /* 调整 logo 的宽度 */
   height: auto !important;
 }
-
+@media screen and (max-width: 1024px) {
+  .VPImage {
+    width: 9.5vw; /* 调整 logo 的宽度 */
+  }
+}
+@media screen and (max-width: 768px) {
+  .VPImage {
+    width: 15vw; /* 调整 logo 的宽度 */
+  }
+}
+@media screen and (max-width: 559px) {
+  .VPImage {
+    width: 20vw; /* 调整 logo 的宽度 */
+  }
+}
+@media screen and (max-width: 425px) {
+  .VPImage {
+    width: 25vw; /* 调整 logo 的宽度 */
+  }
+}
+.VPNavBarTitle.has-sidebar .title {
+  border: none;
+}
+.VPNavBar.has-sidebar .title {
+  top: auto !important;
+}
 [class*='language-'] {
   background: #f9f9fa !important;
   border: 1px solid #dcdcdc;
@@ -396,7 +421,12 @@ body {
   --vp-custom-block-details-bg: var(--vp-custom-block-info-bg);
   --vp-custom-block-details-code-bg: var(--vp-custom-block-details-bg);
 }
-
+.nipple .collection_0 {
+  display: none !important;
+}
+.back {
+  display: none !important;
+}
 /**
  * Component: Input
  * -------------------------------------------------------------------------- */
@@ -414,11 +444,20 @@ body {
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-nav-height: 3.7vw !important;
+  --vp-nav-height: 5.7vw !important;
   --vp-nav-bg-color: var(--vp-c-bg);
   --vp-nav-screen-bg-color: var(--vp-c-bg);
 }
-
+@media screen and (max-width: 767px) {
+  :root {
+    --vp-nav-height: 10.7vw !important;
+  }
+}
+@media screen and (max-width: 436px) {
+  :root {
+    --vp-nav-height: 13.7vw !important;
+  }
+}
 /**
  * Component: Local Nav
  * -------------------------------------------------------------------------- */
@@ -497,8 +536,26 @@ body {
 
 .VPNav {
   border-bottom: 1px solid #dfdfdf;
+  position: relative;
+  left: 0;
+  z-index: var(--vp-z-index-nav);
+  width: 100%;
+  pointer-events: none;
+  transition: background-color 0.5s;
+  min-height: 3em;
+  display: grid;
+  align-items: center;
 }
-
+.VPNavBar.has-sidebar {
+  border-bottom-color: var(--vp-c-gutter);
+  min-height: 3em;
+  z-index: 1;
+  display: grid;
+  align-items: center;
+}
+.container {
+  width: 100%;
+}
 .VPSidebar,
 .curtain {
   /*display: none;*/

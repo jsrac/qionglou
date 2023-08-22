@@ -5,7 +5,8 @@ export default defineConfig({
     root: {
       label: 'English',
       lang: 'en',
-      title: 'Qionglou'
+      title: 'Qionglou',
+      link: '/'
     },
     zh_cn: {
       label: '简体中文',
@@ -23,15 +24,15 @@ export default defineConfig({
     nav: [
       {
         text: 'Getting Started',
-        link: '/get-started/',
+        link: '/zh-cn/get-started/',
         items: [
           {
             text: '了解qionglou',
-            link: '/get-started/'
+            link: '/zh-cn/get-started/'
           },
           {
             text: '贡献指南',
-            link: '/get-started/dev_guides'
+            link: '/zh-cn/get-started/dev_guides'
           }
         ]
       },
@@ -41,7 +42,7 @@ export default defineConfig({
       },
       {
         text: 'Component',
-        link: '/components/index'
+        link: '/zh-cn/components/index'
       },
       {
         text: 'Community',
@@ -50,14 +51,9 @@ export default defineConfig({
     ],
     sidebar: [
       {
-        text: 'Getting Started',
-        link: '/get-started',
-        items: [
-          { text: '快速上手' },
-          { text: '指南' },
-          { text: '指令' },
-          { text: '加入我们' }
-        ]
+        text: '欢迎来到琼楼',
+        link: '/zh-cn/get-started/',
+        items: [{ text: '基础组件' }]
       }
     ]
   },

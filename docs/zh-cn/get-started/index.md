@@ -1,85 +1,44 @@
-# Markdown Extension Examples
+# 欢迎来到琼楼
 
-This page demonstrates some of the built-in markdown extensions provided by VitePress.
+Qionglou（琼楼） 是一个灵活且可定制的组件库，使开发人员能够创建独特且个性化的用户界面。而并非和其他设计或产品相同的设计元素，专注于设计自由和社区协作，提供精心设计的开发体验。
 
-## Syntax Highlighting
+您可以访问[贡献指南](https://github.com/jsrac/qionglou/wiki/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97)或查阅我们的使用文档来开始进一步的操作。
 
-VitePress `provides` Syntax Highlighting powered by [Shiki](https://github.com/shikijs/shiki), with additional features like line-highlighting:
-
-**Input**
-
-````
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
-```
-````
-
-**Output**
-
-```js{4}
-export default {
-  data () {
-    return {
-      msg: 'Highlighted!'
-    }
-  }
-}
+```ssh
+pnpm install qionglou
 ```
 
-## Custom Containers
+## 设计哲学
 
-**Input**
+::: details 什么叫设计自由？
 
-```md
-::: info
-This is an info box.
+设计自由是一个比较鲜活的概念，意味着这将是 “一小部分” 的文化，而不是 “一大部分” 的文化。这是一个非常重要的概念，因为它意味着我们可以在设计中做出自己的选择，而不拘束目前的规则约束。
+
+相对具像化一点就是，当今的设计，特别是 UI、平面等方向，更多是体系的培养和体系的输出，这就意味着，我们在设计的时候，更多的是在遵循一些规则，而自己的想法和创意，很难在这个体系中得到体现。
+
+而想要做出违反这个规则下的设计，还需考虑商业化和流量的转化，同样束缚住了一批人打破这个固有的环境，也就导致了一种设计上的统一和共同点。
+
+这是一个好的方向，因为它可以减少每个设计的学习成本，同时习惯这种设计，但是也有一个不好的地方，就是这种设计的创新性和个性化，很难得到体现，也很难得到认同。
+
+慢慢的、这种统一性的思维就会深入各领域，也就是每个人都是可以被替代的，因为设计是统一的，而没有体现出这个 “人” 的个性，和其理念。更多的是体现了这个人运用的什么什么方法，多么统一多么更加符合这一套规则。
+
+因此，“设计” 和 “艺术” 的区别在于，设计需要在意市场，在意回馈，在意很多方面，这导致了限制了其发挥，而艺术，则是希望可以表达自己的想法和理念，具有个性，具有独特性，这就是设计自由的概念。
+
+同样的，一个行业和一个领域要想得到发展，人是最重要的，很明显，培养艺术家没有批量培养会使用规则和各种理论的人来的快。
+
+**这就会导致新颖、不同的设计在这个环境中就会成为另类，遭受一些质疑和不好的回馈、甚至是难以理解。从而折射出一种现象，即：**
+
+_**“当一个人说出自己的梦想的时候，周围人会嘲笑，并相信未来现实会给 TA 一个巨大的打击，从而和 TA 一样，随波逐流，循规蹈矩。”**_
+
+_因此我们取自苏轼的[《水调歌头·明月几时有》](https://zh.wikipedia.org/wiki/%E6%B0%B4%E8%B0%83%E6%AD%8C%E5%A4%B4)：“我欲乘风归去，又恐琼楼玉宇，高处不胜寒。 ”[人世间有如此多的不称心、不满意之事，迫使词人幻想摆脱这烦恼人世，到琼楼玉宇中去过逍遥自在的神仙生活，表现出词人遗世独立的清高姿态。](https://so.gushiwen.cn/shiwenv_632c5beb84eb.aspx)_
+
+以此希望我们可以在琼楼中，摆脱这些束缚，做出自己的设计，做出自己的想法，拥抱不同的世界观和价值观，拥抱不同的设计，与相对统一的设计和而不同，美美与共。
 :::
 
-::: tip
-This is a tip.
-:::
+**用户自定义定制**：用户自定义定制的概念强调了组件库的灵活性和个性化。它使用户能够根据自己的特定需求定义和配置组件的样式和行为。
 
-::: warning
-This is a warning.
-:::
+通过提供可自定义的选项和参数，开发人员可以创建符合其项目要求和设计首选项的独特组件。用户可以轻松调整组件的外观、布局和交互，以满足其特定的用户体验需求和品牌要求。 用户定义的自定义有助于组件库与项目的无缝集成，从而提供增强的开发体验和更大的灵活性。
 
-::: danger
-This is a dangerous warning.
-:::
+**社区协作**：社区在琼楼不断维护和扩建中起着至关重要的作用。社区负责维护项目和引入新功能。社区内部，有专门的设计和开发角色，共同塑造琼楼的开发体验。
 
-::: details
-This is a details block.
-:::
-```
-
-**Output**
-
-::: info
-This is an info box.
-:::
-
-::: tip
-This is a tip.
-:::
-
-::: warning
-This is a warning.
-:::
-
-::: danger
-This is a dangerous warning.
-:::
-
-::: details
-This is a details block.
-:::
-
-## More
-
-Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
+**体贴的设计**：深思熟虑的设计原则强调精心制作和用户友好的设计对于创建愉快的开发体验的重要性。它实现了个性化定制，超越了简单的颜色变化，利用 Canvas 和 SVG 的强大功能来实现独特和完全定制的组件。通过组件化设计，复杂性转化为简单性，为项目带来丰富性和活力。

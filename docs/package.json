@@ -19,6 +19,6 @@
     "vitepress": "1.0.0-alpha.65"
   },
   "dependencies": {
-    "@splinetool/runtime": "^0.9.310"
+    "@splinetool/runtime": "^0.9.425"
   }
 }

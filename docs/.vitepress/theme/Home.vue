@@ -44,15 +44,14 @@
 </template>
 
 <script setup>
-  import { defineProps, ref } from 'vue'
+  import { defineProps, ref, onMounted } from 'vue'
   import { Application } from '@splinetool/runtime'
-  import { onMounted } from 'vue'
 
-  const canvas3d = ref()
-  function applyHome() {
+  const canvas3d = ref(null)
+  onMounted(() => {
     const app = new Application(canvas3d.value)
     app.load('https://prod.spline.design/tuCZo1YVk-AJCBzr/scene.splinecode')
-  }
+  })
 
   const props = defineProps({
     titleContent: {
@@ -109,7 +108,7 @@
       padding: 15px;
       border-radius: 11px;
       /* font-weight: 200; */
-      font-size: 17px;
+      font-size: 1.05vw;
       display: inline-flex;
       align-items: center;
       transition: 0.9s ease;
@@ -150,10 +149,14 @@
         }
       }
     }
-
+    @media screen and (max-width: 500px) {
+      &-title {
+        font-size: 5vw !important;
+      }
+    }
     &-title {
-      text-align: center;
-      font-size: 2.05vw;
+      text-align: left;
+      font-size: 3.05vw;
       line-height: initial;
       font-weight: 500;
 
@@ -163,7 +166,10 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        align-items: center;
+        width: 80%;
+        align-items: baseline;
+        margin: 0 auto;
+        margin-top: 11vw;
       }
     }
 
@@ -176,7 +182,7 @@
         margin-right: 15px;
         margin-top: 30px;
         margin-bottom: 30px;
-        font-size: 18px;
+        font-size: 1.05vw;
         font-weight: 500;
         color: #505050;
       }

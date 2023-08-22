@@ -5,11 +5,11 @@
   white-space: nowrap;
   line-height: 1;
   position: relative;
-  transition: all .3s cubic-bezier(.645,.045,.355,1);
-  -webkit-transition: all .3s cubic-bezier(.645,.045,.355,1);
-  -moz-transition: all .3s cubic-bezier(.645,.045,.355,1);
-  -o-transition: all .3s cubic-bezier(.645,.045,.355,1);
-  -ms-transition: all .3s cubic-bezier(.645,.045,.355,1);
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -o-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   outline: none;
