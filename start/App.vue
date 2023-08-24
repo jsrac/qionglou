@@ -1,5 +1,12 @@
-<script setup></script>
+<template>
+  <div class="fine-per">
+    <fine-per wide="10" unit="%" on="true">
+      <!-- 在此插入你的内容 -->
+      Hello
+    </fine-per>
+  </div>
+</template>
 
-<template></template>
-
-<style></style>
+<script setup>
+  import { FinePer } from '@qionglou/components/finePer' // 导入 QlButton 组件
+</script>

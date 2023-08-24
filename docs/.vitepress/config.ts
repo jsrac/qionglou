@@ -53,7 +53,10 @@ export default defineConfig({
       {
         text: '欢迎来到琼楼',
         link: '/zh-cn/get-started/',
-        items: [{ text: '基础组件' }]
+        items: [
+          { text: '<b style="color: darkgrey">基础组件</b>' },
+          { text: '按钮', link: '/zh-cn/get-started/basic/button' }
+        ]
       }
     ]
   },

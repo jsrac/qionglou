@@ -192,6 +192,8 @@
 
     &-peculiarity {
       display: flex;
+      margin-top: 0.5vw;
+      margin-bottom: 0.5vw;
 
       li {
         list-style: none;

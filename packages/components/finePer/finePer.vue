@@ -12,7 +12,7 @@
       },
       unit: {
         type: String,
-        default: '0%'
+        default: '%'
       },
       on: {
         type: Boolean,

@@ -291,7 +291,20 @@ body {
 /**
  * Layouts
  * -------------------------------------------------------------------------- */
+.content-container {
+  max-width: 1308px !important;
+}
+@media screen and (min-width: 960px) {
+  .group {
+    padding-top: 30px !important;
+  }
+}
 
+@media screen and (min-width: 960px) {
+  .content .content-container {
+    padding: 50px 32px 32px;
+  }
+}
 :root {
   --vp-layout-max-width: 80%;
 }
