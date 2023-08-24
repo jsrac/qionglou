@@ -78,6 +78,9 @@
 </script>
 
 <style scoped lang="scss">
+  $width: 80%;
+  $offset: 64px;
+
   .dark .canvas3d {
     opacity: 0.1;
   }
@@ -89,7 +92,7 @@
     width: 100vw;
 
     .canvas3d {
-      height: 100%;
+      height: 105%;
       display: block;
     }
   }
@@ -102,10 +105,9 @@
     height: 100%;
     width: 100%;
     display: block;
-
     &-todco {
       background: black;
-      padding: 15px;
+      padding: 1vw;
       border-radius: 11px;
       /* font-weight: 200; */
       font-size: 1.05vw;
@@ -154,6 +156,11 @@
         font-size: 5vw !important;
       }
     }
+    @media screen and (max-width: 500px) {
+      &-todco {
+        padding: 2.5vw;
+      }
+    }
     &-title {
       text-align: left;
       font-size: 3.05vw;
@@ -166,10 +173,20 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        width: 80%;
+        width: calc(#{$width} - #{$offset});
         align-items: baseline;
         margin: 0 auto;
         margin-top: 11vw;
+      }
+      @media screen and (max-width: 500px) {
+        &-layout {
+          width: 90%;
+        }
+      }
+      @media screen and (max-width: 960px) {
+        &-layout {
+          width: 90%;
+        }
       }
     }
 

@@ -3,6 +3,7 @@ import './custom.css'
 import './index.dark.css'
 import { inBrowser, useData } from 'vitepress'
 import { watchEffect } from 'vue'
+// @ts-ignore
 import Editor from '../src/editor/editor.vue'
 
 export default {

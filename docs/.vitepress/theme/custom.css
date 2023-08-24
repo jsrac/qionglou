@@ -293,9 +293,18 @@ body {
  * -------------------------------------------------------------------------- */
 
 :root {
-  --vp-layout-max-width: 1440px;
+  --vp-layout-max-width: 80%;
 }
-
+@media screen and (max-width: 960px) {
+  :root {
+    --vp-layout-max-width: 120%;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .VPNavBar.has-sidebar .content {
+    padding-left: unset !important;
+  }
+}
 /**
  * Component: Header Anchor
  * -------------------------------------------------------------------------- */
