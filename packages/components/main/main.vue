@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fine-main"
+    class="ql-main"
     :class="[layoutClass, heightClass, widthClass]"
     :style="{ width: computedWidth, height: computedHeight }"
   >
@@ -10,7 +10,6 @@
 
 <script>
   export default {
-    name: 'FineMain',
     props: {
       layout: {
         type: String,
@@ -36,7 +35,7 @@
     },
     computed: {
       layoutClass() {
-        return `fine-main-${this.layout}`
+        return `ql-main-${this.layout}`
       },
       computedWidth() {
         return this.wide
@@ -47,13 +46,13 @@
       heightClass() {
         return {
           auto: this.high === 'auto',
-          'fine-main-height': this.high !== 'auto'
+          'ql-main-height': this.high !== 'auto'
         }
       },
       widthClass() {
         return {
           auto: this.wide === 'auto',
-          'fine-main-width': this.wide !== 'auto'
+          'ql-main-width': this.wide !== 'auto'
         }
       }
     }
@@ -61,7 +60,7 @@
 </script>
 
 <style scoped>
-  .fine-main {
+  .ql-main {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -69,31 +68,31 @@
     word-wrap: break-word;
   }
 
-  .fine-main-center {
+  .ql-main-center {
     justify-content: center;
   }
 
-  .fine-main-right {
+  .ql-main-right {
     align-items: flex-end;
   }
 
-  .fine-main-left {
+  .ql-main-left {
     align-items: flex-start;
   }
 
-  .fine-main-top {
+  .ql-main-top {
     align-items: flex-start;
   }
 
-  .fine-main-bottom {
+  .ql-main-bottom {
     justify-content: flex-end;
   }
 
-  .fine-main-height {
+  .ql-main-height {
     height: 0;
   }
 
-  .fine-main-width {
+  .ql-main-width {
     width: 0;
   }
 </style>

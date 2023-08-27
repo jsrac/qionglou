@@ -1,8 +1,8 @@
 # 欢迎来到琼楼
 
-Qionglou（琼楼） 是一个灵活且可定制的组件库，使开发人员能够创建独特且个性化的用户界面。而并非和其他设计或产品相同的设计元素，专注于设计自由和社区协作，提供精心设计的开发体验。
+琼楼（Qionglou）是一个灵活且可定制的组件库，使开发人员和创意设计师能够创建独特且个性化的用户界面，进行设计到开发到组件话。而并非和其他设计或产品相同的设计元素，专注于设计自由和社区协作，提供精心设计的开发体验。
 
-您可以访问[贡献指南](https://github.com/jsrac/qionglou/wiki/%E8%B4%A1%E7%8C%AE%E6%8C%87%E5%8D%97)或查阅我们的使用文档来开始进一步的操作。
+您可以访问[贡献指南](dev_guides.md)或查阅我们的使用文档来开始进一步的操作。
 
 ```ssh
 pnpm install qionglou
@@ -42,3 +42,17 @@ _因此我们取自苏轼的[《水调歌头·明月几时有》](https://zh.wik
 **社区协作**：社区在琼楼不断维护和扩建中起着至关重要的作用。社区负责维护项目和引入新功能。社区内部，有专门的设计和开发角色，共同塑造琼楼的开发体验。
 
 **体贴的设计**：深思熟虑的设计原则强调精心制作和用户友好的设计对于创建愉快的开发体验的重要性。它实现了个性化定制，超越了简单的颜色变化，利用 Canvas 和 SVG 的强大功能来实现独特和完全定制的组件。通过组件化设计，复杂性转化为简单性，为项目带来丰富性和活力。
+
+### 写在最后
+
+感谢以下开源项目的作者们，感谢您的阅读。
+
+<a href="https://github.com/Jiangxue-team/qionglou/graphs/contributors">
+  <img class="docs-con_size" src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" alt="contributor" />
+</a>
+
+<style>
+.docs-con_size {
+    width: 6em;
+}
+</style>

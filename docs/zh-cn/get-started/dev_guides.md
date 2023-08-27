@@ -73,5 +73,11 @@ pnpm run start
 感谢以下开源项目的作者们，感谢您的阅读。
 
 <a href="https://github.com/Jiangxue-team/qionglou/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" alt="contributor" />
+  <img class="docs-con_size" src="https://contrib.rocks/image?repo=Jiangxue-team/qionglou" alt="contributor" />
 </a>
+
+<style>
+.docs-con_size {
+    width: 6em;
+}
+</style>

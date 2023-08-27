@@ -8,5 +8,5 @@
 </template>
 
 <script setup>
-  import { FinePer } from '@qionglou/components/finePer' // 导入 QlButton 组件
+  import { FinePer } from 'packages/components/per' // 导入 QlButton 组件
 </script>

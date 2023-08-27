@@ -1,4 +1,4 @@
-# ql-fix 组件文档
+# fix
 
 `ql-fix` 组件是一个用于固定定位的容器组件。你可以通过传递不同的位置和 `zIndex` 属性来控制组件的定位和层级。
 
@@ -7,12 +7,12 @@
 ```vue
 <template>
   <div>
-    <fine-fix position="top" :zIndex="100">
+    <ql-fix position="top" :zIndex="100">
       <p>This is a fixed content at the top.</p>
-    </fine-fix>
-    <fine-fix position="bottom" :zIndex="100">
+    </ql-fix>
+    <ql-fix position="bottom" :zIndex="100">
       <p>This is a fixed content at the bottom.</p>
-    </fine-fix>
+    </ql-fix>
   </div>
 </template>
 
@@ -34,9 +34,9 @@
 
 ```vue
 <template>
-  <fine-fix position="top" :zIndex="100">
+  <ql-fix position="top" :zIndex="100">
     <p>This is a fixed content at the top.</p>
-  </fine-fix>
+  </ql-fix>
 </template>
 ```
 
@@ -44,9 +44,9 @@
 
 ```vue
 <template>
-  <fine-fix position="bottom" :zIndex="100">
+  <ql-fix position="bottom" :zIndex="100">
     <p>This is a fixed content at the bottom.</p>
-  </fine-fix>
+  </ql-fix>
 </template>
 ```
 
@@ -54,9 +54,9 @@
 
 ```vue
 <template>
-  <fine-fix position="left" :zIndex="100">
+  <ql-fix position="left" :zIndex="100">
     <p>This is a fixed content at the left.</p>
-  </fine-fix>
+  </ql-fix>
 </template>
 ```
 
@@ -64,8 +64,8 @@
 
 ```vue
 <template>
-  <fine-fix position="right" :zIndex="100">
+  <ql-fix position="right" :zIndex="100">
     <p>This is a fixed content at the right.</p>
-  </fine-fix>
+  </ql-fix>
 </template>
 ```

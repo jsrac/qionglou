@@ -41,7 +41,7 @@ export default defineConfig({
         link: ''
       },
       {
-        text: 'Component',
+        text: 'Editor',
         link: '/zh-cn/components/index'
       },
       {
@@ -55,7 +55,16 @@ export default defineConfig({
         link: '/zh-cn/get-started/',
         items: [
           { text: '<b style="color: darkgrey">基础组件</b>' },
-          { text: '按钮', link: '/zh-cn/get-started/basic/button' }
+          { text: '按钮', link: '/zh-cn/get-started/basic/button' },
+          { text: '<b style="color: darkgrey">布局</b>' },
+          { text: '区域布局', link: '/zh-cn/get-started/layout/fix' },
+          { text: '内容分栏', link: '/zh-cn/get-started/layout/header' },
+          { text: '内容区域', link: '/zh-cn/get-started/layout/main' },
+          { text: '区域大小', link: '/zh-cn/get-started/layout/per' },
+          { text: '<b style="color: darkgrey">弹出层</b>' },
+          { text: '加载组件', link: '/zh-cn/get-started/basic/loading' },
+          { text: '抽屉层', link: '/zh-cn/get-started/basic/drawer' },
+          { text: '对话框', link: '/zh-cn/get-started/basic/dialog' }
         ]
       }
     ]

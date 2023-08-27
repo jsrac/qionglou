@@ -1,14 +1,14 @@
-import { FineFix } from './fineFix'
-export * from './fineFix'
+import { QlFix } from './fix'
+export * from './fix'
 
-import { FineMain } from './fineMain'
-export * from './fineMain'
+import { QlMain } from './main'
+export * from './main'
 
-import { FineHeader } from './fineHeader'
-export * from './fineHeader'
+import { QlHeader } from './header'
+export * from './header'
 
-import { FinePer } from './finePer'
-export * from './finePer'
+import { QlPer } from './per'
+export * from './per'
 
 import { QlDialog } from './dialog'
 export * from './dialog'
@@ -19,12 +19,4 @@ export * from './loading'
 import { QlButton } from './button'
 export * from './button'
 
-export default [
-  FineFix,
-  FineMain,
-  FineHeader,
-  FinePer,
-  QlDialog,
-  QlLoading,
-  QlButton
-]
+export default [QlFix, QlMain, QlHeader, QlPer, QlDialog, QlLoading, QlButton]

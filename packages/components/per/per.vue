@@ -4,7 +4,6 @@
 
 <script>
   export default {
-    name: 'finePer',
     props: {
       wide: {
         type: String,

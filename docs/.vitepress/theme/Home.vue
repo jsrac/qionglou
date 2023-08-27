@@ -60,7 +60,7 @@
     },
     peculiarityList: {
       type: Array,
-      default: () => ['√ user-defined', '√ community', '√ be thoughtful']
+      default: () => ['✓ user-defined', '✓ community', '✓ be thoughtful']
     },
     todcoText: {
       type: String,

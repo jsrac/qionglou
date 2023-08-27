@@ -1,12 +1,11 @@
 <template>
-  <div class="fine-fix" :class="positionClass" :style="{ zIndex: zIndex }">
+  <div class="ql-fix" :class="positionClass" :style="{ zIndex: zIndex }">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'FineFix',
     props: {
       position: {
         type: String,
@@ -20,30 +19,30 @@
     },
     computed: {
       positionClass() {
-        return `fine-fix-${this.position}`
+        return `ql-fix-${this.position}`
       }
     }
   }
 </script>
 
 <style scoped>
-  .fine-fix {
+  .ql-fix {
     position: fixed;
   }
 
-  .fine-fix-top {
+  .ql-fix-top {
     top: 0;
   }
 
-  .fine-fix-bottom {
+  .ql-fix-bottom {
     bottom: 0;
   }
 
-  .fine-fix-left {
+  .ql-fix-left {
     left: 0;
   }
 
-  .fine-fix-right {
+  .ql-fix-right {
     right: 0;
   }
 </style>
