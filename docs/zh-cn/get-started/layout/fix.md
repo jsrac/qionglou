@@ -7,17 +7,17 @@
 ```vue
 <template>
   <div>
-    <ql-fix position="top" :zIndex="100">
+    <ql-fix position="top" zIndex="100">
       <p>This is a fixed content at the top.</p>
     </ql-fix>
-    <ql-fix position="bottom" :zIndex="100">
+    <ql-fix position="bottom" zIndex="100">
       <p>This is a fixed content at the bottom.</p>
     </ql-fix>
   </div>
 </template>
 
 <script setup>
-  import FineFix from '@/components/FineFix.vue'
+  import QlFix from '@/components/FineFix.vue'
 </script>
 ```
 
@@ -34,7 +34,7 @@
 
 ```vue
 <template>
-  <ql-fix position="top" :zIndex="100">
+  <ql-fix position="top" zIndex="100">
     <p>This is a fixed content at the top.</p>
   </ql-fix>
 </template>
@@ -44,7 +44,7 @@
 
 ```vue
 <template>
-  <ql-fix position="bottom" :zIndex="100">
+  <ql-fix position="bottom" zIndex="100">
     <p>This is a fixed content at the bottom.</p>
   </ql-fix>
 </template>
@@ -54,7 +54,7 @@
 
 ```vue
 <template>
-  <ql-fix position="left" :zIndex="100">
+  <ql-fix position="left" zIndex="100">
     <p>This is a fixed content at the left.</p>
   </ql-fix>
 </template>
@@ -64,7 +64,7 @@
 
 ```vue
 <template>
-  <ql-fix position="right" :zIndex="100">
+  <ql-fix position="right" zIndex="100">
     <p>This is a fixed content at the right.</p>
   </ql-fix>
 </template>

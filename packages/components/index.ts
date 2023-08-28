@@ -7,6 +7,9 @@ export * from './main'
 import { QlHeader } from './header'
 export * from './header'
 
+import { QlText } from './text'
+export * from './text'
+
 import { QlPer } from './per'
 export * from './per'
 
@@ -19,4 +22,13 @@ export * from './loading'
 import { QlButton } from './button'
 export * from './button'
 
-export default [QlFix, QlMain, QlHeader, QlPer, QlDialog, QlLoading, QlButton]
+export default [
+  QlFix,
+  QlMain,
+  QlHeader,
+  QlPer,
+  QlDialog,
+  QlLoading,
+  QlButton,
+  QlText
+]
