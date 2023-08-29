@@ -1,4 +1,4 @@
-<img alt="logo" src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/27cc8391-1b7f-468c-8e53-c14494df3ae0" width="200">
 
 # Community Code of Conduct
 

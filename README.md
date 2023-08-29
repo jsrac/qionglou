@@ -1,4 +1,4 @@
-<img alt="logo" src="https://user-images.githubusercontent.com/57232813/235366685-49e62e7d-bbfa-4aff-85f7-48945e8ec8f4.png" width="200">
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/27cc8391-1b7f-468c-8e53-c14494df3ae0" width="200">
 <p></p>
 
 <h1>Welcome to Qionglou</h1>
@@ -6,6 +6,8 @@
 
 [简体中文](https://github.com/Jiangxue-team/qionglou/wiki/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E7%90%BC%E6%A5%BC%E7%BB%B4%E5%9F%BA) -
 [English](https://github.com/Jiangxue-team/qionglou/wiki)
+
+<img width="1745" alt="image" src="https://github.com/jsrac/qionglou/assets/57232813/8ce1fa91-24c5-449b-ab6e-6d5de33d8e40">
 
 ---
 
