@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { FinePer } from 'packages/components/per' // 导入 QlButton 组件
+  import { QlPer } from 'packages/components/per' // 导入 QlButton 组件
 </script>
 ```
 

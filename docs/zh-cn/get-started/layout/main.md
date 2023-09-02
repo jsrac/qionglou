@@ -15,7 +15,7 @@
 </template>
 
 <script setup>
-  import { FineMain } from 'packages/components/main' // 导入 QlButton 组件
+  import { QlMain } from 'packages/components/main' // 导入 QlButton 组件
 </script>
 
 <style scoped>

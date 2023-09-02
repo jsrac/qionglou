@@ -1,28 +1,29 @@
-# header
+# col
 
-`ql-header` 组件是一个用于创建网格布局容器的组件。你可以通过传递 `col` 和 `gap` 属性来设置网格的列数和间距。
+`ql-col` 组件是一个用于创建网格布局容器的组件。你可以通过传递 `col` 和 `gap` 属性来设置网格的列数和间距。
 
 ## 使用示例
 
 ```vue
+
 <template>
-  <ql-header
-    :col="{
+  <ql-col
+      :col="{
       auto: '1fr 1fr',
       tablet: '1fr 1fr 1fr',
       desktop: '1fr 1fr 1fr 1fr'
     }"
-    :gap="20"
+      :gap="20"
   >
     <div>Item 1</div>
     <div>Item 2</div>
     <div>Item 3</div>
     <div>Item 4</div>
-  </ql-header>
+  </ql-col>
 </template>
 
 <script setup>
-  import { FineHeader } from 'packages/components/header' // 导入 QlButton 组件
+import {QlCol} from 'packages/components/col' // 导入 QlButton 组件
 </script>
 ```
 

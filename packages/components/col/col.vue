@@ -8,7 +8,6 @@
   import { computed } from 'vue'
 
   const props = defineProps({
-    // 间距
     gap: {
       type: String,
       default: () => '0'

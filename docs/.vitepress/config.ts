@@ -75,7 +75,7 @@ export default defineConfig({
             text: '<b style="color: darkgrey">布局</b>',
             items: [
               { text: '区域布局', link: '/zh-cn/get-started/layout/fix' },
-              { text: '内容分栏', link: '/zh-cn/get-started/layout/header' },
+              { text: '内容分栏', link: '/zh-cn/get-started/layout/col' },
               { text: '内容区域', link: '/zh-cn/get-started/layout/main' },
               { text: '区域大小', link: '/zh-cn/get-started/layout/per' },
             ]

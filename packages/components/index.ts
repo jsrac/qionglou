@@ -4,8 +4,8 @@ export * from './fix'
 import { QlMain } from './main'
 export * from './main'
 
-import { QlHeader } from './header'
-export * from './header'
+import { QlHeader } from './col'
+export * from './col'
 
 import { QlText } from './text'
 export * from './text'
