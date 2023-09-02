@@ -1,3 +1,5 @@
-# 开发预览目录
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/27cc8391-1b7f-468c-8e53-c14494df3ae0" width="200" div align=right>
 
-该目录是开发初始目录，因此我们不希望您将此处编写的代码提交到仓库中。
+# Development Preview Directory
+
+This is the initial development directory, so we don't recommend submitting code written here to the repository.
