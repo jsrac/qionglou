@@ -2,7 +2,7 @@
   <div
     class="ql-main"
     :class="[layoutClass, heightClass, widthClass]"
-    :style="{ width: computedWidth, height: computedHeight }"
+    :style="{ width: computedWidth, height: computedHeight, background: color }"
   >
     <slot></slot>
   </div>
@@ -18,6 +18,10 @@
           ['default', 'center', 'right', 'left', 'top', 'bottom'].includes(
             value
           )
+      },
+      color: {
+        type: String,
+        default: '',
       },
       site: {
         type: String,

@@ -2,8 +2,8 @@
   <!-- Render custom text component -->
   <div
       class="ql-text"
-      :class="[fontClass]"
-      :style="{ fontSize: computedSize, color: color, fontWeight: weightClass }"
+      :class="[fontClass, themeClass, { 'inline-block-layout': layout === 'justify' }]"
+      :style="{ fontSize: computedSize, color: color, fontWeight: weightClass, textAlign: textLayout, lineHeight: lineClass, ...customStyles }"
   >
     <!-- Slot for content -->
     <slot></slot>
@@ -13,10 +13,14 @@
 <script>
 export default {
   props: {
+    theme: {
+      type: [String, Object],
+      default: 'default'
+    },
     // Font weight (e.g., regular, bold)
     weight: {
       type: [String, Number],
-      default: 'medium',
+      default: 'regular',
       validator: (value) =>
           ['demiLight', 'regular', 'medium', 'bold'].includes(value) ||
           (typeof value === 'number' && value >= 0),
@@ -39,13 +43,54 @@ export default {
       type: String,
       default: '',
     },
+    high: {
+      type: [String, Number],
+      default: 'bigger',
+      validator: (value) =>
+          ['small', 'medium', 'large', 'bigger'].includes(value) ||
+          (typeof value === 'number' && value >= 0),
+    },
     // URL for custom font import
     url: {
       type: String,
       default: '',
     },
+    // Text layout
+    layout: {
+      type: [String],
+      default: 'left',
+      validator: (value) =>
+          ['center', 'left', 'right', 'justify'].includes(value)
+    }
   },
   computed: {
+    themeClass() {
+      if (typeof this.theme === 'string') {
+        // Return predefined theme class based on string input
+        return `ql-text-theme-${this.theme}`
+      } else {
+        // Return custom styles from the object
+        return ''
+      }
+    },
+    // Custom styles as an object
+    customStyles() {
+      if (typeof this.theme === 'object') {
+        return this.theme;
+      } else {
+        return {};
+      }
+    },
+    // Calculate Layout
+    textLayout() {
+      const layoutOptions = {
+        center: 'center',
+        left: 'left',
+        right: 'right',
+        justify: 'justify',
+      };
+      return layoutOptions[this.layout] || this.layout; // Use provided value if not in options
+    },
     // Calculate font weight class
     weightClass() {
       if (typeof this.weight === 'number') {
@@ -79,6 +124,20 @@ export default {
         return sizeOptions[this.size] || this.size; // Use provided value if not in options
       }
     },
+    lineClass() {
+      if (typeof this.high === 'number') {
+        return `${this.high}px`;
+      } else {
+        // Map size options to pixel values
+        const sizeOptions = {
+          small: '14px',
+          medium: '16px',
+          large: '18px',
+          bigger: '25px'
+        };
+        return sizeOptions[this.high] || this.high; // Use provided value if not in options
+      }
+    }
   },
   methods: {
     // Remove special characters and limit font name length
@@ -118,5 +177,21 @@ export default {
 .ql-text {
   font-family: 'Inter', sans-serif;
   display: -webkit-box;
+}
+.ql-text-theme-default {
+  display: inline; /* Ensure each line is on a new line */
+}
+.ql-text-theme-other {
+  /* Another predefined theme styles */
+  /* Add your predefined styles here */
+  text-decoration-style: dashed;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+  width: fit-content;
+  text-decoration-color: #91919199;
+}
+.inline-block-layout {
+  display: inline-block;
 }
 </style>
