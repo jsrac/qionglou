@@ -7,7 +7,7 @@
 <script setup lang="ts">
   import { computed } from 'vue'
 
-  const props = defineProps({
+  const props = {
     gap: {
       type: String,
       default: () => '0'
@@ -15,7 +15,7 @@
     col: {
       type: Object
     }
-  })
+  }
 
   const containerStyle = computed(() => {
     const { col, gap } = props

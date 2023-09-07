@@ -10,8 +10,9 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 export default {
+  name: 'QlText',
   props: {
     theme: {
       type: [String, Object],
@@ -83,7 +84,7 @@ export default {
     },
     // Calculate Layout
     textLayout() {
-      const layoutOptions = {
+      const layoutOptions: Record<string, string> = {
         center: 'center',
         left: 'left',
         right: 'right',
@@ -97,7 +98,7 @@ export default {
         return `${this.weight}`;
       } else {
         // Map weight options to numeric values
-        const weightOptions = {
+        const weightOptions: Record<string, string> = {
           demiLight: '300',
           regular: '400',
           medium: '500',
@@ -116,7 +117,7 @@ export default {
         return `${this.size}px`;
       } else {
         // Map size options to pixel values
-        const sizeOptions = {
+        const sizeOptions: Record<string, string> = {
           small: '14px',
           medium: '16px',
           large: '18px',
@@ -129,7 +130,7 @@ export default {
         return `${this.high}px`;
       } else {
         // Map size options to pixel values
-        const sizeOptions = {
+        const sizeOptions: Record<string, string> = {
           small: '14px',
           medium: '16px',
           large: '18px',
@@ -141,11 +142,11 @@ export default {
   },
   methods: {
     // Remove special characters and limit font name length
-    getValidFontName(name) {
+    getValidFontName(name: string): string {
       return name.replace(/[^a-zA-Z0-9]/g, '').substring(0, 20);
     },
     // Remove special characters and limit URL length
-    getValidUrl(url) {
+    getValidUrl(url: string): string {
       return url.replace(/[^a-zA-Z0-9]/g, '').substring(0, 20);
     },
   },
@@ -173,25 +174,4 @@ export default {
 </script>
 
 <style scoped>
-/* Default styling for text component */
-.ql-text {
-  font-family: 'Inter', sans-serif;
-  display: -webkit-box;
-}
-.ql-text-theme-default {
-  display: inline; /* Ensure each line is on a new line */
-}
-.ql-text-theme-other {
-  /* Another predefined theme styles */
-  /* Add your predefined styles here */
-  text-decoration-style: dashed;
-  text-decoration-line: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 7px;
-  width: fit-content;
-  text-decoration-color: #91919199;
-}
-.inline-block-layout {
-  display: inline-block;
-}
 </style>

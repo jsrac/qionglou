@@ -1,102 +1,80 @@
 <template>
+  <!-- Main container -->
   <div
-    class="ql-main"
-    :class="[layoutClass, heightClass, widthClass]"
-    :style="{ width: computedWidth, height: computedHeight, background: color }"
+      class="ql-main"
+      :class="[layoutClass, heightClass, widthClass]"
+      :style="{ width: computedWidth, height: computedHeight, background: color }"
   >
+    <!-- Slot content -->
     <slot></slot>
   </div>
 </template>
 
-<script>
-  export default {
-    props: {
-      layout: {
-        type: String,
-        default: 'default',
-        validator: (value) =>
-          ['default', 'center', 'right', 'left', 'top', 'bottom'].includes(
-            value
-          )
-      },
-      color: {
-        type: String,
-        default: '',
-      },
-      site: {
-        type: String,
-        default: 'center',
-        validator: (value) => ['center', 'left', 'right'].includes(value)
-      },
-      wide: {
-        type: String,
-        default: 'auto'
-      },
-      high: {
-        type: String,
-        default: 'auto'
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+  name: 'QlMain',
+  props: {
+    // Layout style (default, center, right, left, top, bottom)
+    layout: {
+      type: String,
+      default: 'default',
+      validator: (value) =>
+          ['default', 'center', 'right', 'left', 'top', 'bottom'].includes(value)
+    },
+    // Background color
+    color: {
+      type: String,
+      default: '',
+    },
+    // Site alignment (center, left, right)
+    site: {
+      type: String,
+      default: 'center',
+      validator: (value) => ['center', 'left', 'right'].includes(value)
+    },
+    // Width of the container
+    wide: {
+      type: String,
+      default: 'auto'
+    },
+    // Height of the container
+    high: {
+      type: String,
+      default: 'auto'
+    }
+  },
+  computed: {
+    // Calculate the layout class
+    layoutClass() {
+      return `ql-main-${this.layout}`
+    },
+    // Calculate the width
+    computedWidth() {
+      return this.wide
+    },
+    // Calculate the height
+    computedHeight() {
+      return this.high
+    },
+    // Calculate the height class
+    heightClass() {
+      return {
+        auto: this.high === 'auto',
+        'ql-main-height': this.high !== 'auto'
       }
     },
-    computed: {
-      layoutClass() {
-        return `ql-main-${this.layout}`
-      },
-      computedWidth() {
-        return this.wide
-      },
-      computedHeight() {
-        return this.high
-      },
-      heightClass() {
-        return {
-          auto: this.high === 'auto',
-          'ql-main-height': this.high !== 'auto'
-        }
-      },
-      widthClass() {
-        return {
-          auto: this.wide === 'auto',
-          'ql-main-width': this.wide !== 'auto'
-        }
+    // Calculate the width class
+    widthClass() {
+      return {
+        auto: this.wide === 'auto',
+        'ql-main-width': this.wide !== 'auto'
       }
     }
   }
+});
 </script>
 
 <style scoped>
-  .ql-main {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    word-wrap: break-word;
-  }
-
-  .ql-main-center {
-    justify-content: center;
-  }
-
-  .ql-main-right {
-    align-items: flex-end;
-  }
-
-  .ql-main-left {
-    align-items: flex-start;
-  }
-
-  .ql-main-top {
-    align-items: flex-start;
-  }
-
-  .ql-main-bottom {
-    justify-content: flex-end;
-  }
-
-  .ql-main-height {
-    height: 0;
-  }
-
-  .ql-main-width {
-    width: 0;
-  }
 </style>

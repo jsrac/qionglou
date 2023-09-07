@@ -4,8 +4,11 @@
   </div>
 </template>
 
-<script>
-  export default {
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+  export default defineComponent({
+    name: 'QlFix',
     props: {
       position: {
         type: String,
@@ -22,27 +25,8 @@
         return `ql-fix-${this.position}`
       }
     }
-  }
+  })
 </script>
 
 <style scoped>
-  .ql-fix {
-    position: fixed;
-  }
-
-  .ql-fix-top {
-    top: 0;
-  }
-
-  .ql-fix-bottom {
-    bottom: 0;
-  }
-
-  .ql-fix-left {
-    left: 0;
-  }
-
-  .ql-fix-right {
-    right: 0;
-  }
 </style>

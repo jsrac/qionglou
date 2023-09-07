@@ -4,7 +4,7 @@ export * from './fix'
 import { QlMain } from './main'
 export * from './main'
 
-import { QlHeader } from './col'
+import { QlCol } from './col'
 export * from './col'
 
 import { QlText } from './text'
@@ -25,7 +25,7 @@ export * from './button'
 export default [
   QlFix,
   QlMain,
-  QlHeader,
+  QlCol,
   QlPer,
   QlDialog,
   QlLoading,

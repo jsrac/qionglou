@@ -1,0 +1,21 @@
+/* Default styling for text component */
+.ql-text {
+  font-family: 'Inter', sans-serif;
+  display: -webkit-box;
+}
+.ql-text-theme-default {
+  display: inline; /* Ensure each line is on a new line */
+}
+.ql-text-theme-other {
+  /* Another predefined theme styles */
+  /* Add your predefined styles here */
+  text-decoration-style: dashed;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 7px;
+  width: fit-content;
+  text-decoration-color: #91919199;
+}
+.inline-block-layout {
+  display: inline-block;
+}

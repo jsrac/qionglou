@@ -1,5 +1,7 @@
-# QiongLou 组件样式及主题文档
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/27cc8391-1b7f-468c-8e53-c14494df3ae0" width="200" div align=right>
 
-QiongLou 大部分组件样式都在这里，用的scss。 还有一些主题方面的样式文件。
+# Qionglou Component Styles and Themes Documentation
 
-样式写好后，在`index.scss` 中导出即可。
+This document encompasses the majority of QiongLou's component styles, primarily written in SCSS. Additionally, there are theme-related style files.
+
+Once the styles are finalized, they can be exported in the `index.scss` file.

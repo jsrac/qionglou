@@ -43,10 +43,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue';
 import QlText from "../text/text.vue";
 
-export default {
+export default defineComponent({
+  name: 'QlIcon',
   components: {
     QlText
   },
@@ -159,56 +161,8 @@ export default {
       }
     }
   }
-};
+});
 </script>
 
-<style scoped lang="scss">
-  /* Styling for Font Icon container */
-  .ql-icon_font div {
-    display: flex;
-    align-items: center;
-    align-content: center;
-    flex-direction: column-reverse;
-  }
-
-  /* Styling for Image Icon container */
-  .ql-icon {
-    display: flex;
-    align-items: center;
-    width: auto;
-    height: auto;
-    div {
-      margin-left: 0.4vw;
-    }
-  }
-
-  /* CSS animation for rotating icons */
-  .rotate-animation {
-    animation: rotate 2s linear infinite;
-  }
-
-  /* Keyframes for rotation animation */
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* CSS animation for linear icons */
-  .linear-animation {
-    animation: linear 2s linear 0.1s infinite alternate;
-  }
-
-  /* Keyframes for linear animation */
-  @keyframes linear {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
+<style scoped>
 </style>
