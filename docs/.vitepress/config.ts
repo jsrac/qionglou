@@ -1,4 +1,6 @@
 import { defineConfig } from 'vitepress'
+// @ts-ignore
+import vpressdemo from "../plugins/vpressdemo";
 
 export default defineConfig({
   locales: {
@@ -14,6 +16,12 @@ export default defineConfig({
       title: '琼楼',
       link: '/zh-cn/'
     }
+  },
+  markdown: {
+    lineNumbers: true,
+    config: (md) => {
+      md.use(vpressdemo);
+    },
   },
   themeConfig: {
     logo: {
@@ -111,7 +119,4 @@ export default defineConfig({
       }
     ]
   },
-  markdown: {
-    lineNumbers: true
-  }
 })

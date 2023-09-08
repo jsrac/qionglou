@@ -2,32 +2,7 @@
 
 Button 组件是一个可定制的按钮组件，可以根据不同的需求添加不同的样式和功能。
 
-```angular2html
-<script setup></script>
-
-<template>
-  <div>
-    <ql-button type="primary" @click="handleClick">Primary Button</ql-button>
-    <ql-button type="success" @click="handleClick">Success Button</ql-button>
-    <ql-button type="warning" @click="handleClick">Warning Button</ql-button>
-    <ql-button type="danger" @click="handleClick">Danger Button</ql-button>
-    <ql-button size="small" @click="handleClick">Small Button</ql-button>
-    <ql-button size="medium" @click="handleClick">Medium Button</ql-button>
-    <ql-button size="large" @click="handleClick">Large Button</ql-button>
-  </div>
-</template>
-
-<script setup>
-import { QlButton } from '@qionglou/components/button'  // 导入 QlButton 组件
-
-const handleClick = () => {
-  // 在按钮被点击时执行的操作
-  console.log('Button Clicked!')
-}
-</script>
-
-<style></style>
-```
+<demo src="./button.vue" desc="Description: The Hello World `v-model` Demo"></demo>
 
 ## 基本用法
 

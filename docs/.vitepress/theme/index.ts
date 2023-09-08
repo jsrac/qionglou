@@ -1,10 +1,14 @@
 import DefaultTheme from 'vitepress/theme'
+
+// @ts-ignore
+import demo from "../../plugins/vpressdemo/demo.vue";
+
 import './custom.css'
 import './index.dark.css'
 import { inBrowser, useData } from 'vitepress'
 import { watchEffect } from 'vue'
 // @ts-ignore
-import Editor from '../src/editor/editor.vue'
+// import Editor from '../plugins/editor/editor.vue'
 
 export default {
   ...DefaultTheme,
@@ -13,7 +17,8 @@ export default {
   },
   enhanceApp({ app }: { app: any }) {
     // ...
-    app.component('Editor', Editor)
+    app.component("demo", demo);
+    // app.component('Editor', Editor)
   },
   setup() {
     const { lang } = useData()
