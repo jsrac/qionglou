@@ -1,5 +1,5 @@
 import { withInstall } from '@qionglou/utils'
-import Fix from './fix.vue'
+import Fix from './src/fix.vue'
 
 export const QlFix = withInstall(Fix)
 
