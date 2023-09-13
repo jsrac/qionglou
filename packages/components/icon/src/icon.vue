@@ -55,6 +55,8 @@ import { computed } from 'vue';
 import { Props } from "./props";
 import QlText from "../../text";
 
+defineOptions({name: 'QlIcon'})
+
 const { src, type, alt, weight, size, ani, wide, high, font, url, color } = defineProps(Props);
 
 // Calculate width size

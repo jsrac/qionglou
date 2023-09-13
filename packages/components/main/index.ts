@@ -1,5 +1,5 @@
 import { withInstall } from '@qionglou/utils'
-import Main from './main.vue'
+import Main from './src/main.vue'
 
 export const QlMain = withInstall(Main)
 
