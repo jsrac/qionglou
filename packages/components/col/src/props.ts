@@ -1,4 +1,4 @@
-// Define the types for QlCol component props
+// Define the types for QlCol component props.ts
 // 定义 QlCol 组件的属性类型
 import { Prop } from 'vue'
 

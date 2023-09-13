@@ -8,7 +8,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
 import { Props } from "./props";
+
+defineOptions({name: 'QlFix'})
 
 const props = defineProps(Props)
 const { position, zIndex } = props;

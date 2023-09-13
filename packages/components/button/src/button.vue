@@ -23,7 +23,7 @@
   // 定义组件选项
   defineOptions({ name: 'QlButton' })
 
-  // Define props and emits
+  // Define props.ts and emits
   // 定义属性和发射器
   const props = defineProps(Props)
   const emits = defineEmits(Emits)
@@ -34,7 +34,7 @@
     emits('click', evt)
   }
 
-  // Calculate button style based on props
+  // Calculate button style based on props.ts
   // 根据属性计算按钮样式
   const buttonStyle = computed(() => {
     const { type, size, plain, round, circle, disabled, link } = props

@@ -1,5 +1,5 @@
 import { withInstall } from '@qionglou/utils'
-import Icon from './icon.vue'
+import Icon from './src/icon.vue'
 
 export const QlIcon = withInstall(Icon)
 
