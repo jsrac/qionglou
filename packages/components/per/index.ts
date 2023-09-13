@@ -1,5 +1,5 @@
 import { withInstall } from '@qionglou/utils'
-import Per from './per.vue'
+import Per from './src/per.vue'
 
 export const QlPer = withInstall(Per)
 
