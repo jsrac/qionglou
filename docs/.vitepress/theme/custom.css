@@ -64,8 +64,12 @@
 [class*='language-'] > button.copy {
   background-color: #efefef !important;
 }
+[class*='language-'] > button.copy.copied::before {
+  background-color: #EFEFEF !important;
+  color: #808080 !important;
+}
 .dark [class*='language-'] > button.copy {
-  background-color: #1e1e20 !important;
+  background-color: #2E2E32 !important;
 }
 .vp-doc .line-numbers-wrapper {
   color: #c7c7c7;
@@ -366,7 +370,7 @@ body {
   --vp-code-line-error-color: var(--vp-c-red-dimm-2);
 
   --vp-code-copy-code-border-color: transparent;
-  --vp-code-copy-code-bg: var(--vp-code-block-bg-light);
+  --vp-code-copy-code-bg: #EFEFEF;
   --vp-code-copy-code-hover-border-color: var(--vp-c-divider);
   --vp-code-copy-code-hover-bg: var(--vp-code-block-bg-light);
   --vp-code-copy-code-active-text: var(--vp-c-text-dark-2);

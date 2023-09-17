@@ -1,9 +1,20 @@
 <script>
+// Import Vue APIs and Theme style
+// 导入 Vue API 和 Theme style
+import '../../../packages/themes/index.scss';
 import { computed, defineAsyncComponent, ref } from "vue";
+
+// Import demo components dynamically
+// 动态导入demo组件
 const modules = import.meta.glob("../../../**/*.vue");
+
+// Map to store timers
+// 映射表存储定时器
 const timerMap = new Map();
 
 export default {
+  // Component props
+  // 组件属性
   props: {
     codeStr: String,
     htmlStr: String,
@@ -11,30 +22,45 @@ export default {
     codePath: String,
     language: { default: "vue", type: String },
   },
-
+  // Component setup
+  // 组件配置
   setup(props, content) {
+    // Destructure props and slots
+    // 解构属性和插槽
     const { codePath, codeStr, htmlStr, description } = props;
     const { slots } = content;
+    // Whether expanded
+    // 是否展开
     const isExpanded = ref(false); // whether expanded
+    // Whether hovered
+    // 是否悬停
     const isHover = ref(false); // whether hover state
+    // Has default slot
+    // 是否有默认插槽
     const hasSlot = computed(() => (slots?.default ? true : false));
+    // Decode prop strings
+    // 解码属性字符串
     const decodedCodeStr = computed(() => decodeURIComponent(codeStr ?? ""));
     const decodedHtmlStr = computed(() => decodeURIComponent(htmlStr ?? ""));
     const decodedDesc = computed(() => decodeURIComponent(description ?? ""));
-    // define the demo component
+    // Async load demo component
+    // 异步加载演示组件
     const demoSlot =
       codePath && modules[codePath]
         ? defineAsyncComponent(modules[codePath])
         : null;
 
-    // handle click event of control section
+    // Click handler for control
+    // 控制区点击处理器
     const onClickControl = () => {
       isExpanded.value = !isExpanded.value;
       isHover.value = isExpanded.value;
     };
 
-    // handle click event of copy button
+    // Click handler for copy
+    // 复制点击处理器
     const onCopy = (e) => {
+      // ...copy logic
       try {
         navigator.clipboard.writeText(decodedCodeStr.value);
         let el = e.target;
@@ -53,8 +79,10 @@ export default {
       } catch (err) {
         console.log("failed to do copy", err);
       }
+      // ...style handling logic
     };
-
+    // Expose component state and methods
+    // 暴露组件状态和方法
     return {
       isHover,
       codePath,
@@ -72,35 +100,45 @@ export default {
 </script>
 
 <template>
+  <!-- Demo wrapper -->
+  <!-- 演示包裹器 -->
   <div
     :class="['__vpdemo', isHover && '__vpdemo-hover']"
     @mouseenter="isHover = true"
     @mouseleave="isHover = false"
   >
-    <!-- Demo Component -->
+    <!-- Slot or dynamic component -->
+    <!-- 插槽或动态组件 -->
     <div class="__vpdemo-slot">
       <slot v-if="hasSlot"></slot>
       <component :is="demoSlot" v-else-if="codePath" />
       <div v-html="decodedCodeStr" v-else></div>
-      <!-- Desc -->
+      <!-- Description -->
+      <!-- 描述 -->
       <div
         class="__vpdemo-show_desc"
         v-show="decodedDesc"
         v-html="decodedDesc"
       ></div>
     </div>
-    <!-- Demo Codes -->
+    <!-- Expanded code block -->
+    <!-- 展开的代码块 -->
     <div class="__vpdemo-show" v-show="isExpanded">
-      <!-- Copy -->
+      <!-- Copy button -->
+      <!-- 复制按钮 -->
       <div class="__vpdemo-show-copy" title="copy" @click.stop="onCopy"></div>
-      <!-- Code -->
+      <!-- Code block -->
+      <!-- 代码块 -->
       <div
         :class="['__vpdemo-show-code', 'language-' + language]"
         v-html="decodedHtmlStr"
       ></div>
     </div>
-    <!-- Control Section -->
+    <!-- Control section -->
+    <!-- 控制区 -->
     <div class="__vpdemo-control" @click="onClickControl">
+      <!-- Animated arrow icon -->
+      <!-- 动画箭头图标 -->
       <transition name="arrow-slide">
         <i
           :class="[
@@ -111,13 +149,16 @@ export default {
           ]"
         ></i>
       </transition>
+      <!-- Animated text -->
+      <!-- 动画文本 -->
       <transition name="text-slide">
         <span v-show="isHover" class="__vpdemo-control-tip">{{
           isExpanded ? "Collapse" : "Expand"
         }}</span>
       </transition>
     </div>
-    <!-- Buttons -->
+    <!-- Extra control buttons -->
+    <!-- 额外控制按钮 -->
     <div
       class="__vpdemo-control-code"
       title="code"
@@ -171,7 +212,9 @@ export default {
   border-radius: 3px;
   transition: 0.2s;
 }
-
+.dark .__vpdemo {
+  border: 1px solid #2E2E32;
+}
 .__vpdemo-hover {
   box-shadow: var(--vpdemo-shadow-2);
 }
@@ -181,6 +224,10 @@ export default {
   background-color: var(--vpdemo-c-brand-dimm);
 }
 
+.dark .__vpdemo-hover .__vpdemo-control {
+  color: var(--vp-c-brand);
+  background-color: #222225;
+}
 .__vpdemo-hover .__vpdemo-control-icon {
   transform: translateX(-40px);
 }
@@ -202,9 +249,11 @@ export default {
 .__vpdemo-show {
   position: relative;
   border-top: solid 1px var(--vpdemo-c-divider-light);
-  background-color: var(--vp-code-block-bg);
+  background-color: #16161800;
 }
-
+.dark .__vpdemo-show_desc {
+  border-top: dashed 1px #2E2E32;
+}
 .__vpdemo-show_desc {
   border-top: dashed 1px var(--vpdemo-c-divider-light);
   box-sizing: border-box;
@@ -216,12 +265,22 @@ export default {
   /* background-color: var(--vp-c-bg-soft); */
   font-size: 80%;
 }
-
+.dark .__vpdemo-show_desc {
+  color: #DFDFD8;
+}
+.dark .__vpdemo-show {
+  border-top: solid 1px #52525952;
+  background-color: #16161800
+}
 .__vpdemo-show-code {
   margin-bottom: 0 !important;
 }
-
+.dark .__vpdemo-show-copy {
+  background-color: #1e1e20;
+  border: 1px solid #2F2F32 !important;
+}
 .__vpdemo-show-copy {
+  margin-top: 1.5em;
   position: absolute;
   right: 8px;
   z-index: 2;
@@ -231,7 +290,8 @@ export default {
   border-radius: 4px;
   width: 40px;
   height: 40px;
-  background-color: var(--vp-code-block-bg);
+  background-color: #EFEFEF;
+  border: 1px solid #ff000000;
   cursor: pointer;
   background-image: var(--vp-icon-copy);
   background-position: 50%;
@@ -242,10 +302,13 @@ export default {
 
 .__vpdemo-show-copy-done {
   border-radius: 0 4px 4px 0;
-  background-color: var(--vp-code-copy-code-hover-bg);
+  background-color: #EFEFEF;
+  border: 1px solid #D9D9DA;
   background-image: var(--vp-icon-copied);
 }
-
+.dark .__vpdemo-show-copy-done:before {
+  background-color: #1e1e20 !important;
+}
 .__vpdemo-show-copy-done:before {
   position: relative;
   left: -65px;
@@ -256,12 +319,17 @@ export default {
   height: 40px;
   text-align: center;
   font-size: 12px;
-  font-weight: 500;
-  color: var(--vp-code-copy-code-active-text);
-  background-color: var(--vp-code-copy-code-hover-bg);
+  font-weight: bold;
+  color: #808080;
+  background-color: #EFEFEF;
   white-space: nowrap;
   content: "Copied";
 }
+.__vpdemo-show-copy:hover {
+  border: 1px solid #D9D9DA;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
 
 .__vpdemo-show pre {
   margin: 0;
@@ -270,9 +338,12 @@ export default {
 }
 
 .__vpdemo-show-code pre.shiki {
-  padding-top: 0 !important;
+  //padding-top: 0 !important;
 }
 
+.dark .__vpdemo-control {
+  border-top: 1px solid #2E2E32;
+}
 /* styles of control section */
 .__vpdemo-control {
   border-top: 1px solid var(--vpdemo-c-divider-light);

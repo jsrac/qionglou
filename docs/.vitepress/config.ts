@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 // @ts-ignore
 import vpressdemo from "../plugins/vpressdemo";
-
 export default defineConfig({
   locales: {
     root: {
