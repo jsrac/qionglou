@@ -21,6 +21,6 @@ export const Props = {
     // Column configuration for different resolutions
     // 不同分辨率下的列配置
     col: {
-        type: Object as Prop<Record<string, number>>
+        type: Object as Prop<Record<number, string>>
     }
 } as PropsType

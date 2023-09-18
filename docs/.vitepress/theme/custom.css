@@ -1,4 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;1,200;1,400&display=swap');
+badge[type=in] {
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 6px;
+  color: #979797;
+}
+badge[type=in]::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 100px;
+  border-bottom: 9px solid;
+  position: absolute;
+  top: 31%;
+  border-color: #fcbb4e;
+  margin-top: -8.5px;
+}
 .vp-doc .header-anchor {
   padding: 0;
 }
@@ -60,7 +77,11 @@
 [class*='language-'] > span.lang {
   color: #b7b7b7 !important;
 }
-
+.custom-block.tip {
+  border-color: #e7e7e7;
+  color: #8c8c8c;
+  background-color: #ffffff;
+}
 [class*='language-'] > button.copy {
   background-color: #efefef !important;
 }
@@ -88,14 +109,21 @@
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-size: 15px !important;
+  text-align: justify;
 }
 
 .dark .VPNav {
-  border-bottom: 1px solid #afafaf70;
+  border-bottom: 1px solid #2e2e32;
 }
 .dark .VPSidebar {
   background-color: #1e1e20;
-  border-right: 1px solid #5e5e5f;
+  border-right: 1px solid #2e2e32;
+}
+.dark .custom-block.tip {
+  border-color: #2e2e32;
+  color: #dfdfd7c2;
+  background-color: #ffffff00;
 }
 .dark .curtain {
   background-color: rgba(0, 0, 0, 0);
