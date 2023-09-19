@@ -1,10 +1,10 @@
 <template>
   <div>
-    <ql-button @click="handleClick" loading="true" size="large">Click Me</ql-button>
-    <ql-button @click="handleClick">Click Me</ql-button>
-    <ql-button @click="handleClick" loading="true" size="small">Click Me</ql-button>
-    <ql-button @click="handleClick" loading="true" size="mini">Click Me</ql-button>
-    <ql-button @click="handleClick" loading="true" size="5px 20px 5px 20px">Click Me</ql-button>
+    <ql-button @click="handleClick" size="large" text="Click Me" />
+    <ql-button @click="handleClick" text="Click Me" type="primary"/>
+    <ql-button @click="handleClick" size="small" text="Click Me"/>
+    <ql-button @click="handleClick" size="mini" text="Click Me"/>
+    <ql-button @click="handleClick" size="5px 20px 5px 20px" text="Click Me"/>
   </div>
 </template>
 

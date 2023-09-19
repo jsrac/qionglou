@@ -20,13 +20,35 @@ export type ButtonSize = 'large' | 'normal' | 'small' | 'mini'
 export type PropsType = {
   type: Prop<ButtonType>
   size: Prop<ButtonSize>
+  text: Prop<string>
+  url: Prop<string>
+  font: Prop<string>
+  color: Prop<string>
+  weight: Prop<string>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
+// @ts-ignore
 export const Props = {
   size: {
     type: String as Prop<ButtonSize>,
     default: 'normal'
+  },
+  text: {
+    type: String as Prop<string>,
+    default: ''
+  },
+  font: {
+    type: String as Prop<string>,
+    default: ''
+  },
+  weight: {
+    type: String as Prop<string>,
+    default: '500'
+  },
+  color: {
+    type: String as Prop<string>,
+    default: ''
   },
   // Type of button (e.g., primary, success, danger)
   // 按钮类型（如：primary、success、danger）

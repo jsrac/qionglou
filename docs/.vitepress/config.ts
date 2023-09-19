@@ -112,7 +112,7 @@ export default defineConfig({
         text: '<div style="margin-top: 0.5vw;">' +
             '<a href="https://github.com/jsrac/qionglou/blob/main/LICENSE"><' +
             'img src="/sidebar/opensource.svg" /></a>' +
-            '<p style="color:lightgrey;margin-top: 0.5vw">' +
+            '<p style="color:lightgrey;margin-top: 0.5vw;text-align: left;">' +
             'Copyright (c) 2023 <a href="https://github.com/jsrac/qionglou/graphs/contributors">' +
             'Open Source Contributors</a></p></div>'
       }
