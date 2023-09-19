@@ -1,4 +1,4 @@
-# 按钮 <Badge type="in">In Progress</Badge>
+# 按钮 <Badge type="in"></Badge>
 按钮组件(`<ql-button>`)是一个可以根据不同需求添加不同样式和功能的基础组件。
 
 ::: tip 👏 开始使用琼楼组件

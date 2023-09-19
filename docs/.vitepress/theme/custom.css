@@ -6,15 +6,15 @@ badge[type=in] {
   color: #979797;
 }
 badge[type=in]::before {
-  content: "";
-  width: 9px;
+  content: "In Progress";
+  width: auto;
   height: 9px;
-  border-radius: 100px;
-  border-bottom: 9px solid;
   position: absolute;
   top: 31%;
-  border-color: #fcbb4e;
   margin-top: -8.5px;
+  background-size: 9px;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;utf8,<svg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'><rect width='16' height='16' rx='8' fill='%23FFB50B'/></svg>");
 }
 .vp-doc .header-anchor {
   padding: 0;
