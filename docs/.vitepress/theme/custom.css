@@ -5,6 +5,9 @@ badge[type=in] {
   margin-left: 6px;
   color: #979797;
 }
+.VPCarbonAds {
+
+}
 badge[type=in]::before {
   content: "In Progress";
   width: auto;

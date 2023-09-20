@@ -1,6 +1,7 @@
 # 按钮 <Badge type="in"></Badge>
 按钮组件(`<ql-button>`)是一个可以根据不同需求添加不同样式和功能的基础组件。
 
+
 ::: tip 👏 开始使用琼楼组件
 
 这是您第一次阅读和查看琼楼组件,我们会根据本组件详细介绍其设计理念和使用方法,方便您更好地使用和开发。
@@ -9,8 +10,8 @@
 
 :::
 
+<test></test>
 <demo src="./button.vue" desc="使用 `ql-button` 标签来创建一个按钮。你可以通过不同的属性来定制按钮的外观和行为。"></demo>
-
 
 ## 自定义示例
 <img src="../../../public/docs/zh-cn/button-padding.svg">
@@ -19,6 +20,11 @@
 
 同时，社区提供了在线编辑器，方便开发者自定义组件并发布至社区。我们会根据组件的欢迎程度,将自定义预设融合到组件中,通过 `theme` 切换使用。
 
+<script setup>
+import QlDocAds from '../../../plugins/QlDocAds.vue';
+</script>
+
+<QlDocAds />
 
 ## 属性
 
@@ -48,3 +54,4 @@
 ```
 
 ## 依赖
+
