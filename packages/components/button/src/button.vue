@@ -119,10 +119,28 @@ const resetStyle = (event: MouseEvent) => {
 
 const handleMouseDown = () => {
   const target = buttonRef.value
-  target.style.backgroundColor = 'red'
+  if (type === 'primary') {
+    target.style.boxShadow = '5px 4px 5px #dadce0'
+    target.style.transition = 'color 0.25s, opacity 0.25s'
+    target.style.opacity = '0.6'
+  } else {
+    const typeOptions = {
+      primary: '7px',
+      medium: '16px',
+      large: '10px 64px',
+      mini: '4px'
+    };
+    return typeOptions[type] || type;
+  }
 }
 const handleMouseUp = () => {
   const target = buttonRef.value
-  target.style.backgroundColor = 'blue'
+  if (type === 'primary') {
+    target.style.backgroundColor = 'rgb(0, 120, 255)'
+    target.style.transition = 'color 0.54s, opacity 0.25s'
+    target.style.boxShadow = ''
+  } else {
+
+  }
 }
 </script>
