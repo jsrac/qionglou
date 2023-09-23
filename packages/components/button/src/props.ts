@@ -78,7 +78,7 @@ export const Props = {
         transition: 'color 0.54s, opacity 0.25s'
       },
       active: {
-        boxShadow: '5px 4px 5px #dadce054',
+        boxShadow: '5px 5px 14px #bababb54',
         transition: 'color 0.25s, opacity 0.25s',
         opacity: '0.6'
       },
