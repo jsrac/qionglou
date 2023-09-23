@@ -1,6 +1,6 @@
 // Define the types for Button component props.ts
 // 定义按钮组件的属性类型
-import { Prop } from 'vue'
+import {onBeforeMount, Prop} from 'vue'
 
 // Defining the type for props.
 // 为props定义类型
@@ -18,13 +18,14 @@ export type ButtonSize = 'large' | 'normal' | 'small' | 'mini'
 // Define the type of props.ts for Button component
 // 定义按钮组件的属性类型
 export type PropsType = {
-  type: Prop<ButtonType>
+  type: Prop<ButtonType | object>
   size: Prop<ButtonSize>
   text: Prop<string>
   url: Prop<string>
   font: Prop<string>
   color: Prop<string>
   weight: Prop<string>
+  react: Prop<string>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -48,12 +49,12 @@ export const Props = {
   },
   color: {
     type: String as Prop<string>,
-    default: ''
+    default: '',
   },
   // Type of button (e.g., primary, success, danger)
   // 按钮类型（如：primary、success、danger）
   type: {
-    type: String as Prop<ButtonType>,
+    type: String as Prop<ButtonType | object>,
     values: [
       'default',
       'primary',
@@ -63,7 +64,29 @@ export const Props = {
       'info',
       'text'
     ] as ButtonType[],
-    default: 'default'
+    default: 'default',
+  },
+  react: {
+    type: Object as Prop<object>,
+    default: {
+      hover: {
+        opacity: '0.8',
+        transition: 'color 0.54s, opacity 0.25s'
+      },
+      reset: {
+        opacity: '1',
+        transition: 'color 0.54s, opacity 0.25s'
+      },
+      active: {
+        boxShadow: '5px 4px 5px #dadce054',
+        transition: 'color 0.25s, opacity 0.25s',
+        opacity: '0.6'
+      },
+      mouseUp: {
+        transition: 'color 0.54s, opacity 0.25s',
+        boxShadow: ''
+      }
+    }
   }
 } as PropsType
 // Define emitted events for Button component

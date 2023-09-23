@@ -1,15 +1,16 @@
 <template>
   <div>
-    <ql-button @click="handleClick" size="large" text="Click Me" />
-    <ql-button @click="handleClick" text="Click Me" type="primary"/>
-    <ql-button @click="handleClick" size="small" text="Click Me"/>
-    <ql-button @click="handleClick" size="mini" text="Click Me"/>
-    <ql-button @click="handleClick" size="5px 20px 5px 20px" text="Click Me"/>
+    <ql-button @click="handleClick" size="large" text="Default" />
+    <ql-button @click="handleClick" text="Primary" type="primary" />
+    <ql-button @click="handleClick" text="Success" type="success" />
+    <ql-button @click="handleClick" text="Warning" type="warning" />
+    <ql-button @click="handleClick" text="Danger" type="danger" />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { QlButton } from '@qionglou/components/button'
+
 
 const handleClick = () => {
   // 在按钮被点击时执行的操作
