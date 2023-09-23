@@ -1,6 +1,6 @@
 // Define the types for Button component props.ts
 // 定义按钮组件的属性类型
-import {onBeforeMount, Prop} from 'vue'
+import { Prop } from 'vue'
 
 // Defining the type for props.
 // 为props定义类型

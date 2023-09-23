@@ -22,6 +22,9 @@ export * from './loading'
 import { QlButton } from './button'
 export * from './button'
 
+import { QlDivide } from './divide'
+export * from './divide'
+
 export default [
   QlFix,
   QlMain,
@@ -30,5 +33,6 @@ export default [
   QlDialog,
   QlLoading,
   QlButton,
-  QlText
+  QlText,
+  QlDivide
 ]
