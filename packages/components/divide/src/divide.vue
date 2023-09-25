@@ -1,8 +1,10 @@
 <template>
+  <!-- Divide component wrapper -->
+  <!-- 分割组件包装器 -->
   <div class="ql-divide aid-back text-line-center">
     <ql-text
-             weight="medium"
-             color="#9c9c9c"
+             :weight="weight"
+             :color="borderColor.font"
              :style="[themeStyle]"
     >
       {{ text }}
@@ -12,50 +14,98 @@
 
 <script setup lang="ts">
 import { defineProps, computed } from "vue";
-import { createStyles } from '@emotion/vue';
 
 defineOptions({ name: 'QlDivide' })
 import { Props } from './props';
 import QlText from "../../text/src/text.vue";
 
+
 const props = defineProps(Props)
-const { text, theme } = props
+const { text, theme, color, width, weight } = props
 
 const themeStyle = computed(() => {
   const themeStyle = {
     default: {
       paddingRight: '15px',
       paddingLeft: "15px"
-    },
-    primary: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: 'rgb(0, 120, 255)',
-      borderRadius: '4px !important',
-    },
-    success: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#00dc5c',
-      borderRadius: '4px !important',
-    },
-    warning: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#fdbf00',
-      borderRadius: '4px !important',
-    },
-    danger: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#ff0a0a',
-      borderRadius: '4px !important',
     }
   };
-
+  // If type has a corresponding style in typeStyles, the corresponding style is returned; otherwise, an empty object
+  // is returned
   // 如果 type 在 typeStyles 中有对应的样式，则返回对应的样式；否则返回空对象
   return themeStyle[theme] || {};
 });
+
+const widthStyle = computed(() => {
+  const widthStyle = {
+    center: {
+      left: '50%',
+      right: "50%"
+    },
+    left: {
+      left: '95%',
+      right: '5%'
+    },
+    right: {
+      left: '5%',
+      right: '95%'
+    }
+  };
+  return widthStyle[width] || {};
+});
+console.log('->>>', widthStyle)
+// Compute border color
+// 计算边框颜色
+const borderColor = computed(() => {
+  const colorStyle = {
+    default: {
+      font: '#9c9c9c',
+      border: "#e3e3e3"
+    }
+  };
+  return colorStyle[color] || {};
+});
+
+// Inject global styles
+// 注入全局样式
+const customStyle = `
+  .ql-divide {
+    display: flex;
+    align-items: center;
+    margin: 16px 0;
+    font-weight: 500;
+    font-size: 16px;
+    white-space: nowrap;
+    text-align: center;
+    border-block-start: 0 ${borderColor.value.border};
+  }
+
+  :where(.aid-back).ql-divide.text-line-center::before {
+    position: relative;
+    width: ${widthStyle.value.right};
+    border-block-start: 1px solid transparent;
+    border-block-start-color: inherit;
+    border-block-end: 0;
+    transform: translateY(50%);
+    content: '';
+  }
+  :where(.aid-back).ql-divide.text-line-center::after {
+    position: relative;
+    width: ${widthStyle.value.left};
+    border-block-start: 1px solid transparent;
+    border-block-start-color: inherit;
+    border-block-end: 0;
+    transform: translateY(50%);
+    content: '';
+  }
+`;
+
+// Append style to <head>
+// 添加样式到<head>中
+const style = document.createElement('style');
+style.innerHTML = customStyle;
+document.head.appendChild(style);
+
 </script>
 
 <style scoped>

@@ -10,9 +10,10 @@ export type typeLayout = 'icon' | 'text'
 export type PropsType = {
     text: Prop<string>
     size: Prop<showLayout>
-    background: Prop<string>
-    color: Prop<string>
+    color: Prop<string | object>
     theme: Prop<string>
+    width: Prop<showLayout | object>
+    weight: Prop<string | number>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -20,25 +21,28 @@ export type PropsType = {
 
 // @ts-ignore
 export const Props = {
+    weight: {
+        type: String as Prop<string | number>,
+        default: 'medium',
+        validator: (value: string | number) =>
+            ['demiLight', 'regular', 'medium', 'bold'].includes(value.toString()) ||
+            (typeof value === 'number' && value >= 0),
+    },
+    width: {
+        type: String as Prop<showLayout | object>,
+        default: 'center'
+    },
     text: {
         type: String as Prop<string>,
-        default: 'test'
-    },
-    layout: {
-        type: String as Prop<showLayout>,
-        default: 'test'
+        default: 'divide'
     },
     type: {
-        type: String as Prop<typeLayout>,
-        default: 'test'
+        type: String as Prop<typeLayout | string>,
+        default: 'text'
     },
     color: {
-        type: String as Prop<string>,
-        default: 'rgb(156, 156, 156)'
-    },
-    background: {
         type: String as Prop<string | object>,
-        default: 'white'
+        default: 'default'
     },
     theme: {
         type: String as Prop<string | object>,

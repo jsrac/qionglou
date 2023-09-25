@@ -1,8 +1,6 @@
 <template>
   <div>
-    <ql-per wide="100" unit="%" on="true">
-      <ql-divide />
-    </ql-per>
+    <ql-divide />
     <ql-button @click="handleClick" size="large" text="Default" :react="reactStyles" />
     <ql-button @click="handleClick" text="Primary" type="primary" />
     <ql-button @click="handleClick" text="Success" type="success" />
