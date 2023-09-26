@@ -1,7 +1,7 @@
 <template>
   <!-- Divide component wrapper -->
   <!-- 分割组件包装器 -->
-  <div class="ql-divide aid-back text-line-center">
+  <div v-if="type === 'text'" class="ql-divide aid-back text-line-center">
     <ql-text
              :weight="weight"
              :color="borderColor.font"
@@ -9,6 +9,21 @@
     >
       {{ text }}
     </ql-text>
+  </div>
+  <div v-else-if="type === 'line'" class="ql-divide aid-back text-line-center">
+  </div>
+  <div v-else-if="type === 'icon'">
+    <div class="ql-divide aid-back text-line-center">
+      <ql-icon
+          :src="src"
+          :wide="wide"
+          :layout="layout"
+          :color="borderColor.font"
+          :weight="weight"
+      >
+        {{ text }}
+      </ql-icon>
+    </div>
   </div>
 </template>
 
@@ -18,14 +33,19 @@ import { defineProps, computed } from "vue";
 defineOptions({ name: 'QlDivide' })
 import { Props } from './props';
 import QlText from "../../text/src/text.vue";
+import QlIcon from "../../icon/src/icon.vue";
 
 
 const props = defineProps(Props)
-const { text, theme, color, width, weight } = props
+const { text, theme, color, width, weight , type, wide, src, layout, url, font} = props
 
 const themeStyle = computed(() => {
   const themeStyle = {
     default: {
+      paddingRight: '15px',
+      paddingLeft: "15px"
+    },
+    dotted: {
       paddingRight: '15px',
       paddingLeft: "15px"
     }
@@ -53,7 +73,6 @@ const widthStyle = computed(() => {
   };
   return widthStyle[width] || {};
 });
-console.log('->>>', widthStyle)
 // Compute border color
 // 计算边框颜色
 const borderColor = computed(() => {
@@ -88,6 +107,7 @@ const customStyle = `
     border-block-end: 0;
     transform: translateY(50%);
     content: '';
+    border-style: ${theme === 'dotted' ? 'dashed' : 'double'};
   }
   :where(.aid-back).ql-divide.text-line-center::after {
     position: relative;
@@ -97,6 +117,7 @@ const customStyle = `
     border-block-end: 0;
     transform: translateY(50%);
     content: '';
+    border-style: ${theme === 'dotted' ? 'dashed' : 'double'};
   }
 `;
 

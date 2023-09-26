@@ -26,13 +26,13 @@
         {{ alt }}
       </ql-text>
     </div>
-    <div v-else-if="type === 'img'" class="ql-icon">
+    <div v-else-if="type === 'img'" class="ql-icon" :style="[layoutStyle]">
       <!-- Render Image Icon with optional QlText component -->
       <!-- 使用可选的 QlText 组件渲染图片图标-->
       <img :src="src" :alt="alt" :style="{ width: widthSize, height: highSize }" />
       <!-- Render additional text for the icon -->
       <!-- 渲染图标的附加文本-->
-      <ql-text
+      <ql-text :style="[marginText]"
           :weight="weight"
           :size="size"
           :color="color"
@@ -57,7 +57,7 @@ import QlText from "../../text";
 
 defineOptions({name: 'QlIcon'})
 
-const { src, type, alt, weight, size, ani, wide, high, font, url, color } = defineProps(Props);
+const { src, type, alt, weight, size, ani, wide, high, font, url, color, layout } = defineProps(Props);
 
 // Calculate width size
 // 计算宽度尺寸
@@ -77,6 +77,42 @@ const widthSize = computed(() => {
   }
 })
 
+// Layout
+const layoutStyle = computed(() => {
+  const layoutStyle = {
+    down: {
+      flexDirection: 'column',
+    },
+    upper: {
+      flexDirection: 'column-reverse'
+    },
+    left: {
+      flexDirection: 'row-reverse',
+    }
+  };
+  // If type has a corresponding style in typeStyles, the corresponding style is returned; otherwise, an empty object
+  // is returned
+  return layoutStyle[layout] || {};
+});
+const marginText = computed(() => {
+  const layoutStyle = {
+    down: {
+      marginTop: '0.4vw',
+    },
+    upper: {
+      marginBottom: '0.4vw'
+    },
+    left: {
+      marginLeft: '0.4vw'
+    },
+    right: {
+      marginRight: '0.4vw'
+    }
+  };
+  // If type has a corresponding style in typeStyles, the corresponding style is returned; otherwise, an empty object
+  // is returned
+  return layoutStyle[layout] || {};
+});
 // Calculate height size
 // 计算高度尺寸
 const highSize = computed(() => {

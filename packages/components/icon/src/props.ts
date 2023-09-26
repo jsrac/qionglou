@@ -25,6 +25,7 @@ export type PropsType = {
                       // 图标的链接地址
     color: Prop<string> // The color of the icon
                        // 图标的颜色
+    layout: Prop<string | object>
 }
 
 // Define the props with their types and default values
@@ -35,6 +36,10 @@ export const Props = {
                                      // 源文件类型为字符串
         required: true // It is required
                       // 必填项
+    },
+    layout: {
+        type: String as Prop<string | object>,
+        default: 'right'
     },
     type: {
         type: String as Prop<string>, // Type of the icon is string

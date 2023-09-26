@@ -10,11 +10,8 @@
 .ql-icon {
   display: flex;
   align-items: center;
-  width: auto;
   height: auto;
-  div {
-    margin-left: 0.4vw;
-  }
+  width: max-content;
 }
 
 /* CSS animation for rotating icons */
