@@ -2,3 +2,11 @@
   display: inline-block;
   cursor: pointer;
 }
+
+.ql-button--success {
+  border: 1.5px solid #DADCE0;
+  font-weight: 500;
+  border-radius: 4px;
+  color: rgb(255,255,255);
+  background-color: rgb(0, 120, 255);
+}

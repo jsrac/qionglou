@@ -8,23 +8,24 @@
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
        :style="[buttomSize, typeStyle, customStyles]"
+       :class="buttonData.classes"
   >
     <ql-text
         :url="url"
         :font="font"
         :color="color"
         :weight="weight">
-      {{ text }}
+      {{ buttonData.text }}
     </ql-text>
   </div>
 </template>
 
 <script setup lang="ts">
 import QlText from "../../text";
-
-import { computed, ref } from "vue";
+import { computed, ref, onMounted, watch } from "vue";
 import { Props, Emits } from './props';
 import { MouseEvent } from "happy-dom";
+
 
 defineOptions({ name: 'QlButton' })
 
@@ -41,8 +42,16 @@ const handleClick = (evt: MouseEvent) => {
   emits('click', evt)
 }
 
-const { type, react, size, text, url, weight, font, color, plain, round, circle, disabled, link } = props
+const { type, react, size, text, url, weight, font, color, plain, round, circle, disabled, link , api} = props
 const reactStyles = ref(react);
+
+const buttonData = ref({
+  text: "",
+  classes: {},
+  class: "",
+  type: ""
+});
+
 
 const buttomSize = computed(() => {
   if (size === 'normal') {
@@ -101,9 +110,7 @@ const typeStyle = computed(() => {
       borderRadius: '4px !important',
     }
   };
-
-  // 如果 type 在 typeStyles 中有对应的样式，则返回对应的样式；否则返回空对象
-  return typeStyles[type] || {};
+    return typeStyles[type] || {};
 });
 
 
@@ -121,4 +128,48 @@ const applyReactStyles = (effect) => {
     Object.assign(target.style, styles[effect]);
   }
 };
+
+// 新增一个 reactive 变量来存储 API 返回的数据
+const apiData = ref({});
+
+// 定义一个函数来获取 API 数据
+const handleApiData = (data) => {
+  if (type === "api") {
+    buttonData.value.text = data.name;
+    buttonData.value.class = data.message;
+    buttonData.value.type = data.type;
+    if (data.message === "200" && data.type === "success") {
+      buttonData.value.classes['ql-button--' + buttonData.value.type] = true;
+    }
+  } else {
+    buttonData.value.text = text;
+  }
+};
+
+const fetchApiData = async () => {
+  try {
+    const response = await fetch(api);
+    const data = await response.json();
+    handleApiData(data);
+  } catch (error) {
+    console.error('Error fetching API data:', error);
+  }
+};
+
+
+
+// 在组件加载时调用 fetchApiData
+onMounted(() => {
+  fetchApiData();
+});
+
+// 监听 apiData 的变化，如果 message 为 200，则应用按钮的 name
+watch(apiData, (newData) => {
+  if (newData.message === '200') {
+    // 应用按钮的 name
+    // 你可以在这里使用 newData.name 做进一步的操作
+    // 例如将 newData.name 赋值给文本组件的 props
+    text.value = newData.name;
+  }
+});
 </script>

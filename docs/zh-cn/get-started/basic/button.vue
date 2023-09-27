@@ -2,6 +2,7 @@
   <div>
     <ql-divide wide="100px" src="https://github.com/jsrac/qionglou/assets/57232813/e5701966-595f-417f-a588-1c46bd89fffc" />
     <ql-button @click="handleClick" size="large" text="Default" :react="reactStyles" />
+<!--    <ql-button @click="handleClick" size="normal" text="Default" type="api" />-->
     <ql-button @click="handleClick" text="Primary" type="primary" />
     <ql-button @click="handleClick" text="Success" type="success" />
     <ql-button @click="handleClick" text="Warning" type="warning" />
@@ -12,7 +13,6 @@
 <script setup lang="ts">
 import { QlButton } from '@qionglou/components/button'
 import { QlDivide } from '@qionglou/components/divide'
-import { QlPer } from '@qionglou/components/per'
 
 const reactStyles = {
   hover: {

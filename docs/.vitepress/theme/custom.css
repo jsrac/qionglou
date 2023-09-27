@@ -23,7 +23,7 @@ badge[type=in]::before {
   padding: 0;
 }
 .vp-doc div {
-  border-radius: 2px !important;
+  /*border-radius: 2px !important;*/
 }
 .custom-block {
   border-radius: 2px !important;

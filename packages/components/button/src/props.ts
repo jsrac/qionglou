@@ -26,6 +26,7 @@ export type PropsType = {
   color: Prop<string>
   weight: Prop<string>
   react: Prop<string>
+  api: Prop<string>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -34,6 +35,10 @@ export const Props = {
   size: {
     type: String as Prop<ButtonSize>,
     default: 'normal'
+  },
+  api: {
+    type: String as Prop<string>,
+    default: 'https://e8d5a602-113e-478a-bf2b-0f6ca83dd51c.mock.pstmn.io'
   },
   text: {
     type: String as Prop<string>,
@@ -62,7 +67,8 @@ export const Props = {
       'warning',
       'danger',
       'info',
-      'text'
+      'text',
+      'api'
     ] as ButtonType[],
     default: 'default',
   },
