@@ -38,7 +38,7 @@ export const Props = {
   },
   api: {
     type: String as Prop<string>,
-    default: 'https://e8d5a602-113e-478a-bf2b-0f6ca83dd51c.mock.pstmn.io'
+    default: ''
   },
   text: {
     type: String as Prop<string>,
