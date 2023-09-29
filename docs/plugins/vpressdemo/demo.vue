@@ -337,10 +337,6 @@ export default {
   background-color: inherit !important;
 }
 
-.__vpdemo-show-code pre.shiki {
-  //padding-top: 0 !important;
-}
-
 .dark .__vpdemo-control {
   border-top: 1px solid #2E2E32;
 }

@@ -4,7 +4,7 @@
 
 您可以访问[贡献指南](dev_guides.md)或查阅我们的使用文档来开始进一步的操作。
 
-```ssh
+```
 pnpm install qionglou
 ```
 

@@ -71,10 +71,6 @@
       default: ''
     }
   })
-
-  onMounted(async () => {
-    await applyHome()
-  })
 </script>
 
 <style scoped lang="scss">

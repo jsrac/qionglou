@@ -2,16 +2,16 @@
   <div class="qldocs-ads"
        @click="adsClosure"
        ref="buttonRef">
-    <a :href="this.href" target="_blank">
-      <img :src="this.src">
+    <a :href="href || ''" target="_blank">
+      <img :src="src">
     </a>
   </div>
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue';
+import { ref } from 'vue';
 
-export default defineComponent({
+export default {
   name: 'QlDocAds',
   props: {
     href: {
@@ -36,7 +36,7 @@ export default defineComponent({
 
     return { buttonRef, adsClosure };
   }
-})
+}
 </script>
 
 <style scoped>

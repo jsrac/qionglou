@@ -14,7 +14,7 @@
 <demo src="./button.vue" desc="使用 `ql-button` 标签来创建一个按钮。你可以通过不同的属性来定制按钮的外观和行为。"></demo>
 
 ## 自定义示例
-<img src="../../../public/docs/zh-cn/button-padding.svg">
+<img src="/docs/zh-cn/button-padding.svg">
 
 我们通常为每个组件提供 3 到 5 个预设样式,未来会由社区维护提供 7 到 8 个预设(并持续扩展)。如果社区提供的预设无法满足您的需求,您也可以直接传入键值对进行自定义（如上图自定义 size 那样）。
 
