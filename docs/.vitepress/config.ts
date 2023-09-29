@@ -50,7 +50,7 @@ export default defineConfig({
       },
       {
         text: 'Editor',
-        link: '/zh-cn/components/index'
+        link: '/editor'
       },
       {
         text: 'Community',

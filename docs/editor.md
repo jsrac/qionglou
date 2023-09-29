@@ -2,4 +2,3 @@
 lang: en
 ---
 
-<Editor />
