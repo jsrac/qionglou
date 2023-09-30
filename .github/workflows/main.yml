@@ -1,4 +1,4 @@
-name: QiongLou Action
+name: Qionglou Action
 
 on:
   push:
@@ -31,10 +31,10 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v1
         with:
-          path: docs/docs/.vitepress/dist
+          path: docs/.vitepress/dist
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: docs/docs/.vitepress/dist
+          publish_dir: docs/.vitepress/dist
