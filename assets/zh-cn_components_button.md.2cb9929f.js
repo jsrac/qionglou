@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as n}from"./chunks/framework.682d4684.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/components/button.md"}'),o={name:"zh-cn/components/button.md"};function a(c,r,s,p,_,m){return n(),e("div")}const f=t(o,[["render",a]]);export{i as __pageData,f as default};

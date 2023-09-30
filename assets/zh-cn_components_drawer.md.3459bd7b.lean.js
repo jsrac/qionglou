@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as r}from"./chunks/framework.b4c84a51.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/components/drawer.md"}'),a={name:"zh-cn/components/drawer.md"};function n(o,c,s,p,d,_){return t(),r("div")}const f=e(a,[["render",n]]);export{i as __pageData,f as default};
