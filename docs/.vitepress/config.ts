@@ -3,6 +3,7 @@ import { defineConfig } from 'vitepress'
 import vpressdemo from "../plugins/vpressdemo";
 
 export default defineConfig({
+  head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
   locales: {
     root: {
       label: 'English',
