@@ -1,6 +1,7 @@
 <template>
   <div class="home-layout">
     <div class="canvas-body">
+      <div v-if="loading" class="loading"></div>
       <canvas class="canvas3d" ref="canvas3d" id="canvas3d"></canvas>
     </div>
     <div class="ql-home">
@@ -48,10 +49,15 @@
   import { Application } from '@splinetool/runtime'
 
   const canvas3d = ref(null)
+  const loading = ref(true);
+
   onMounted(() => {
     const app = new Application(canvas3d.value)
-    app.load('https://prod.spline.design/tuCZo1YVk-AJCBzr/scene.splinecode')
+    app.load('https://prod.spline.design/tuCZo1YVk-AJCBzr/scene.splinecode').then(() => {
+      loading.value = false;
+    });
   })
+
 
   const props = defineProps({
     titleContent: {
@@ -74,6 +80,13 @@
 </script>
 
 <style scoped lang="scss">
+  .loading {
+    height: 100%;
+    display: block;
+    background-image: url("/home/loading-images.webp");
+    position: relative;
+    z-index: -11130;
+  }
   $width: 80%;
   $offset: 64px;
 

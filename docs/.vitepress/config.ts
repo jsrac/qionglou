@@ -26,8 +26,8 @@ export default defineConfig({
   },
   themeConfig: {
     logo: {
-      light: '/logo/light.png',
-      dark: '/logo/dark.png'
+      light: '/logo/light.webp',
+      dark: '/logo/dark.webp'
     },
     siteTitle: false,
     nav: [
