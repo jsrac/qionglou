@@ -24,7 +24,6 @@
 import QlDocAds from '../../../plugins/QlDocAds.vue';
 </script>
 
-<QlDocAds />
 
 ## 属性
 

@@ -74,7 +74,7 @@
     },
     todcoTo: {
       type: String,
-      default: ''
+      default: '/zh-cn/get-started/'
     }
   })
 </script>
@@ -119,7 +119,7 @@
       padding: 1vw;
       border-radius: 11px;
       /* font-weight: 200; */
-      font-size: 1.05vw;
+      font-size: 1.05em;
       display: inline-flex;
       align-items: center;
       transition: 0.9s ease;

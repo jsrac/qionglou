@@ -1,13 +1,17 @@
 <template>
   <!-- Conditional div with dynamic class and style bindings
   条件性的div，带有动态的类和样式绑定 -->
-  <div class="ql-button"
+  <div class="ql-button" v-if="type === 'icon'">
+    <ql-icon type="img" :src="src" :wide="wide">
+    </ql-icon>
+  </div>
+  <div class="ql-button" v-else-if="type === 'default'"
        ref="buttonRef"
        @mouseenter="applyReactStyles('hover')"
        @mouseleave="applyReactStyles('reset')"
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
-       :style="[buttomSize, typeStyle, customStyles, buttonData.apiStyle]"
+       :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
   >
     <ql-text
         :url="url"
@@ -21,9 +25,11 @@
 
 <script setup lang="ts">
 import QlText from "../../text";
+import QlIcon from "../../icon";
 import { computed, ref, onMounted, watch } from "vue";
 import { Props, Emits } from './props';
 import { MouseEvent } from "happy-dom";
+import {src} from "gulp";
 
 // Define component options
 // 定义组件选项
@@ -46,7 +52,7 @@ const handleClick = (evt: MouseEvent) => {
 
 // Destructure props for easier access
 // 解构属性以便更容易访问
-const { type, react, size, text, url, weight, font, color, plain, round, circle, disabled, link , api} = props
+const { type, state ,react, size, src, text, url, weight, font, color, plain, round, circle, disabled, link , api, wide} = props
 const reactStyles = ref(react);
 
 // Create a reactive object to store button data
@@ -55,7 +61,7 @@ const buttonData = ref({
   text: "",
   classes: {},
   class: "",
-  type: "",
+  state: "",
   apiStyle: {}
 });
 
@@ -85,10 +91,10 @@ const buttomSize = computed(() => {
   }
 })
 
-// Compute button type specific styles
+// Compute button state specific styles
 // 根据按钮类型计算特定样式
-const typeStyle = computed(() => {
-  const typeStyles = {
+const stateStyle = computed(() => {
+  const stateStyles = {
     default: {
       border: '1.5px solid #DADCE0',
       fontWeight: '500',
@@ -120,13 +126,13 @@ const typeStyle = computed(() => {
       borderRadius: '4px !important',
     }
   };
-    return typeStyles[type] || {};
+    return stateStyles[state] || {};
 });
 
 // Compute styles based on the API response
 // 根据 API 响应计算样式
 const computeApiStyle = () => {
-  const typeStyles = {
+  const stateStyles = {
     default: {
       border: '1.5px solid #DADCE0',
       fontWeight: '500',
@@ -158,14 +164,15 @@ const computeApiStyle = () => {
       borderRadius: '4px !important',
     }
   };
-  return typeStyles[buttonData.value.type] || {};
+  return stateStyles[buttonData.value.state] || {};
 };
 
-// Compute custom styles if type is an object
-// 如果 type 是对象，则计算自定义样式
+
+// Compute custom styles if state is an object
+// 如果 state 是对象，则计算自定义样式
 const customStyles = computed(() => {
-  if (typeof type === 'object') {
-    return type;
+  if (typeof state === 'object') {
+    return state;
   } else {
     return {};
   }
@@ -191,7 +198,7 @@ const handleApiData = (data) => {
   if (type === "api") {
     buttonData.value.text = data.name;
     buttonData.value.class = data.message;
-    buttonData.value.type = data.type;
+    buttonData.value.state = data.state;
     if (data.message === "200") {
       buttonData.value.apiStyle = computeApiStyle();
     } else {

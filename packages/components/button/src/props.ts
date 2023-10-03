@@ -4,7 +4,7 @@ import { Prop } from 'vue'
 
 // Defining the type for props.
 // 为props定义类型
-export type ButtonType =
+export type ButtonState =
     | 'default'
     | 'primary'
     | 'success'
@@ -14,11 +14,12 @@ export type ButtonType =
     | 'text'
 
 export type ButtonSize = 'large' | 'normal' | 'small' | 'mini'
+export type ButtonType = 'api' | 'default' | 'icon' | 'font'
 
 // Define the type of props.ts for Button component
 // 定义按钮组件的属性类型
 export type PropsType = {
-  type: Prop<ButtonType | object>
+  state: Prop<ButtonState | object>
   size: Prop<ButtonSize>
   text: Prop<string>
   url: Prop<string>
@@ -26,7 +27,9 @@ export type PropsType = {
   color: Prop<string>
   weight: Prop<string>
   react: Prop<string>
+  wide: Prop<string | number>,
   api: Prop<string>
+  src: Prop<string>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -48,6 +51,10 @@ export const Props = {
     type: String as Prop<string>,
     default: ''
   },
+  src: {
+    type: String as Prop<string>,
+    default: ''
+  },
   weight: {
     type: String as Prop<string>,
     default: '500'
@@ -56,10 +63,11 @@ export const Props = {
     type: String as Prop<string>,
     default: '',
   },
+
   // Type of button (e.g., primary, success, danger)
   // 按钮类型（如：primary、success、danger）
-  type: {
-    type: String as Prop<ButtonType | object>,
+  state: {
+    type: String as Prop<ButtonState | object>,
     values: [
       'default',
       'primary',
@@ -69,6 +77,31 @@ export const Props = {
       'info',
       'text',
       'api'
+    ] as ButtonState[],
+    default: 'default',
+  },
+  wide: {
+    type: [String, Number] as Prop<string | number>, // Type of the width is string or number
+    // 宽度的类型为字符串或数字
+    default: 'medium', // Default value is 'medium'
+    // 默认值为 'medium'
+    validator: (value: string | number) => {
+      if (typeof value === 'string') {
+        return ['small', 'medium', 'large'].includes(value)
+      } else if (typeof value === 'number') {
+        return value >= 0;
+      }
+      return false;
+    } // Custom validator
+    // 自定义验证器
+  },
+  type: {
+    type: String as Prop<ButtonType | object>,
+    values: [
+      'api',
+      'default',
+      'icon',
+      'font',
     ] as ButtonType[],
     default: 'default',
   },
