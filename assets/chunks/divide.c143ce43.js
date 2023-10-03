@@ -1,1 +1,0 @@
-import{_ as o}from"./divide.vue_vue_type_script_setup_true_lang.994f71c1.js";import"./text.vue_vue_type_script_setup_true_lang.5a1a4ede.js";import"./framework.682d4684.js";import"./icon.vue_vue_type_script_setup_true_lang.3eb05da4.js";import"./index.ee0efade.js";export{o as default};
