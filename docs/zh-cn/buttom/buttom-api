@@ -1,0 +1,28 @@
+{
+    "name": "User Center",
+    "message": "200",
+    "state": "default",
+    "cluster": {
+        "name": "Main Cluster",
+        "nodes": [
+            {
+                "id": "node398",
+                "ip": "203.0.113.101",
+                "status": "active",
+                "load": "30%"
+            },
+            {
+                "id": "node2",
+                "ip": "192.168.1.102",
+                "status": "active",
+                "load": "25%"
+            },
+            {
+                "id": "node3",
+                "ip": "192.168.1.103",
+                "status": "inactive",
+                "load": "0%"
+            }
+        ]
+    }
+}
