@@ -16,7 +16,7 @@
       </ql-text>
       <!-- Render additional text for the icon -->
       <!-- 渲染图标的附加文本-->
-      <ql-text
+      <ql-text :style="[marginText]"
           :weight="weight"
           :size="size"
           :color="color"
@@ -32,7 +32,7 @@
       <img :src="src" :alt="alt" :style="{ width: widthSize, height: highSize }" />
       <!-- Render additional text for the icon -->
       <!-- 渲染图标的附加文本-->
-      <ql-text :style="[marginText]"
+      <ql-text :style="[customStyles, layoutStyle]"
           :weight="weight"
           :size="size"
           :color="color"
@@ -112,6 +112,14 @@ const marginText = computed(() => {
   // If type has a corresponding style in typeStyles, the corresponding style is returned; otherwise, an empty object
   // is returned
   return layoutStyle[layout] || {};
+});
+
+const customStyles = computed(() => {
+  if (typeof layout === 'object') {
+    return layout;
+  } else {
+    return {};
+  }
 });
 // Calculate height size
 // 计算高度尺寸

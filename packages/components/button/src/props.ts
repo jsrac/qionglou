@@ -30,6 +30,7 @@ export type PropsType = {
   wide: Prop<string | number>,
   api: Prop<string>
   src: Prop<string>
+  layout: Prop<string | object>
 }
 // Exporting the props with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -63,7 +64,10 @@ export const Props = {
     type: String as Prop<string>,
     default: '',
   },
-
+  layout: {
+    type: String as Prop<string | object>,
+    default: '',
+  },
   // Type of button (e.g., primary, success, danger)
   // 按钮类型（如：primary、success、danger）
   state: {

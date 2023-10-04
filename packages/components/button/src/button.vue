@@ -2,10 +2,21 @@
   <!-- Conditional div with dynamic class and style bindings
   条件性的div，带有动态的类和样式绑定 -->
   <div class="ql-button" v-if="type === 'icon'">
-    <ql-icon type="img" :src="src" :wide="wide">
-    </ql-icon>
+    <!-- Check if alt prop is provided -->
+    <ql-icon v-if="!text" type="img" :src="src" :wide="wide" />
+    <div v-else
+         class="ql-button"
+         ref="buttonRef"
+         @mouseenter="applyReactStyles('hover')"
+         @mouseleave="applyReactStyles('reset')"
+         @mousedown="applyReactStyles('active')"
+         @mouseup="applyReactStyles('mouseUp')"
+         :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
+    >
+      <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
+    </div>
   </div>
-  <div class="ql-button" v-else-if="type === 'default'"
+  <div class="ql-button" v-else
        ref="buttonRef"
        @mouseenter="applyReactStyles('hover')"
        @mouseleave="applyReactStyles('reset')"
@@ -52,7 +63,7 @@ const handleClick = (evt: MouseEvent) => {
 
 // Destructure props for easier access
 // 解构属性以便更容易访问
-const { type, state ,react, size, src, text, url, weight, font, color, plain, round, circle, disabled, link , api, wide} = props
+const { type, state ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide} = props
 const reactStyles = ref(react);
 
 // Create a reactive object to store button data
