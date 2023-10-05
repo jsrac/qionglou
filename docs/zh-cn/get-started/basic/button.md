@@ -10,8 +10,9 @@
 
 :::
 
-<test></test>
-<demo src="./button.vue" desc="使用 `ql-button` 标签来创建一个按钮。你可以通过不同的属性来定制按钮的外观和行为。"></demo>
+<demo src="./code/button-state.vue" desc="使用 `ql-button` 标签来创建一个按钮。你可以通过琼楼提供的不同属性来定制按钮的外观和行为（如 `state`）在默认的情况下，琼楼提供了七种状态和类型，并支持传入 Object 进行状态和按钮反应的自定义修改。" title="按钮状态" name="state"></demo>
+<demo src="./code/button-type.vue" desc="琼楼提供四种按钮类型，分为 API（按钮状态、信息由 API 进行解析）、[Icon+文字（支持自定义字体）、Icon（Img/Font)]，可以根据不同场景应用与之匹配的按钮类型" title="按钮类型" name="type"></demo>
+
 
 ## 自定义示例
 <img src="/docs/zh-cn/buttom/button-padding.svg">

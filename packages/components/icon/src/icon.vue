@@ -2,7 +2,7 @@
   <!-- Icon container -->
   <!-- 图标容器 -->
   <div class="icon-container">
-    <div v-if="type === 'font'" class="ql-icon_font">
+    <div v-if="type === 'font'" class="ql-icon_fon 111t" style="display: flex" :style="[layoutStyle]">
       <!-- Render Font Icon using QlText component -->
       <!-- 使用 QlText 组件渲染字体图标 -->
       <ql-text
@@ -14,17 +14,11 @@
       >
         {{ src }}
       </ql-text>
-      <!-- Render additional text for the icon -->
-      <!-- 渲染图标的附加文本-->
-      <ql-text :style="[marginText]"
-          :weight="weight"
-          :size="size"
-          :color="color"
-          :url="url"
-          :font="font"
-      >
-        {{ alt }}
-      </ql-text>
+      <div :style="[customStyles]">
+        <slot
+        >
+        </slot>
+      </div>
     </div>
     <div v-else-if="type === 'img'" class="ql-icon" :style="[layoutStyle]">
       <!-- Render Image Icon with optional QlText component -->

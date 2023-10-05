@@ -44,6 +44,10 @@ export const Props = {
     type: String as Prop<string>,
     default: ''
   },
+  url: {
+    type: String as Prop<string>,
+    default: ''
+  },
   text: {
     type: String as Prop<string>,
     default: ''

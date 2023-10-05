@@ -1,16 +1,11 @@
 <template>
   <div class="demo">
-    <ql-divide
-        wide="100px"
-        src="https://github.com/jsrac/qionglou/assets/57232813/e5701966-595f-417f-a588-1c46bd89fffc"
-    />
-    <ql-button class="button"
-               @click="handleClick"
-               size="normal"
-               text="Default"
-               type="api"
-               api="/docs/zh-cn/buttom/buttom-api"
-               :react="reactStyles"
+    <ql-button
+        class="button"
+        @click="handleClick"
+        size="large"
+        text="Default"
+        :react="reactStyles"
     />
     <ql-button
         class="button"
@@ -36,33 +31,11 @@
         text="Danger"
         :state="typeStyles.danger"
     />
-    <ql-divide
-        wide="100px"
-        src="https://github.com/jsrac/qionglou/assets/57232813/e5701966-595f-417f-a588-1c46bd89fffc"
-    />
-    <div class="buttom-icon">
-      <ql-button
-          class="button"
-          @click="handleClick"
-          type="icon"
-          wide="60px"
-          src="https://github.com/jsrac/qionglou/assets/57232813/117e82a5-cbb5-4678-82b5-b1d37a3d2926"
-      />
-      <ql-button
-          class="button"
-          @click="handleClick"
-          text="Close with comment"
-          type="icon" wide="25px"
-          src="/docs/zh-cn/buttom/icon-alt.svg"
-          :layout="layoutStyle.layout"
-      />
-    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { QlButton } from '@qionglou/components/button'
-import { QlDivide } from '@qionglou/components/divide'
 
 const reactStyles = {
   hover: {
@@ -113,13 +86,8 @@ const handleClick = () => {
 <style scoped>
   .demo {
     padding: 0;
-    transform: scale(0.9)
   }
   .demo .button {
     margin: 3px !important;
-  }
-  .buttom-icon {
-    display: flex;
-    align-items: center;
   }
 </style>

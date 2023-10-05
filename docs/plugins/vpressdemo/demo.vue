@@ -20,6 +20,8 @@ export default {
     htmlStr: String,
     description: String,
     codePath: String,
+    title: String,
+    name: String,
     language: { default: "vue", type: String },
   },
   // Component setup
@@ -115,11 +117,15 @@ export default {
       <div v-html="decodedCodeStr" v-else></div>
       <!-- Description -->
       <!-- 描述 -->
+      <div style="display: flex;align-items: center;height: 50px;">
+        <p style="font-weight: 500;color: #767676;">{{ title }}</p><span style="margin-left: 7px;color: #cbcbcb;text-transform: capitalize;">{{ name }}</span>
+      </div>
       <div
         class="__vpdemo-show_desc"
         v-show="decodedDesc"
         v-html="decodedDesc"
       ></div>
+
     </div>
     <!-- Expanded code block -->
     <!-- 展开的代码块 -->
@@ -257,13 +263,13 @@ export default {
 .__vpdemo-show_desc {
   border-top: dashed 1px var(--vpdemo-c-divider-light);
   box-sizing: border-box;
-  line-height: 28px;
+  padding-top: 12px;
+  line-height: 27px;
   color: var(--vpdemo-c-text-2);
   word-break: break-word;
-  margin-top: 20px;
   margin-bottom: -15px;
   /* background-color: var(--vp-c-bg-soft); */
-  font-size: 80%;
+  font-size: 90%;
 }
 .dark .__vpdemo-show_desc {
   color: #DFDFD8;

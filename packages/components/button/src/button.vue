@@ -16,6 +16,29 @@
       <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
     </div>
   </div>
+    <!-- Check if alt prop is provided -->
+    <div
+        v-else-if="type === 'font'"
+         class="ql-button"
+         ref="buttonRef"
+         @mouseenter="applyReactStyles('hover')"
+         @mouseleave="applyReactStyles('reset')"
+         @mousedown="applyReactStyles('active')"
+         @mouseup="applyReactStyles('mouseUp')"
+         :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
+    >
+      <ql-icon
+          type="font"
+          :src="buttonData.text"
+          :weight="weight"
+          :font="font"
+          :url="url"
+          :color="color"
+          :layout="layout"
+      >
+        <slot></slot>
+      </ql-icon>
+    </div>
   <div class="ql-button" v-else
        ref="buttonRef"
        @mouseenter="applyReactStyles('hover')"
