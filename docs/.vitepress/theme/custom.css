@@ -8,6 +8,12 @@ badge[type=in] {
 .VPCarbonAds {
 
 }
+.text span {
+  margin-left: 6px;
+  color: #cbcbcb;
+  font-size: 13px;
+  text-transform: capitalize;
+}
 badge[type=in]::before {
   content: "In Progress";
   width: auto;

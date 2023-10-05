@@ -67,7 +67,8 @@ export default defineConfig({
             text: '<b style="color: darkgrey">基础组件</b>',
             items: [
               {
-                text: '按钮',
+                text: '按钮' +
+                    '<span>button</span>',
                 link: '/zh-cn/get-started/basic/button'
               },
               {
