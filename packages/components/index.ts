@@ -25,6 +25,9 @@ export * from './button'
 import { QlDivide } from './divide'
 export * from './divide'
 
+import { QlTable } from './table'
+export * from './table'
+
 export default [
   QlFix,
   QlMain,
@@ -34,5 +37,6 @@ export default [
   QlLoading,
   QlButton,
   QlText,
-  QlDivide
+  QlDivide,
+  QlTable
 ]
