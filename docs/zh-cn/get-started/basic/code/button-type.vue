@@ -34,14 +34,12 @@
             url="https://fonts.cdnfonts.com/css/joystix">like</ql-text>
       </ql-button>
     </div>
-    <ql-table :columns="columns" :data="data" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { QlButton } from '@qionglou/components/button'
 import { QlText } from '@qionglou/components/text'
-import { QlTable } from '@qionglou/components/table'
 
 const reactStyles = {
   hover: {

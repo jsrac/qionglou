@@ -27,57 +27,46 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
 
+// 使用 ref 创建响应式变量
 const rows = ref([]);
 const isScrolling = ref(false);
 
+// 在组件挂载时执行
 onMounted(() => {
+  // 获取所有行并保存在 rows 变量中
   rows.value = Array.from(document.querySelectorAll('.row'));
   const rowHeight = getRowHeight();
   if (rowHeight > 0) {
-    // 设置行高
-    // 这里假设每行高度为30像素
+    // 设置表体高度，假设每行高度为30像素
     bodyHeight.value = pageSize * rowHeight;
   }
 });
 
+// 在组件销毁时执行
 onUnmounted(() => {
+  // 清空 rows 变量
   rows.value = [];
 });
 
-const data: { id: number, name: string, age: number }[] = [
-  { id: 1, name: 'John Doe', age: 1 },
-  { id: 2, name: 'Jane Smith', age: 2 },
-  { id: 3, name: 'John Doe', age: 3 },
-  { id: 4, name: 'Jane Smith', age: 4 },
-  { id: 5, name: 'John Doe', age: 5 },
-  { id: 6, name: 'Jane Smith', age: 6 },
-  { id: 7, name: 'John Doe', age: 7 },
-  { id: 8, name: 'Jane Smith', age: 9 },
-  { id: 9, name: 'John Doe', age: 10 },
-  { id: 10, name: 'Jane Smith', age: 11 },
-  { id: 11, name: 'John Doe', age: 12 },
-  { id: 12, name: 'Jane Smith', age: 13 },
-  { id: 13, name: 'John Doe', age: 14 },
-  { id: 14, name: 'Jane Smith', age: 15 },
-  { id: 15, name: 'John Doe', age: 16 },
-  { id: 16, name: 'Jane Smith', age: 17 },
-  { id: 17, name: 'John Doe', age: 18 },
-  { id: 18, name: 'Jane Smith', age: 19 },
-  { id: 19, name: 'John Doe', age: 20 },
-  { id: 20, name: 'Jane Smith', age: 21 },
-  { id: 21, name: 'John Doe', age: 22 },
-  { id: 22, name: 'Jane Smith', age: 23 },
-  { id: 23, name: 'John Doe', age: 24 },
-  { id: 24, name: 'Jane Smith', age: 25 },
-  { id: 25, name: 'John Doe', age: 26 },
-  // Copy the previous data entries to reach a total of 30 entries.
-  { id: 26, name: 'John Doe', age: 27 },
-  { id: 27, name: 'Jane Smith', age: 28 },
-  { id: 28, name: 'John Doe', age: 29 },
-  { id: 29, name: 'Jane Smith', age: 30 },
-  { id: 30, name: 'John Doe', age: 31 },
-];
+// 生成随机数据的函数
+const generateRandomData = (count: number) => {
+  const data = [];
 
+  for (let i = 1; i <= count; i++) {
+    data.push({
+      id: i,
+      name: `Person ${i}`,
+      age: Math.floor(Math.random() * 100) + 1 // 随机生成 1 到 100 的年龄
+    });
+  }
+
+  return data;
+};
+
+// 生成一亿条数据
+const data = generateRandomData(40);
+
+// 定义列的接口类型
 interface Column {
   key: string;
   label: string;
@@ -85,25 +74,35 @@ interface Column {
   sortable?: boolean; // 可选的可排序属性
 }
 
+// 列的配置信息
 const columns: Column[] = [
   { key: 'name', label: '姓名', width: 150, sortable: true },
   { key: 'age', label: '年龄', width: 80, sortable: false }
 ];
 
+// 每页显示的行数
 const pageSize: number = 10;
+
+// 当前页数，使用 ref 创建响应式变量
 const currentPage = ref(1);
+
+// 表体的 DOM 元素，使用 ref 创建响应式变量
 const body = ref<HTMLElement | null>(null);
 
+// 计算总页数
 const totalPages = computed(() => Math.ceil(data.length / pageSize));
 
-const bodyHeight = ref(pageSize * 30); // 假设每行高度为30像素
+// 表体的高度，假设每行高度为30像素，使用 ref 创建响应式变量
+const bodyHeight = ref(pageSize * 30);
 
+// 计算当前显示的数据
 const visibleData = computed(() => {
   const start = (currentPage.value - 1) * pageSize;
   const end = start + pageSize;
   return data.slice(start, end);
 });
 
+// 获取第一行的高度
 const getRowHeight = () => {
   if (rows.value.length > 0) {
     const firstRow = rows.value[0];
@@ -112,11 +111,13 @@ const getRowHeight = () => {
   return 0;
 };
 
+// 根据索引获取行的高度
 const getRowHeightByIdx = (index) => {
   const row = rows.value[index];
   return row ? row.clientHeight : 0;
 };
 
+// 处理滚动事件
 const handleScroll = () => {
   if (body.value && !isScrolling.value) {
     const scrollTop = body.value.scrollTop;
@@ -128,7 +129,9 @@ const handleScroll = () => {
       isScrolling.value = true;
       setTimeout(() => {
         console.log('yes');
-        currentPage.value = currentPage.value + 1; // 将当前页面增加1
+        currentPage.value = currentPage.value + 1; // 增加当前页面
+        // 将滚动位置设置为表体的顶部
+        body.value.scrollTop = 0;
       }, 1000); // 等待1秒显示 "yes"，然后加载下一页
     } else {
       const rowHeight = getRowHeight();
@@ -145,18 +148,21 @@ const handleScroll = () => {
   isScrolling.value = false;
 };
 
+// 上一页按钮点击事件
 const prevPage = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
   }
 };
 
+// 下一页按钮点击事件
 const nextPage = () => {
   if (currentPage.value < totalPages.value) {
     currentPage.value++;
   }
 };
 
+// 函数节流
 const throttle = (func, wait) => {
   let timeout;
 
@@ -173,9 +179,11 @@ const throttle = (func, wait) => {
   };
 };
 
+// 对处理滚动事件进行节流
 const handleScrollThrottled = throttle(handleScroll, 200);
 
 </script>
+
 <style scoped>
 .table {
   border: 1px solid #ccc;

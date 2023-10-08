@@ -82,6 +82,16 @@ export default defineConfig({
             ]
           },
           {
+            text: '<b style="color: darkgrey">表单</b>',
+            items: [
+              {
+                text: '表格' +
+                    '<span>table</span>',
+                link: '/zh-cn/get-started/form/table'
+              }
+            ]
+          },
+          {
             text: '<b style="color: darkgrey">布局</b>',
             items: [
               { text: '区域布局', link: '/zh-cn/get-started/layout/fix' },
