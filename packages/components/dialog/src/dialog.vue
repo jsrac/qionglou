@@ -35,11 +35,11 @@
 
   // const dialogStyle = computed(() => {
   //   return {
-  //     width: props.ts.width,
-  //     height: props.ts.height,
-  //     top: props.ts.top,
-  //     left: props.ts.left,
-  //     zIndex: props.ts.zIndex,
+  //     width: props.ts.ts.width,
+  //     height: props.ts.ts.height,
+  //     top: props.ts.ts.top,
+  //     left: props.ts.ts.left,
+  //     zIndex: props.ts.ts.zIndex,
   //   }
   // })
 </script>

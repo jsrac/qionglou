@@ -17,15 +17,13 @@
       </div>
     </div>
     <!-- 分页 -->
-    <div class="pagination">
-      <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
-      <button @click="nextPage" :disabled="currentPage === totalPages">下一页</button>
-    </div>
+    <ql-pagination v-model:current="currentPage" :total="totalPages" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import QlPagination from "../../pagination";
 
 // 使用 ref 创建响应式变量
 const rows = ref([]);
@@ -102,6 +100,7 @@ const visibleData = computed(() => {
   return data.slice(start, end);
 });
 
+
 // 获取第一行的高度
 const getRowHeight = () => {
   if (rows.value.length > 0) {
@@ -109,12 +108,6 @@ const getRowHeight = () => {
     return firstRow.clientHeight;
   }
   return 0;
-};
-
-// 根据索引获取行的高度
-const getRowHeightByIdx = (index) => {
-  const row = rows.value[index];
-  return row ? row.clientHeight : 0;
 };
 
 // 处理滚动事件
@@ -147,21 +140,6 @@ const handleScroll = () => {
   // 在处理完滚动事件后将其设置回 false
   isScrolling.value = false;
 };
-
-// 上一页按钮点击事件
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--;
-  }
-};
-
-// 下一页按钮点击事件
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value++;
-  }
-};
-
 // 函数节流
 const throttle = (func, wait) => {
   let timeout;

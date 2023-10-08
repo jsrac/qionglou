@@ -1,7 +1,7 @@
 import { Prop } from 'vue'
 
-// Define the types for props
-// 定义 props 的类型
+// Define the types for props.ts
+// 定义 props.ts 的类型
 export type PropsType = {
     src: Prop<string>, // The source of the icon
                       // 图标的源文件路径
@@ -28,8 +28,8 @@ export type PropsType = {
     layout: Prop<string | object>
 }
 
-// Define the props with their types and default values
-// 使用其类型和默认值定义 props
+// Define the props.ts with their types and default values
+// 使用其类型和默认值定义 props.ts
 export const Props = {
     src: {
         type: String as Prop<string>, // Type of the source is string

@@ -25,7 +25,7 @@ import { PropsType } from './props';
 // 定义组件选项
 defineOptions({ name: 'QlPer' })
 
-// Define props from parent
+// Define props.ts from parent
 // 从父级定义props
 const props = defineProps<PropsType>();
 

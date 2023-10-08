@@ -1,7 +1,7 @@
 import { Prop } from 'vue'
 
 // Prop types definition
-// props 的类型定义
+// props.ts 的类型定义
 export type PropsType = {
 
     theme: Prop<string | object>,
@@ -22,8 +22,8 @@ export type PropsType = {
 
 }
 
-// Export props with validation and default values
-// 导出带有验证和默认值的 props
+// Export props.ts with validation and default values
+// 导出带有验证和默认值的 props.ts
 export const Props = {
 
     // Theme

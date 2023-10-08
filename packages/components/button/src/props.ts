@@ -1,8 +1,8 @@
-// Define the types for Button component props.ts
+// Define the types for Button component props.ts.ts
 // 定义按钮组件的属性类型
 import { Prop } from 'vue'
 
-// Defining the type for props.
+// Defining the type for props.ts.
 // 为props定义类型
 export type ButtonState =
     | 'default'
@@ -16,7 +16,7 @@ export type ButtonState =
 export type ButtonSize = 'large' | 'normal' | 'small' | 'mini'
 export type ButtonType = 'api' | 'default' | 'icon' | 'font'
 
-// Define the type of props.ts for Button component
+// Define the type of props.ts.ts for Button component
 // 定义按钮组件的属性类型
 export type PropsType = {
   state: Prop<ButtonState | object>
@@ -32,7 +32,7 @@ export type PropsType = {
   src: Prop<string>
   layout: Prop<string | object>
 }
-// Exporting the props with their respective validations and defaults.
+// Exporting the props.ts with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
 // @ts-ignore
 export const Props = {

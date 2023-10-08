@@ -1,8 +1,8 @@
-// Importing the 'Prop' type from Vue for typing props.ts.
+// Importing the 'Prop' type from Vue for typing props.ts.ts.
 // 从Vue中导入'Prop'类型，用于为props定义类型。
 import { Prop } from 'vue'
 
-// Defining the type for props.
+// Defining the type for props.ts.
 // 为props定义类型。
 export type PropsType = {
     wide: Prop<string>,
@@ -14,7 +14,7 @@ export type PropsType = {
     left: Prop<string | number>,
 }
 
-// Exporting the props with their respective validations and defaults.
+// Exporting the props.ts with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
 export const Props = {
     wide: {

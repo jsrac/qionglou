@@ -13,7 +13,7 @@ const modules = import.meta.glob("../../../**/*.vue");
 const timerMap = new Map();
 
 export default {
-  // Component props
+  // Component props.ts
   // 组件属性
   props: {
     codeStr: String,
@@ -27,7 +27,7 @@ export default {
   // Component setup
   // 组件配置
   setup(props, content) {
-    // Destructure props and slots
+    // Destructure props.ts and slots
     // 解构属性和插槽
     const { codePath, codeStr, htmlStr, description } = props;
     const { slots } = content;

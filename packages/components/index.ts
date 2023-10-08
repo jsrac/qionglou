@@ -28,6 +28,8 @@ export * from './divide'
 import { QlTable } from './table'
 export * from './table'
 
+import { QlPagination } from './pagination'
+export * from './pagination'
 export default [
   QlFix,
   QlMain,
@@ -38,5 +40,6 @@ export default [
   QlButton,
   QlText,
   QlDivide,
-  QlTable
+  QlTable,
+  QlPagination
 ]

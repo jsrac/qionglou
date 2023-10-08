@@ -20,7 +20,7 @@
 
 import { computed, defineProps, onMounted } from 'vue';
 
-// Import props interface
+// Import props.ts interface
 // 导入属性接口
 import { Props } from "./props";
 
@@ -30,7 +30,7 @@ defineOptions({
   name: 'QlText'
 });
 
-// Get props
+// Get props.ts
 // 获取属性
 const props = defineProps(Props)
 

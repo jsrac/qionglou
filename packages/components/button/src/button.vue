@@ -73,7 +73,7 @@ defineOptions({ name: 'QlButton' })
 // 创建对按钮元素的引用
 const buttonRef = ref<HTMLElement | null>(null);
 
-// Define props.ts and emits
+// Define props.ts.ts and emits
 // 定义属性和发射器
 const props = defineProps(Props)
 const emits = defineEmits(Emits)
@@ -84,7 +84,7 @@ const handleClick = (evt: MouseEvent) => {
   emits('click', evt)
 }
 
-// Destructure props for easier access
+// Destructure props.ts for easier access
 // 解构属性以便更容易访问
 const { type, state ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide} = props
 const reactStyles = ref(react);
@@ -270,10 +270,10 @@ watch(apiData, (newData) => {
   if (newData.message === '200') {
     // Apply button name
     // You can perform further operations with newData.name here
-    // For example, assign newData.name to props of the text component
+    // For example, assign newData.name to props.ts of the text component
     // 应用按钮的 name
     // 你可以在这里使用 newData.name 做进一步的操作
-    // 例如将 newData.name 赋值给文本组件的 props
+    // 例如将 newData.name 赋值给文本组件的 props.ts
     text.value = newData.name;
   }
 });
