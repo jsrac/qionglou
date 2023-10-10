@@ -17,12 +17,14 @@
       </div>
     </div>
     <!-- 分页 -->
-    <ql-pagination v-model:current="currentPage" :total="totalPages" />
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" />
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" layout="abridge" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { updateCurrentPage } from '../../pagination/src/updateCurrentPage';
 import QlPagination from "../../pagination";
 
 // 使用 ref 创建响应式变量
@@ -110,8 +112,8 @@ const getRowHeight = () => {
   return 0;
 };
 
+
 // 处理滚动事件
-// 处理滚动事件的回调函数
 const handleScroll = () => {
   if (body.value && !isScrolling.value) {
     const scrollTop = body.value.scrollTop;
@@ -119,15 +121,14 @@ const handleScroll = () => {
     const clientHeight = body.value.clientHeight;
     const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-    if (atBottom && currentPage.value !== totalPages.value && !isScrolling.value) {
+    if (atBottom && currentPage.value !== totalPages.value) {
       isScrolling.value = true;
-      currentPage.value = currentPage.value + 1;
-      body.value.scrollTop = 0;
-
-      // 使用 requestAnimationFrame 替代 setTimeout
-      requestAnimationFrame(() => {
-        isScrolling.value = false;
-      });
+      setTimeout(() => {
+        currentPage.value = currentPage.value + 1; // 增加当前页面
+        // 将滚动位置设置为表体的顶部
+        body.value.scrollTop = 0;
+        updateCurrentPage(currentPage.value); // 通知分页组件更新
+      }, 1000);
     } else {
       const rowHeight = getRowHeight();
       if (rowHeight > 0) {
@@ -135,13 +136,14 @@ const handleScroll = () => {
         const newPage = Math.ceil(start / pageSize) + 1;
         if (newPage !== currentPage.value) {
           currentPage.value = newPage;
+          updateCurrentPage(newPage); // 通知分页组件更新
         }
       }
     }
   }
+  // 在处理完滚动事件后将其设置回 false
   isScrolling.value = false;
 };
-
 // 函数节流
 const throttle = (func, wait) => {
   let timeout;
@@ -193,11 +195,6 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 .row {
   display: flex;
   border-bottom: 1px solid #ccc;
-}
-
-.pagination {
-  text-align: center;
-  margin-top: 10px;
 }
 
 button {

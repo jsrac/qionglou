@@ -1,41 +1,57 @@
 <template>
   <div class="pagination">
+    <!-- 首页按钮 -->
     <button @click="goToPage(1)">首页</button>
-    <button @click="prevPage" :disabled="currentPage === '1'">上一页</button>
+    <!-- 上一页按钮 -->
+    <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
+
+    <!-- 使用 abridge 布局时显示的页码 -->
     <template v-if="layout === 'abridge'">
+      <!-- 显示第一页按钮 -->
       <button v-if="displayedPages[0] !== 1">1</button>
+      <!-- 显示省略号 -->
       <span v-if="displayedPages[0] > 2">...</span>
-      <button v-for="page in displayedPages" :key="page" @click="goToPage(page)">
+      <!-- 显示页码按钮 -->
+      <button
+          v-for="page in displayedPages"
+          :key="page"
+          @click="goToPage(page)"
+          :class="{ active: currentPage === page }"
+      >
         {{ page }}
       </button>
+      <!-- 显示省略号 -->
       <span v-if="displayedPages[displayedPages.length - 1] < total - 1">...</span>
+      <!-- 显示最后一页按钮 -->
       <button v-if="displayedPages[displayedPages.length - 1] !== total">{{ total }}</button>
     </template>
+
+    <!-- 使用非 abridge 布局时显示的页码 -->
     <template v-else>
-      <button v-for="page in total" :key="page" @click="goToPage(page)">
+      <button
+          v-for="page in total"
+          :key="page"
+          @click="goToPage(page)"
+          :class="{ active: currentPage === page }"
+      >
         {{ page }}
       </button>
     </template>
-    <button @click="nextPage" :disabled="current === total">下一页</button>
+
+    <!-- 下一页按钮 -->
+    <button @click="nextPage" :disabled="currentPage === total">下一页</button>
+    <!-- 尾页按钮 -->
     <button @click="goToPage(total)">尾页</button>
   </div>
 </template>
 
 <script setup>
-import {defineProps, ref, getCurrentInstance, watch, watchEffect} from 'vue';
-import { Props } from './props';
-defineOptions({ name: 'QlPagination' })
-const props = defineProps(Props)
+import { defineProps, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
+const { current, total, layout, showSeparator } = defineProps(['current', 'total', 'layout', 'showSeparator']);
+import { currentPage } from './updateCurrentPage.ts';
 
-const { current, total, layout, showSeparator } = props
-const currentPage = ref(current);
 const instance = getCurrentInstance();
 
-// 根据当前页和总页数计算需要显示的页码
-const displayedPages = ref([]);
-watch(() => current, (newValue) => {
-  currentPage.value = newValue;
-});
 
 // 计算当前显示的页码
 const calculateDisplayedPages = () => {
@@ -64,8 +80,21 @@ const calculateDisplayedPages = () => {
 
   return pages;
 };
-watchEffect(() => {
+
+const displayedPages = ref(calculateDisplayedPages());
+
+// 监听当前页和总页数的变化，重新计算需要显示的页码
+watch([current, total], () => {
+  currentPage.value = current;
   displayedPages.value = calculateDisplayedPages();
+});
+// 在父组件提供一个方法用于更新当前页
+const provideCurrentPage = () => {
+  instance?.appContext.app.emit('update:current', currentPage.value);
+};
+
+onMounted(() => {
+  provide('provideCurrentPage', provideCurrentPage);
 });
 
 const goToPage = (page) => {
@@ -74,14 +103,13 @@ const goToPage = (page) => {
     instance.emit('update:current', page); // 向父组件发送更新事件
   }
 };
+watch(currentPage, (newValue) => {
+  instance.emit('update:current', newValue);
+});
 
 const prevPage = () => {
   if (currentPage.value > 1) {
     currentPage.value--;
-    if (!displayedPages.value.includes(currentPage.value)) {
-      // 如果当前页不在显示的页码中，需要更新显示的页码
-      displayedPages.value = calculateDisplayedPages();
-    }
     instance.emit('update:current', currentPage.value);
   }
 };
@@ -89,18 +117,15 @@ const prevPage = () => {
 const nextPage = () => {
   if (currentPage.value < total) {
     currentPage.value++;
-    if (!displayedPages.value.includes(currentPage.value)) {
-      // 如果当前页不在显示的页码中，需要更新显示的页码
-      displayedPages.value = calculateDisplayedPages();
-    }
     instance.emit('update:current', currentPage.value);
   }
 };
 
-// 监听当前页和总页数的变化，重新计算需要显示的页码
-watch([current, total], () => {
-  displayedPages.value = calculateDisplayedPages();
+// 在组件挂载时执行
+onMounted(() => {
+  provide('provideCurrentPage', provideCurrentPage);
 });
+
 </script>
 
 <style scoped>
@@ -111,5 +136,9 @@ watch([current, total], () => {
 
 button {
   margin: 0 5px;
+}
+
+button.active {
+  font-weight: bold;
 }
 </style>
