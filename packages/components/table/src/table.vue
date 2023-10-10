@@ -62,7 +62,7 @@ const generateRandomData = (count: number) => {
 };
 
 // 生成一亿条数据
-const data = generateRandomData(40);
+const data = generateRandomData(90);
 
 // 定义列的接口类型
 interface Column {
@@ -111,6 +111,7 @@ const getRowHeight = () => {
 };
 
 // 处理滚动事件
+// 处理滚动事件的回调函数
 const handleScroll = () => {
   if (body.value && !isScrolling.value) {
     const scrollTop = body.value.scrollTop;
@@ -118,14 +119,15 @@ const handleScroll = () => {
     const clientHeight = body.value.clientHeight;
     const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-    if (atBottom && currentPage.value !== totalPages.value) {
+    if (atBottom && currentPage.value !== totalPages.value && !isScrolling.value) {
       isScrolling.value = true;
-      setTimeout(() => {
-        console.log('yes');
-        currentPage.value = currentPage.value + 1; // 增加当前页面
-        // 将滚动位置设置为表体的顶部
-        body.value.scrollTop = 0;
-      }, 1000); // 等待1秒显示 "yes"，然后加载下一页
+      currentPage.value = currentPage.value + 1;
+      body.value.scrollTop = 0;
+
+      // 使用 requestAnimationFrame 替代 setTimeout
+      requestAnimationFrame(() => {
+        isScrolling.value = false;
+      });
     } else {
       const rowHeight = getRowHeight();
       if (rowHeight > 0) {
@@ -137,9 +139,9 @@ const handleScroll = () => {
       }
     }
   }
-  // 在处理完滚动事件后将其设置回 false
   isScrolling.value = false;
 };
+
 // 函数节流
 const throttle = (func, wait) => {
   let timeout;
