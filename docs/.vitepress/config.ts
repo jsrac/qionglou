@@ -88,6 +88,16 @@ export default defineConfig({
                 text: '表格' +
                     '<span>table</span>',
                 link: '/zh-cn/get-started/form/table'
+              },
+              {
+                text: '分页' +
+                    '<span>pagination</span>',
+                link: '/zh-cn/get-started/form/pagination'
+              },
+              {
+                text: '输入框' +
+                    '<span>input</span>',
+                link: '/zh-cn/get-started/form/input'
               }
             ]
           },
