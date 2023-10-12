@@ -1,17 +1,9 @@
 <template>
   <div class="pagination">
-    <!-- 首页按钮 -->
     <button @click="goToPage(1)">首页</button>
-    <!-- 上一页按钮 -->
     <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
-
-    <!-- 使用 abridge 布局时显示的页码 -->
     <template v-if="layout === 'abridge'">
-      <!-- 显示第一页按钮 -->
-      <button v-if="displayedPages[0] !== 1">1</button>
-      <!-- 显示省略号 -->
       <span v-if="displayedPages[0] > 2">...</span>
-      <!-- 显示页码按钮 -->
       <button
           v-for="page in displayedPages"
           :key="page"
@@ -20,13 +12,8 @@
       >
         {{ page }}
       </button>
-      <!-- 显示省略号 -->
       <span v-if="displayedPages[displayedPages.length - 1] < total - 1">...</span>
-      <!-- 显示最后一页按钮 -->
-      <button v-if="displayedPages[displayedPages.length - 1] !== total">{{ total }}</button>
     </template>
-
-    <!-- 使用非 abridge 布局时显示的页码 -->
     <template v-else>
       <button
           v-for="page in total"
@@ -37,33 +24,30 @@
         {{ page }}
       </button>
     </template>
-
-    <!-- 下一页按钮 -->
     <button @click="nextPage" :disabled="currentPage === total">下一页</button>
-    <!-- 尾页按钮 -->
     <button @click="goToPage(total)">尾页</button>
   </div>
 </template>
 
 <script setup>
-import { defineProps, getCurrentInstance, onMounted, provide, ref, watch } from 'vue';
-const { current, total, layout, showSeparator } = defineProps(['current', 'total', 'layout', 'showSeparator']);
+import { defineProps, getCurrentInstance, provide, ref, watch } from 'vue';
+import { Props } from './props';
+const props = defineProps(Props);
 import { currentPage } from './updateCurrentPage.ts';
+
+const { current, total, layout } = props;
 
 const instance = getCurrentInstance();
 
-
-// 计算当前显示的页码
 const calculateDisplayedPages = () => {
   const totalPages = total;
-  const currentPage = current;
+  const thisPage = currentPage.value;
   const numAdjacent = 2;
 
-  let startPage = Math.max(1, currentPage - numAdjacent);
-  let endPage = Math.min(totalPages, currentPage + numAdjacent);
+  let startPage = Math.max(1, thisPage - numAdjacent);
+  let endPage = Math.min(totalPages, thisPage + numAdjacent);
 
   const pages = [];
-
   for (let i = startPage; i <= endPage; i++) {
     pages.push(i);
   }
@@ -77,55 +61,40 @@ const calculateDisplayedPages = () => {
     pages.push('...');
     pages.push(totalPages);
   }
-
   return pages;
 };
 
 const displayedPages = ref(calculateDisplayedPages());
 
-// 监听当前页和总页数的变化，重新计算需要显示的页码
 watch([current, total], () => {
   currentPage.value = current;
   displayedPages.value = calculateDisplayedPages();
 });
-// 在父组件提供一个方法用于更新当前页
+
 const provideCurrentPage = () => {
   instance?.appContext.app.emit('update:current', currentPage.value);
 };
 
-onMounted(() => {
-  provide('provideCurrentPage', provideCurrentPage);
-});
+provide('provideCurrentPage', provideCurrentPage);
 
-const goToPage = (page) => {
+const changePage = (page) => {
   if (page >= 1 && page <= total) {
-    currentPage.value = page; // 更新当前页数
-    instance.emit('update:current', page); // 向父组件发送更新事件
-  }
-};
-watch(currentPage, (newValue) => {
-  instance.emit('update:current', newValue);
-});
-
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--;
+    currentPage.value = page;
+    displayedPages.value = calculateDisplayedPages();
     instance.emit('update:current', currentPage.value);
   }
 };
 
-const nextPage = () => {
-  if (currentPage.value < total) {
-    currentPage.value++;
-    instance.emit('update:current', currentPage.value);
-  }
-};
+const goToPage = (page) => changePage(page);
 
-// 在组件挂载时执行
-onMounted(() => {
-  provide('provideCurrentPage', provideCurrentPage);
+const prevPage = () => changePage(currentPage.value - 1);
+
+const nextPage = () => changePage(currentPage.value + 1);
+
+watch(currentPage, () => {
+  displayedPages.value = calculateDisplayedPages();
+  instance.emit('update:current', currentPage.value);
 });
-
 </script>
 
 <style scoped>

@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <ql-table :columns="columns" :data="data" />
+    <ql-table :columns="columns" :data="data" pageNum="10" />
   </div>
 </template>
 
@@ -11,10 +11,22 @@ const columns = [
   { key: 'name', label: 'Name' },
   { key: 'age', label: 'Age' }
 ];
-const data = [
-  { id: 1, name: 'John Doe', age: 30 },
-  { id: 2, name: 'Jane Smith', age: 25 },
-];
+
+const generateRandomData = (count: number) => {
+  const data = [];
+
+  for (let i = 1; i <= count; i++) {
+    data.push({
+      id: i,
+      name: `Person ${i}`,
+      age: Math.floor(Math.random() * 100) + 1 // 随机生成 1 到 100 的年龄
+    });
+  }
+
+  return data;
+};
+
+const data = generateRandomData(90);
 </script>
 
 <style scoped>
