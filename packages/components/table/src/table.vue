@@ -1,10 +1,12 @@
 <template>
   <div class="table">
+    <!-- 表头 -->
     <div class="header-row">
       <div v-for="column in columns" :key="column.key" class="column">
         {{ column.label }}
       </div>
     </div>
+    <!-- 表体 -->
     <div class="body" ref="body" @scroll="handleScrollThrottled">
       <div class="body-content" :style="{ height: bodyHeight + 'px' }">
         <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
@@ -14,43 +16,44 @@
         </div>
       </div>
     </div>
-    <ql-pagination v-model:current="currentPage" :total="totalPages" />
-    <ql-pagination v-model:current="currentPage" :total="totalPages" layout="abridge" />
+    <!-- 分页 -->
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" />
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" layout="abridge" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted , defineProps} from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue';
 import { updateCurrentPage } from '../../pagination/src/updateCurrentPage';
 import QlPagination from "../../pagination";
 import { Props } from './props';
 const props = defineProps(Props);
 const { data, columns, pageNum } = props;
 
-const rows = ref([]);
+const rows = ref([]); // 存储表格行
 const isScrolling = ref(false);
-const pageSize = pageNum;
-const currentPage = ref(1);
-const body = ref<HTMLElement | null>(null);
+const pageSize: number = +pageNum; // 每页显示的行数
+const currentPage = ref(1); // 当前页数
+const body = ref<HTMLElement | null>(null); // 表体的 DOM 元素
 const totalPages = computed(() => Math.ceil(data.length / pageSize));
-const bodyHeight = ref(pageSize * 30);
-
-onMounted(() => {
-  rows.value = Array.from(document.querySelectorAll('.row'));
-  const rowHeight = getRowHeight();
-  if (rowHeight > 0) {
-    bodyHeight.value = pageSize * rowHeight;
-  }
-});
-
-onUnmounted(() => {
-  rows.value = [];
-});
+const bodyHeight = ref(pageSize * 30); // 表体的高度，假设每行高度为30像素
 
 const visibleData = computed(() => {
   const start = (currentPage.value - 1) * pageSize;
   const end = start + pageSize;
   return data.slice(start, end);
+});
+
+onMounted(() => {
+  rows.value = Array.from(document.querySelectorAll('.row')); // 获取所有行并保存在 rows 变量中
+  const rowHeight = getRowHeight();
+  if (rowHeight > 0) {
+    bodyHeight.value = pageSize * rowHeight; // 设置表体高度，假设每行高度为30像素
+  }
+});
+
+onUnmounted(() => {
+  rows.value = [];
 });
 
 const getRowHeight = () => {
@@ -70,7 +73,7 @@ const handleScroll = () => {
 
     if (atBottom && currentPage.value !== totalPages.value) {
       isScrolling.value = true;
-      currentPage.value++;
+      currentPage.value = currentPage.value + 1;
       body.value.scrollTop = 0;
       updateCurrentPage(currentPage.value);
     } else {
@@ -90,11 +93,13 @@ const handleScroll = () => {
 
 const throttle = (func, wait) => {
   let timeout;
-  return function(...args) {
+  return function() {
+    const context = this;
+    const args = arguments;
     if (!timeout) {
       timeout = setTimeout(() => {
         timeout = null;
-        func(...args);
+        func.apply(context, args);
       }, wait);
     }
   };
@@ -105,15 +110,16 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 
 <style scoped>
 .table {
-  border: 1px solid #ccc;
-  max-width: 600px;
   margin: auto;
-  font-family: Arial, sans-serif;
 }
 
 .header-row {
   display: flex;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
+  font-weight: bold;
+  height: 57px;
+  box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
+  align-items: center;
 }
 
 .column {
@@ -131,7 +137,9 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 
 .row {
   display: flex;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #f4f4f4;
+  height: 58px;
+  align-items: center;
 }
 
 button {
