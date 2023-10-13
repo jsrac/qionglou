@@ -7,7 +7,7 @@
       </div>
     </div>
     <!-- 表体 -->
-    <div class="body" ref="body" @scroll="handleScrollThrottled">
+    <div :style="tableHeight" ref="body" @scroll="handleScrollThrottled">
       <div class="body-content" :style="{ height: bodyHeight + 'px' }">
         <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
           <div v-for="column in columns" :key="column.key" class="column">
@@ -17,8 +17,7 @@
       </div>
     </div>
     <!-- 分页 -->
-    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" />
-    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" layout="abridge" />
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" @update:current="handleScroll" />
   </div>
 </template>
 
@@ -28,7 +27,7 @@ import { updateCurrentPage } from '../../pagination/src/updateCurrentPage';
 import QlPagination from "../../pagination";
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum } = props;
+const { data, columns, pageNum, conHig, name} = props;
 
 const rows = ref([]); // 存储表格行
 const isScrolling = ref(false);
@@ -43,6 +42,32 @@ const visibleData = computed(() => {
   const end = start + pageSize;
   return data.slice(start, end);
 });
+
+const tableHeight = computed(() => {
+  if (conHig === 'none') {
+    return {
+      maxHeight: 'fit-content',
+      overflowY: 'clip'
+    };
+  } else {
+    const sizeOptions = {
+      small: {
+        overflowY: 'auto',
+        maxHeight: '400px',
+      },
+      medium: {
+        padding: '16px'
+      },
+      large: {
+        padding: '10px 64px'
+      },
+      mini: {
+        padding: '4px'
+      }
+    };
+    return sizeOptions[conHig] || 'padding:' + conHig;
+  }
+})
 
 onMounted(() => {
   rows.value = Array.from(document.querySelectorAll('.row')); // 获取所有行并保存在 rows 变量中
@@ -65,6 +90,9 @@ const getRowHeight = () => {
 };
 
 const handleScroll = () => {
+  if (props.conHig === 'none') return;
+
+  // 原有的 handleScroll 逻辑
   if (body.value && !isScrolling.value) {
     const scrollTop = body.value.scrollTop;
     const scrollHeight = body.value.scrollHeight;
@@ -75,7 +103,7 @@ const handleScroll = () => {
       isScrolling.value = true;
       currentPage.value = currentPage.value + 1;
       body.value.scrollTop = 0;
-      updateCurrentPage(currentPage.value);
+      updateCurrentPage(currentPage.value, name);
     } else {
       const rowHeight = getRowHeight();
       if (rowHeight > 0) {
@@ -83,7 +111,7 @@ const handleScroll = () => {
         const newPage = Math.ceil(start / pageSize) + 1;
         if (newPage !== currentPage.value) {
           currentPage.value = newPage;
-          updateCurrentPage(newPage);
+          updateCurrentPage(newPage, name);
         }
       }
     }
@@ -134,7 +162,6 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 
 .body-content {
 }
-
 .row {
   display: flex;
   border-bottom: 1px solid #f4f4f4;

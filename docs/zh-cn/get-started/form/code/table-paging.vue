@@ -1,10 +1,14 @@
 <template>
   <div class="demo">
-    <ql-table :columns="columns" :data="data" pageNum="10" conHig="none"/>
+    <ql-table :columns="columns" :data="data" pageNum="10" name="base-table"/>
+  </div>
+  <div class="demo">
+    <ql-table :columns="columns" :data="datas" pageNum="10" conHig="small" name="scroll-table"/>
   </div>
 </template>
 
 <script setup lang="ts">
+import {ref} from "vue";
 import { QlTable } from '@qionglou/components/table'
 
 const columns = [
@@ -27,6 +31,7 @@ const generateRandomData = (count: number) => {
 };
 
 const data = generateRandomData(60);
+const datas = generateRandomData(30);
 </script>
 
 <style scoped>

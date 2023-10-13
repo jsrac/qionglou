@@ -1,14 +1,14 @@
 <template>
   <div class="pagination">
     <button @click="goToPage(1)">首页</button>
-    <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
+    <button @click="prevPage" :disabled="current === 1">上一页</button>
     <template v-if="layout === 'abridge'">
       <span v-if="displayedPages[0] > 2">...</span>
       <button
           v-for="page in displayedPages"
           :key="page"
           @click="goToPage(page)"
-          :class="{ active: currentPage === page }"
+          :class="{ active: current === page }"
       >
         {{ page }}
       </button>
@@ -19,12 +19,12 @@
           v-for="page in total"
           :key="page"
           @click="goToPage(page)"
-          :class="{ active: currentPage === page }"
+          :class="{ active: current === page }"
       >
         {{ page }}
       </button>
     </template>
-    <button @click="nextPage" :disabled="currentPage === total">下一页</button>
+    <button @click="nextPage" :disabled="current === total">下一页</button>
     <button @click="goToPage(total)">尾页</button>
   </div>
 </template>
@@ -33,17 +33,16 @@
 import { defineProps, getCurrentInstance, provide, ref, watch } from 'vue';
 import { Props } from './props';
 const props = defineProps(Props);
-import { currentPage } from './updateCurrentPage.ts';
+import { currentPage, tableName } from './updateCurrentPage.ts';
 
-const { current, total, layout } = props;
+let { current, total, layout } = props;
 
 const instance = getCurrentInstance();
 
 const calculateDisplayedPages = () => {
   const totalPages = total;
-  const thisPage = currentPage.value;
+  const thisPage = current
   const numAdjacent = 2;
-
   let startPage = Math.max(1, thisPage - numAdjacent);
   let endPage = Math.min(totalPages, thisPage + numAdjacent);
 
@@ -65,35 +64,34 @@ const calculateDisplayedPages = () => {
 };
 
 const displayedPages = ref(calculateDisplayedPages());
-
 watch([current, total], () => {
-  currentPage.value = current;
   displayedPages.value = calculateDisplayedPages();
 });
 
-const provideCurrentPage = () => {
-  instance?.appContext.app.emit('update:current', currentPage.value);
+const changePage = (page, name) => {
+    if (page >= 1 && page <= total) {
+      current = page;
+      displayedPages.value = calculateDisplayedPages();
+      instance.emit('update:current', current);
+    }
 };
 
-provide('provideCurrentPage', provideCurrentPage);
 
-const changePage = (page) => {
-  if (page >= 1 && page <= total) {
-    currentPage.value = page;
+const goToPage = (page) => changePage(page, tableName.value);
+
+const prevPage = () => changePage(current - 1, tableName.value);
+
+const nextPage = () => changePage(current + 1, tableName.value);
+
+const newCurrent = ref(current);
+
+watch(currentPage, (newPage) => {
+  console.log('tableName!!!!!!!!!!!!!!!!!!:', tableName, newPage);
+  if (newPage >= 1 && newPage <= total) {
+    current = newPage;
     displayedPages.value = calculateDisplayedPages();
-    instance.emit('update:current', currentPage.value);
+    instance.emit('update:current', current);
   }
-};
-
-const goToPage = (page) => changePage(page);
-
-const prevPage = () => changePage(currentPage.value - 1);
-
-const nextPage = () => changePage(currentPage.value + 1);
-
-watch(currentPage, () => {
-  displayedPages.value = calculateDisplayedPages();
-  instance.emit('update:current', currentPage.value);
 });
 </script>
 

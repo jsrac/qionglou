@@ -8,6 +8,10 @@ badge[type=in] {
 .VPCarbonAds {
 
 }
+.vp-doc ol {
+  list-style: decimal;
+  color: #9c9c9c;
+}
 .text span {
   margin-left: 6px;
   color: #cbcbcb;
