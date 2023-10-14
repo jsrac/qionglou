@@ -21,6 +21,7 @@ export const Props = {
         type: Number as Prop<number>
     },
     layout: {
-        type: String as Prop<string>
+        type: String as Prop<string>,
+        default: 'abridge'
     }
 } as PropsType

@@ -1,14 +1,10 @@
 <template>
   <div class="demo">
-    <ql-table :columns="columns" :data="data" pageNum="10" name="base-table"/>
-  </div>
-  <div class="demo">
-    <ql-table :columns="columns" :data="datas" pageNum="10" conHig="small" name="scroll-table"/>
+    <ql-table :columns="columns" :data="datas" pageNum="10" conHig="small" />
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref} from "vue";
 import { QlTable } from '@qionglou/components/table'
 
 const columns = [

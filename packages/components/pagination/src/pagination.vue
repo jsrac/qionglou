@@ -30,10 +30,9 @@
 </template>
 
 <script setup>
-import { defineProps, getCurrentInstance, provide, ref, watch } from 'vue';
+import {defineProps, getCurrentInstance, inject, provide, ref, watch} from 'vue';
 import { Props } from './props';
 const props = defineProps(Props);
-import { currentPage, tableName } from './updateCurrentPage.ts';
 
 let { current, total, layout } = props;
 
@@ -41,8 +40,9 @@ const instance = getCurrentInstance();
 
 const calculateDisplayedPages = () => {
   const totalPages = total;
-  const thisPage = current
+  const thisPage = current;
   const numAdjacent = 2;
+
   let startPage = Math.max(1, thisPage - numAdjacent);
   let endPage = Math.min(totalPages, thisPage + numAdjacent);
 
@@ -64,35 +64,40 @@ const calculateDisplayedPages = () => {
 };
 
 const displayedPages = ref(calculateDisplayedPages());
+
 watch([current, total], () => {
   displayedPages.value = calculateDisplayedPages();
 });
 
-const changePage = (page, name) => {
-    if (page >= 1 && page <= total) {
-      current = page;
-      displayedPages.value = calculateDisplayedPages();
-      instance.emit('update:current', current);
-    }
+const provideCurrentPage = () => {
+  instance?.appContext.app.emit('update:current', current);
 };
 
+provide('provideCurrentPage', provideCurrentPage);
 
-const goToPage = (page) => changePage(page, tableName.value);
-
-const prevPage = () => changePage(current - 1, tableName.value);
-
-const nextPage = () => changePage(current + 1, tableName.value);
-
-const newCurrent = ref(current);
-
-watch(currentPage, (newPage) => {
-  console.log('tableName!!!!!!!!!!!!!!!!!!:', tableName, newPage);
-  if (newPage >= 1 && newPage <= total) {
-    current = newPage;
+const changePage = (page) => {
+  if (page >= 1 && page <= total) {
+    current = page;
     displayedPages.value = calculateDisplayedPages();
     instance.emit('update:current', current);
   }
+};
+
+const goToPage = (page) => changePage(page);
+
+const prevPage = () => changePage(current - 1);
+
+const nextPage = () => changePage(current + 1);
+
+
+
+const scrollPage = inject('scrollPage');
+
+watch(scrollPage, (newPage) => {
+  console.log('scrollPage 变化了，新值为:', newPage);
+  changePage(current + 1)
 });
+
 </script>
 
 <style scoped>

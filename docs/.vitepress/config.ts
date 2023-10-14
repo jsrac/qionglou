@@ -72,11 +72,13 @@ export default defineConfig({
                 link: '/zh-cn/get-started/basic/button'
               },
               {
-                text: '图标',
+                text: '图标' +
+                    '<span>icon</span>',
                 link: '/zh-cn/get-started/basic/icon'
               },
               {
-                text: '文本',
+                text: '文本' +
+                    '<span>text</span>',
                 link: '/zh-cn/get-started/basic/text'
               }
             ]

@@ -12,4 +12,4 @@
 
 您可以快速了解到琼楼的设计理念，即单组件复用所共同组成的多个组件，在您实际的业务需求中，也可以进行单个组件的组合实现需要的功能。
 
-<demo src="./code/table-paging.vue" desc="" title="分页类型及固定" name="paging"></demo>
+<demo src="./code/table-paging.vue" desc="表格组件提供了多种方式供您自定义**表头**的显示方式，您可以进行固定也可以进行对表头的高度和功能的自定义。" title="固定及附加功能" name="paging"></demo>

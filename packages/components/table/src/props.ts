@@ -17,7 +17,7 @@ export type PropsType = {
     pageNum: Prop<number>
     conHig: Prop<string | contentHeight>
     paging: Prop<string | paginationLayout>
-    name: Prop<string>
+    pageShow: Prop<string>
 }
 
 export const Props = {
@@ -41,9 +41,9 @@ export const Props = {
         type: String as Prop<string | contentHeight>,
         default: 'none'
     },
-    name: {
+    pageShow: {
         type: String as Prop<string>,
-        default: 'ql-name'
+        default: 'abridge'
     }
 } as PropsType
 

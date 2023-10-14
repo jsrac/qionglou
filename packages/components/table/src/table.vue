@@ -17,17 +17,17 @@
       </div>
     </div>
     <!-- 分页 -->
-    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" @update:current="handleScroll" />
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow"/>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue';
-import { updateCurrentPage } from '../../pagination/src/updateCurrentPage';
+import {ref, computed, onMounted, onUnmounted, inject, provide} from 'vue';
 import QlPagination from "../../pagination";
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, name} = props;
+const { data, columns, pageNum, conHig, pageShow } = props;
+const scrollPage = ref(1);
 
 const rows = ref([]); // 存储表格行
 const isScrolling = ref(false);
@@ -89,35 +89,26 @@ const getRowHeight = () => {
   return 0;
 };
 
+let isHandlingScroll = false;
+
 const handleScroll = () => {
-  if (props.conHig === 'none') return;
+  if (props.conHig === 'none' || currentPage.value >= totalPages.value) return;
 
-  // 原有的 handleScroll 逻辑
-  if (body.value && !isScrolling.value) {
-    const scrollTop = body.value.scrollTop;
-    const scrollHeight = body.value.scrollHeight;
-    const clientHeight = body.value.clientHeight;
-    const atBottom = scrollTop + clientHeight >= scrollHeight;
+  const scrollTop = body.value?.scrollTop || 0;
+  const scrollHeight = body.value?.scrollHeight || 0;
+  const clientHeight = body.value?.clientHeight || 0;
+  const atBottom = scrollTop + clientHeight >= scrollHeight;
 
-    if (atBottom && currentPage.value !== totalPages.value) {
-      isScrolling.value = true;
-      currentPage.value = currentPage.value + 1;
-      body.value.scrollTop = 0;
-      updateCurrentPage(currentPage.value, name);
-    } else {
-      const rowHeight = getRowHeight();
-      if (rowHeight > 0) {
-        const start = Math.floor(scrollTop / rowHeight);
-        const newPage = Math.ceil(start / pageSize) + 1;
-        if (newPage !== currentPage.value) {
-          currentPage.value = newPage;
-          updateCurrentPage(newPage, name);
-        }
-      }
-    }
+  if (atBottom && currentPage.value !== totalPages.value) {
+    currentPage.value += 1;
+    body.value.scrollTop = 0; // 将滚动位置重置为顶部
+    scrollPage.value = currentPage.value; // 更新 scrollPage 的值，通知分页组件
   }
-  isScrolling.value = false;
 };
+
+provide('scrollPage', currentPage);
+
+
 
 const throttle = (func, wait) => {
   let timeout;
@@ -132,6 +123,7 @@ const throttle = (func, wait) => {
     }
   };
 };
+provide('scrollPage', scrollPage);
 
 const handleScrollThrottled = throttle(handleScroll, 200);
 </script>

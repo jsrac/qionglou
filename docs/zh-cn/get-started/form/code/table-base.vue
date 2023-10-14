@@ -1,6 +1,7 @@
 <template>
   <div class="demo">
     <ql-table :columns="columns" :data="data" pageNum="10" conHig="none"/>
+    <ql-table :columns="columns" :data="data" pageNum="10" conHig="small"  />
   </div>
 </template>
 
