@@ -5,8 +5,32 @@ badge[type=in] {
   margin-left: 6px;
   color: #979797;
 }
-.VPCarbonAds {
+::-webkit-scrollbar {
+  width: 3px;
+}
 
+::-webkit-scrollbar-track {
+  background-color: rgba(241, 241, 241, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d9d6d6;
+  border-radius: 6px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #2e2e32;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9b9b9b;
+}
+@media screen and (min-width: 960px) {
+  .VPNavBar.has-sidebar .title {
+    background-color: #ffffff;
+  }
+  .dark .VPNavBar.has-sidebar .title {
+    background-color: var(--vp-nav-bg-color);
+  }
 }
 .vp-doc ol {
   list-style: decimal;
@@ -182,6 +206,7 @@ body {
 }
 .dark .VPSidebar {
   background-color: #1e1e20;
+  border-right: 1px solid #2e2e32;
 }
 .dark .custom-block.tip {
   border-color: #2e2e32;
