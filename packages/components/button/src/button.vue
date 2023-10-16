@@ -11,6 +11,7 @@
          @mouseleave="applyReactStyles('reset')"
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
+         @click="handleClick"
          :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
     >
       <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
@@ -25,6 +26,7 @@
          @mouseleave="applyReactStyles('reset')"
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
+        @click="handleClick"
          :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
     >
       <ql-icon
@@ -45,6 +47,7 @@
        @mouseleave="applyReactStyles('reset')"
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
+       @click="handleClick"
        :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
   >
     <ql-text

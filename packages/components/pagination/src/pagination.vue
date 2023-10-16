@@ -1,37 +1,55 @@
 <template>
   <div class="pagination">
-    <button @click="goToPage(1)">首页</button>
-    <button @click="prevPage" :disabled="current === 1">上一页</button>
+    <ql-button
+        @click="goToPage(1)"
+        v-if="current !== 1"
+        text="首页"
+    />
+    <ql-button
+        @click="prevPage"
+        :disabled="current === 1"
+        v-if="current !== 1"
+        text="上一页"
+    />
     <template v-if="layout === 'abridge'">
       <span v-if="displayedPages[0] > 2">...</span>
-      <button
+      <ql-button
           v-for="page in displayedPages"
           :key="page"
           @click="goToPage(page)"
+          :state="current === page ? 'primary' : 'default'"
           :class="{ active: current === page }"
+          :text="page"
       >
-        {{ page }}
-      </button>
+      </ql-button>
       <span v-if="displayedPages[displayedPages.length - 1] < total - 1">...</span>
     </template>
     <template v-else>
-      <button
+      <ql-button
           v-for="page in total"
           :key="page"
           @click="goToPage(page)"
           :class="{ active: current === page }"
-      >
-        {{ page }}
-      </button>
+          :text="page"
+      />
     </template>
-    <button @click="nextPage" :disabled="current === total">下一页</button>
-    <button @click="goToPage(total)">尾页</button>
+    <ql-button
+        @click="nextPage"
+        :disabled="current === total"
+        text="下一页"
+    />
+    <ql-button
+        @click="goToPage(total)"
+        text="尾页"
+    />
   </div>
 </template>
 
 <script setup>
 import {defineProps, getCurrentInstance, inject, provide, ref, watch} from 'vue';
 import { Props } from './props';
+import QlButton from "../../button";
+
 const props = defineProps(Props);
 
 let { current, total, layout } = props;
