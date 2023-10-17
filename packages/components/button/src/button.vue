@@ -63,7 +63,7 @@
 <script setup lang="ts">
 import QlText from "../../text";
 import QlIcon from "../../icon";
-import { computed, ref, onMounted, watch } from "vue";
+import {computed, ref, onMounted, watch, toRefs, toRef} from "vue";
 import { Props, Emits } from './props';
 import { MouseEvent } from "happy-dom";
 import {src} from "gulp";
@@ -89,7 +89,9 @@ const handleClick = (evt: MouseEvent) => {
 
 // Destructure props.ts for easier access
 // 解构属性以便更容易访问
-const { type, state ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide} = props
+const { type ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide} = props
+const propsRef = toRef(props, 'state')
+
 const reactStyles = ref(react);
 
 // Create a reactive object to store button data
@@ -163,7 +165,7 @@ const stateStyle = computed(() => {
       borderRadius: '4px !important',
     }
   };
-    return stateStyles[state] || {};
+    return stateStyles[propsRef.value] || {};
 });
 
 // Compute styles based on the API response
@@ -208,8 +210,8 @@ const computeApiStyle = () => {
 // Compute custom styles if state is an object
 // 如果 state 是对象，则计算自定义样式
 const customStyles = computed(() => {
-  if (typeof state === 'object') {
-    return state;
+  if (typeof propsRef.value === 'object') {
+    return propsRef.value;
   } else {
     return {};
   }
