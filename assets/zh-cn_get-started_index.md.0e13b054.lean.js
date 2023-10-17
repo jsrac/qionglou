@@ -1,0 +1,1 @@
+import{_ as e,c as a,o as t,Q as s}from"./chunks/framework.c9c8872b.js";const u=JSON.parse('{"title":"感谢使用琼楼","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/get-started/index.md"}'),n={name:"zh-cn/get-started/index.md"},r=s("",14),o=[r];function p(i,c,l,d,h,g){return t(),a("div",null,o)}const m=e(n,[["render",p]]);export{u as __pageData,m as default};

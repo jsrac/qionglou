@@ -1,1 +1,0 @@
-import{_ as s,c as a,o as n,N as l}from"./chunks/framework.682d4684.js";const u=JSON.parse('{"title":"fix","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/get-started/layout/fix.md"}'),p={name:"zh-cn/get-started/layout/fix.md"},o=l("",15),e=[o];function t(r,c,D,F,i,y){return n(),a("div",null,e)}const b=s(p,[["render",t]]);export{u as __pageData,b as default};
