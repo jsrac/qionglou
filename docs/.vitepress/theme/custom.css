@@ -32,6 +32,12 @@ badge[type=in] {
     background-color: var(--vp-nav-bg-color);
   }
 }
+@media screen and (min-width: 960px) {
+  .VPNavBar.has-sidebar .title {
+    position: inherit !important;
+  }
+}
+
 .vp-doc ol {
   list-style: decimal;
   color: #9c9c9c;

@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 // @ts-ignore
 import vpressdemo from "../plugins/vpressdemo";
 
+// @ts-ignore
 export default defineConfig({
   head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
   locales: {
@@ -25,6 +26,11 @@ export default defineConfig({
     },
   },
   themeConfig: {
+    algolia: {
+      appId: 'REWT5MVXKR',
+      apiKey: '868a93cc1183ae5427019e8ca550b74b',
+      indexName: 'qionglou-jiangxue'
+    },
     logo: {
       light: '/logo/light.webp',
       dark: '/logo/dark.webp'

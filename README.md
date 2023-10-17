@@ -5,8 +5,8 @@
 <a href="https://qionglou.jiangxue.org/"><img src="https://github.com/jsrac/qionglou/assets/57232813/a181882b-d5bc-4bdf-8d6a-3833942ef523"></a>
 <p>Qionglou is a flexible and customizable component library that empowers developers to create unique and personalized user interfaces. With a focus on design freedom and community collaboration, Qionglou offers a thoughtfully crafted development experience.</p>
 
-[View our roadmap](https://github.com/orgs/jsrac/projects/3/views/1) - 
-[English](https://github.com/Jiangxue-team/qionglou/wiki) - 
+[View our roadmap](https://github.com/orgs/jsrac/projects/3/views/1) -
+[English](https://github.com/Jiangxue-team/qionglou/wiki) -
 [简体中文](https://github.com/Jiangxue-team/qionglou/wiki/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0%E7%90%BC%E6%A5%BC%E7%BB%B4%E5%9F%BA)
 
 <img width="1745" alt="image" src="https://github.com/jsrac/qionglou/assets/57232813/8ce1fa91-24c5-449b-ab6e-6d5de33d8e40">
@@ -54,6 +54,9 @@ our [Security Policy](SECURITY.md).
 
 We expect all community members to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). It outlines the standards of
 behavior we uphold within our community and promotes a respectful and inclusive environment.
+
+## Thank
+![image](https://github.com/jsrac/qionglou/assets/57232813/5e7501c8-be58-4d49-ae67-8e394a4df297)
 
 ## LICENSE
 
