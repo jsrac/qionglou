@@ -53,13 +53,12 @@ const reactStyles = {
     transition: 'color 0.54s, opacity 0.25s'
   },
   active: {
-    boxShadow: '5px 5px 14px #bababb54',
     transition: 'color 0.25s, opacity 0.25s',
     opacity: '0.6'
   },
   mouseUp: {
-    transition: 'color 0.54s, opacity 0.25s',
-    boxShadow: ''
+    opacity: '1',
+    transition: 'color 0.54s, opacity 0.25s'
   }
 };
 const layoutStyle = {

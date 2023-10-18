@@ -2,12 +2,15 @@
 // 从Vue中导入'Prop'类型，用于为props定义类型。
 import {Prop} from 'vue'
 
+export type PagLayout = 'center' | 'left' | 'right'
+
 // Defining the type for props.ts.
 // 为props定义类型。
 export type PropsType = {
     current: Prop<number>
     total: Prop<number>
     layout: Prop<string>
+    site: Prop<string | PagLayout | object>
 }
 
 // Exporting the props.ts with their respective validations and defaults.
@@ -23,5 +26,9 @@ export const Props = {
     layout: {
         type: String as Prop<string>,
         default: 'abridge'
+    },
+    site: {
+        type: String as Prop<string | PagLayout | object>,
+        default: 'center'
     }
 } as PropsType

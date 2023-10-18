@@ -18,6 +18,7 @@ export type PropsType = {
     conHig: Prop<string | contentHeight>
     paging: Prop<string | paginationLayout>
     pageShow: Prop<string>
+    site: Prop<string | object>
 }
 
 export const Props = {
@@ -44,6 +45,10 @@ export const Props = {
     pageShow: {
         type: String as Prop<string>,
         default: 'abridge'
+    },
+    site: {
+        type: String as Prop<string | object>,
+        default: 'center'
     }
 } as PropsType
 

@@ -17,16 +17,16 @@
       </div>
     </div>
     <!-- 分页 -->
-    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow"/>
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow" :site='site'/>
   </div>
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted, onUnmounted, inject, provide} from 'vue';
+import {ref, computed, onMounted, onUnmounted, provide} from 'vue';
 import QlPagination from "../../pagination";
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, pageShow } = props;
+const { data, columns, pageNum, conHig, pageShow, site } = props;
 const scrollPage = ref(1);
 
 const rows = ref([]); // 存储表格行

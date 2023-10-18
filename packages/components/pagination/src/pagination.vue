@@ -1,15 +1,17 @@
 <template>
-  <div class="pagination">
+  <div :style="[pagShowStyle]">
     <ql-button
         @click="goToPage(1)"
         v-if="current !== 1"
         text="首页"
+        type="text"
     />
     <ql-button
         @click="prevPage"
         :disabled="current === 1"
         v-if="current !== 1"
         text="上一页"
+        type="text"
     />
     <template v-if="layout === 'abridge'">
       <span v-if="displayedPages[0] > 2">...</span>
@@ -17,8 +19,9 @@
           v-for="page in displayedPages"
           :key="page"
           @click="goToPage(page)"
-          :state="current === page ? 'primary' : 'default'"
+          :state="current === page ? stateStyles.primary : 'default'"
           :class="{ active: current === page }"
+          type="text"
           :text="page"
       >
       </ql-button>
@@ -30,31 +33,64 @@
           :key="page"
           @click="goToPage(page)"
           :class="{ active: current === page }"
+          type="text"
           :text="page"
       />
     </template>
     <ql-button
         @click="nextPage"
         :disabled="current === total"
+        type="text"
         text="下一页"
     />
     <ql-button
         @click="goToPage(total)"
+        type="text"
         text="尾页"
     />
   </div>
 </template>
 
 <script setup>
-import {defineProps, getCurrentInstance, inject, provide, ref, watch} from 'vue';
+import {computed, defineProps, getCurrentInstance, inject, provide, ref, watch} from 'vue';
 import { Props } from './props';
 import QlButton from "../../button";
 
 const props = defineProps(Props);
 
-let { current, total, layout } = props;
+let { current, total, layout, site } = props;
 
 const instance = getCurrentInstance();
+
+const stateStyles = {
+  primary: {
+    fontWeight: '500',
+    color: 'rgb(255,255,255)',
+    backgroundColor: 'rgb(0 120 255)',
+    borderRadius: '4px !important',
+  }
+};
+const pagShowStyle = computed(() => {
+  if (typeof site === 'object') {
+  return site;
+} else {
+  const pagStyles = {
+    center: {
+      textAlign: 'center',
+      marginTop: '10px'
+    },
+    right: {
+      textAlign: 'end',
+      marginTop: '10px'
+    },
+    left: {
+      textAlign: 'inherit',
+      marginTop: '10px'
+    }
+  };
+  return pagStyles[site] || {};
+}
+});
 
 const calculateDisplayedPages = () => {
   const totalPages = total;
@@ -112,23 +148,13 @@ const nextPage = () => changePage(current + 1);
 const scrollPage = inject('scrollPage');
 
 watch(scrollPage, (newPage) => {
-  console.log('scrollPage 变化了，新值为:', newPage);
   changePage(current + 1)
 });
 
 </script>
 
 <style scoped>
-.pagination {
-  text-align: center;
-  margin-top: 10px;
-}
-
 button {
   margin: 0 5px;
-}
-
-button.active {
-  font-weight: bold;
 }
 </style>

@@ -12,7 +12,7 @@
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
          @click="handleClick"
-         :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
+         :style="[buttonSize, stateStyle, buttonData.apiStyle]"
     >
       <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
     </div>
@@ -27,7 +27,7 @@
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
         @click="handleClick"
-         :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
+         :style="[buttonSize, stateStyle, buttonData.apiStyle]"
     >
       <ql-icon
           type="font"
@@ -41,6 +41,25 @@
         <slot></slot>
       </ql-icon>
     </div>
+  <div
+      class="ql-button"
+      v-else-if="type === 'text'"
+      ref="buttonRef"
+      @mouseenter="applyReactStyles('hover')"
+      @mouseleave="applyReactStyles('reset')"
+      @mousedown="applyReactStyles('active')"
+      @mouseup="applyReactStyles('mouseUp')"
+      @click="handleClick"
+      :style="[buttonSize, textStateStyle, buttonData.apiStyle]"
+  >
+    <ql-text
+        :url="url"
+        :font="font"
+        :color="color"
+        :weight="weight">
+      {{ buttonData.text }}
+    </ql-text>
+  </div>
   <div class="ql-button" v-else
        ref="buttonRef"
        @mouseenter="applyReactStyles('hover')"
@@ -48,7 +67,7 @@
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
        @click="handleClick"
-       :style="[buttomSize, stateStyle, customStyles, buttonData.apiStyle]"
+       :style="[buttonSize, stateStyle, buttonData.apiStyle]"
   >
     <ql-text
         :url="url"
@@ -63,7 +82,7 @@
 <script setup lang="ts">
 import QlText from "../../text";
 import QlIcon from "../../icon";
-import {computed, ref, onMounted, watch, toRefs, toRef} from "vue";
+import {computed, ref, onMounted, watch, toRef} from "vue";
 import { Props, Emits } from './props';
 import { MouseEvent } from "happy-dom";
 import {src} from "gulp";
@@ -106,7 +125,7 @@ const buttonData = ref({
 
 // Compute button size based on prop value
 // 根据属性值计算按钮大小
-const buttomSize = computed(() => {
+const buttonSize = computed(() => {
   if (size === 'normal') {
     return {
       padding: '10px 15px 10px 15px'
@@ -133,89 +152,121 @@ const buttomSize = computed(() => {
 // Compute button state specific styles
 // 根据按钮类型计算特定样式
 const stateStyle = computed(() => {
-  const stateStyles = {
-    default: {
-      border: '1.5px solid #DADCE0',
-      fontWeight: '500',
-      color: 'rgb(0 120 255)',
-      borderRadius: '4px !important',
-    },
-    primary: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: 'rgb(0, 120, 255)',
-      borderRadius: '4px !important',
-    },
-    success: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#00dc5c',
-      borderRadius: '4px !important',
-    },
-    warning: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#fdbf00',
-      borderRadius: '4px !important',
-    },
-    danger: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#ff0a0a',
-      borderRadius: '4px !important',
-    }
-  };
-    return stateStyles[propsRef.value] || {};
-});
-
-// Compute styles based on the API response
-// 根据 API 响应计算样式
-const computeApiStyle = () => {
-  const stateStyles = {
-    default: {
-      border: '1.5px solid #DADCE0',
-      fontWeight: '500',
-      color: 'rgb(0 120 255)',
-      borderRadius: '4px !important',
-    },
-    primary: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: 'rgb(0, 120, 255)',
-      borderRadius: '4px !important',
-    },
-    success: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#00dc5c',
-      borderRadius: '4px !important',
-    },
-    warning: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#fdbf00',
-      borderRadius: '4px !important',
-    },
-    danger: {
-      fontWeight: '500',
-      color: 'rgb(255,255,255)',
-      backgroundColor: '#ff0a0a',
-      borderRadius: '4px !important',
-    }
-  };
-  return stateStyles[buttonData.value.state] || {};
-};
-
-
-// Compute custom styles if state is an object
-// 如果 state 是对象，则计算自定义样式
-const customStyles = computed(() => {
   if (typeof propsRef.value === 'object') {
     return propsRef.value;
   } else {
-    return {};
+    const stateStyles = {
+      default: {
+        border: '1.5px solid #DADCE0',
+        fontWeight: '500',
+        color: 'rgb(0 120 255)',
+        borderRadius: '4px !important',
+      },
+      primary: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: 'rgb(0, 120, 255)',
+        borderRadius: '4px !important',
+      },
+      success: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#00dc5c',
+        borderRadius: '4px !important',
+      },
+      warning: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#fdbf00',
+        borderRadius: '4px !important',
+      },
+      danger: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#ff0a0a',
+        borderRadius: '4px !important',
+      }
+    };
+    return stateStyles[propsRef.value] || {};
   }
 });
+
+const textStateStyle = computed(() => {
+  if (typeof propsRef.value === 'object') {
+    return propsRef.value;
+  } else {
+    const stateStyles = {
+      default: {
+        fontWeight: '500',
+        color: 'rgb(0 120 255)',
+        borderRadius: '4px !important',
+      },
+      primary: {
+        fontWeight: '500',
+        color: 'rgb(0, 120, 255)',
+        borderRadius: '4px !important',
+      },
+      success: {
+        fontWeight: '500',
+        color: '#00dc5c',
+        borderRadius: '4px !important',
+      },
+      warning: {
+        fontWeight: '500',
+        color: '#fdbf00',
+        borderRadius: '4px !important',
+      },
+      danger: {
+        fontWeight: '500',
+        color: '#ff0a0a',
+        borderRadius: '4px !important',
+      }
+    };
+    return stateStyles[propsRef.value] || {};
+  }
+});
+// Compute styles based on the API response
+// 根据 API 响应计算样式
+const computeApiStyle = () => {
+  if (typeof buttonData.value.state === 'object') {
+    return buttonData.value.state;
+  } else {
+    const stateStyles = {
+      default: {
+        border: '1.5px solid #DADCE0',
+        fontWeight: '500',
+        color: 'rgb(0 120 255)',
+        borderRadius: '4px !important',
+      },
+      primary: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: 'rgb(0, 120, 255)',
+        borderRadius: '4px !important',
+      },
+      success: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#00dc5c',
+        borderRadius: '4px !important',
+      },
+      warning: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#fdbf00',
+        borderRadius: '4px !important',
+      },
+      danger: {
+        fontWeight: '500',
+        color: 'rgb(255,255,255)',
+        backgroundColor: '#ff0a0a',
+        borderRadius: '4px !important',
+      }
+    };
+    return stateStyles[buttonData.value.state] || {};
+  }
+};
+
 
 // Apply react styles based on effect
 // 根据效果应用 react 样式
