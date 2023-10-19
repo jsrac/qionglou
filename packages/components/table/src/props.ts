@@ -55,7 +55,7 @@ export const Props = {
 interface Column {
     key: string;
     label: string;
-    width?: number;
+    width?: string | number;
     sortable?: boolean;
     fixed?: boolean;
     note: string;

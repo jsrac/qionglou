@@ -9,8 +9,8 @@
 import { QlTable } from '@qionglou/components/table'
 
 const columns = [
-  { key: 'name', label: 'Name' },
-  { key: 'age', label: 'Age' }
+  { key: 'name', label: 'Name' ,width: '36em'},
+  { key: 'age', label: 'Age' ,width: '8em'}
 ];
 
 const generateRandomData = (count: number) => {

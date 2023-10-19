@@ -1,13 +1,12 @@
 <template>
   <div class="table">
-    <!-- 表头 -->
-    <!-- 表体 -->
     <div :style="tableHeight" ref="body" @scroll="handleScrollThrottled">
       <div class="header-row">
         <div
             v-for="column in columns"
             :key="column.key"
             class="header-title"
+            :style="{ width: columnWidth(column) }"
             :class="{ 'fixed-column': column.fixed }"
         >
           {{ column.label }}
@@ -15,7 +14,7 @@
       </div>
       <div class="body-content" :style="{ height: bodyHeight + 'px' }">
         <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
-          <div v-for="column in columns" :key="column.key" class="column" :class="{ 'fixed-column': column.fixed }">
+          <div v-for="column in columns" :key="column.key" class="column" :style="{ width: columnWidth(column) }" :class="{ 'fixed-column': column.fixed }">
             {{ row[column.key] }}
           </div>
         </div>
@@ -52,12 +51,12 @@ const tableHeight = computed(() => {
   if (conHig === 'none') {
     return {
       maxHeight: 'fit-content',
-      overflowY: 'clip'
+      overflow: 'auto',
     };
   } else {
     const sizeOptions = {
       small: {
-        overflowY: 'auto',
+        overflow: 'auto',
         maxHeight: '400px',
       },
       medium: {
@@ -86,6 +85,16 @@ onUnmounted(() => {
   rows.value = [];
 });
 
+const columnWidth = (column) => {
+  if (typeof column.width === 'string') {
+    return column.width;
+  } else if (typeof column.width === 'number') {
+    return column.width + 'px';
+  } else {
+    return '110px';
+  }
+};
+
 const getRowHeight = () => {
   if (rows.value.length > 0) {
     const firstRow = rows.value[0];
@@ -113,7 +122,77 @@ const handleScroll = () => {
 
 provide('scrollPage', currentPage);
 
+const customStyle = `
+  .table {
+    margin: auto;
+  }
 
+  .header-row {
+    display: flex;
+    background-color: #ffffff;
+    font-weight: bold;
+    height: 57px;
+    box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
+    width: max-content;
+    align-items: center;
+  }
+
+  .header-row .header-title {
+  }
+  .header-row .column {
+    display: flex;
+    background-color: #ffffff;
+    font-weight: bold;
+    height: 57px;
+    box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
+    align-items: center;
+  }
+
+  .column {
+  }
+  .body-content {
+   }
+  .header-title, .column {
+  }
+  .row {
+    display: flex;
+    height: 58px;
+    width: max-content;
+    align-items: center;
+  }
+
+  button {
+    margin: 0 5px;
+  }
+
+  .fixed-column {
+    position: sticky;
+    left: 0;
+    display: flex;
+    right: 0px;
+    height: inherit;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 3px 7px 14px -1px rgb(201 201 201);
+  }
+  .fixed-column-true {
+    position: sticky;
+    left: 0;
+    display: flex;
+    right: 0px;
+    height: inherit;
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    z-index: -10;
+    box-shadow: 3px 1px 18px -2px rgb(201 201 201);
+  }
+`;
+
+const style = document.createElement('style');
+style.innerHTML = customStyle;
+document.head.appendChild(style);
 
 const throttle = (func, wait) => {
   let timeout;
@@ -156,68 +235,5 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 ::-webkit-scrollbar-thumb:hover {
   background-color: #9b9b9b;
 }
-.table {
-  margin: auto;
-  //width: 900px;
-}
 
-.header-row {
-  display: flex;
-  background-color: #ffffff;
-  font-weight: bold;
-  height: 57px;
-  box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
-  width: max-content;
-  align-items: center;
-}
-.header-row .header-title {
-  width: 110px !important;
-}
-.header-row .column {
-  display: flex;
-  background-color: #ffffff;
-  font-weight: bold;
-  height: 57px;
-  box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
-  align-items: center;
-}
-
-.column {
-  width: 110px;
-}
-
-.row {
-  display: flex;
-  height: 58px;
-  width: max-content;
-  align-items: center;
-}
-
-button {
-  margin: 0 5px;
-}
-
-.fixed-column {
-  position: sticky;
-  left: 0;
-  display: flex;
-  right: 0px;
-  height: inherit;
-  background-color: #ffffff;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 3px 7px 14px -1px rgb(201 201 201);
-}
-.fixed-column-true {
-  position: sticky;
-  left: 0;
-  display: flex;
-  right: 0px;
-  height: inherit;
-  background-color: #ffffff;
-  align-items: center;
-  justify-content: center;
-  z-index: -10;
-  box-shadow: 3px 1px 18px -2px rgb(201 201 201);
-}
 </style>

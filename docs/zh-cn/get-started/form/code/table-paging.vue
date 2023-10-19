@@ -8,27 +8,27 @@
 import { QlTable } from '@qionglou/components/table'
 
 const columns = [
-  { key: 'id', label: 'Column 1' },
-  { key: 'name', label: 'Column 2' },
-  { key: 'name', label: 'Column 3' },
-  { key: 'name', label: 'Column 4' },
-  { key: 'name', label: 'Column 5' },
-  { key: 'name', label: 'Column 6' },
-  { key: 'name', label: 'Column 7' },
-  { key: 'name', label: 'Column 8' },
-  { key: 'name', label: 'Column 8-2' },
-  { key: 'name', label: 'Column 8-3' },
-  { key: 'name', label: 'Column 8-4' },
-  { key: 'name', label: 'Column 8-5' },
-  { key: 'name', label: 'Column 8-6' },
-  { key: 'name', label: 'Column 8-7' },
-  { key: 'name', label: 'Column 9-2' },
-  { key: 'name', label: 'Column 9-3' },
-  { key: 'name', label: 'Column 9-4' },
-  { key: 'name', label: 'Column 9-5' },
-  { key: 'name', label: 'Column 9-6' },
-  { key: 'name', label: 'Column 9-7' },
-  { key: 'more', label: 'Column 9', fixed: true}
+  { key: 'id', label: 'Column 1' , width: 130},
+  { key: 'name', label: 'Column 2' , width: 110},
+  { key: 'name', label: 'Column 3' , width: 110},
+  { key: 'name', label: 'Column 4' , width: 110},
+  { key: 'name', label: 'Column 5' , width: 110},
+  { key: 'name', label: 'Column 6' , width: 110},
+  { key: 'name', label: 'Column 7' , width: 110},
+  { key: 'name', label: 'Column 8' , width: 110},
+  { key: 'name', label: 'Column 8-2' , width: 110},
+  { key: 'name', label: 'Column 8-3' , width: 110},
+  { key: 'name', label: 'Column 8-4' , width: 110},
+  { key: 'name', label: 'Column 8-5' , width: 110},
+  { key: 'name', label: 'Column 8-6' , width: 110},
+  { key: 'name', label: 'Column 8-7' , width: 110},
+  { key: 'name', label: 'Column 9-2' , width: 110},
+  { key: 'name', label: 'Column 9-3' , width: 110},
+  { key: 'name', label: 'Column 9-4' , width: 110},
+  { key: 'name', label: 'Column 9-5' , width: 110},
+  { key: 'name', label: 'Column 9-6' , width: 110},
+  { key: 'name', label: 'Column 9-7' , width: 110},
+  { key: 'more', label: 'Column 9', fixed: true, width: 110}
 ];
 
 const generateRandomData = (count: number) => {
