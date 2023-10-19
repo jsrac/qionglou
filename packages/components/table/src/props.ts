@@ -57,4 +57,6 @@ interface Column {
     label: string;
     width?: number;
     sortable?: boolean;
+    fixed?: boolean;
+    note: string;
 }

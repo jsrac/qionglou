@@ -1,16 +1,21 @@
 <template>
   <div class="table">
     <!-- 表头 -->
-    <div class="header-row">
-      <div v-for="column in columns" :key="column.key" class="column">
-        {{ column.label }}
-      </div>
-    </div>
     <!-- 表体 -->
     <div :style="tableHeight" ref="body" @scroll="handleScrollThrottled">
+      <div class="header-row">
+        <div
+            v-for="column in columns"
+            :key="column.key"
+            class="header-title"
+            :class="{ 'fixed-column': column.fixed }"
+        >
+          {{ column.label }}
+        </div>
+      </div>
       <div class="body-content" :style="{ height: bodyHeight + 'px' }">
         <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
-          <div v-for="column in columns" :key="column.key" class="column">
+          <div v-for="column in columns" :key="column.key" class="column" :class="{ 'fixed-column': column.fixed }">
             {{ row[column.key] }}
           </div>
         </div>
@@ -129,11 +134,46 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 </script>
 
 <style scoped>
+
+::-webkit-scrollbar {
+  width: 1px;
+}
+::-webkit-scrollbar {
+  height: 1px; /* 设置横向滚动条的高度 */
+}
+::-webkit-scrollbar-track {
+  background-color: rgba(241, 241, 241, 0);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d9d6d6;
+  border-radius: 6px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background-color: #2e2e32;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9b9b9b;
+}
 .table {
   margin: auto;
+  //width: 900px;
 }
 
 .header-row {
+  display: flex;
+  background-color: #ffffff;
+  font-weight: bold;
+  height: 57px;
+  box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
+  width: max-content;
+  align-items: center;
+}
+.header-row .header-title {
+  width: 110px !important;
+}
+.header-row .column {
   display: flex;
   background-color: #ffffff;
   font-weight: bold;
@@ -143,25 +183,41 @@ const handleScrollThrottled = throttle(handleScroll, 200);
 }
 
 .column {
-  flex: 1;
-  padding: 8px;
+  width: 110px;
 }
 
-.body {
-  overflow-y: auto;
-  max-height: 300px;
-}
-
-.body-content {
-}
 .row {
   display: flex;
-  border-bottom: 1px solid #f4f4f4;
   height: 58px;
+  width: max-content;
   align-items: center;
 }
 
 button {
   margin: 0 5px;
+}
+
+.fixed-column {
+  position: sticky;
+  left: 0;
+  display: flex;
+  right: 0px;
+  height: inherit;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 3px 7px 14px -1px rgb(201 201 201);
+}
+.fixed-column-true {
+  position: sticky;
+  left: 0;
+  display: flex;
+  right: 0px;
+  height: inherit;
+  background-color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  z-index: -10;
+  box-shadow: 3px 1px 18px -2px rgb(201 201 201);
 }
 </style>
