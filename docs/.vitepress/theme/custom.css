@@ -8,7 +8,9 @@ badge[type=in] {
 ::-webkit-scrollbar {
   width: 3px;
 }
-
+.DocSearch-Button {
+  background: rgba(255, 255, 255, 0);
+}
 ::-webkit-scrollbar-track {
   background-color: rgba(241, 241, 241, 0);
 }

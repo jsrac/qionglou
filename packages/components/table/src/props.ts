@@ -58,5 +58,6 @@ interface Column {
     width?: string | number;
     sortable?: boolean;
     fixed?: boolean;
+    titleFix?: boolean;
     note: string;
 }

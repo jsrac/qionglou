@@ -1,13 +1,20 @@
 <template>
   <div class="table">
     <div :style="tableHeight" ref="body" @scroll="handleScrollThrottled">
-      <div class="header-row">
+      <div
+          class="header-row"
+          :class="{
+            'fixed-column-true': columns.some(column => column.titleFix)
+          }"
+      >
         <div
             v-for="column in columns"
             :key="column.key"
             class="header-title"
             :style="{ width: columnWidth(column) }"
-            :class="{ 'fixed-column': column.fixed }"
+              :class="{
+                'fixed-column': column.fixed
+              }"
         >
           {{ column.label }}
         </div>
@@ -144,7 +151,6 @@ const customStyle = `
     background-color: #ffffff;
     font-weight: bold;
     height: 57px;
-    box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
     align-items: center;
   }
 
@@ -174,19 +180,12 @@ const customStyle = `
     background-color: #ffffff;
     align-items: center;
     justify-content: center;
-    box-shadow: 3px 7px 14px -1px rgb(201 201 201);
+    box-shadow: 3px 7px 14px -1px rgb(233 231 231);
   }
   .fixed-column-true {
     position: sticky;
-    left: 0;
-    display: flex;
-    right: 0px;
-    height: inherit;
-    background-color: #ffffff;
-    align-items: center;
-    justify-content: center;
-    z-index: -10;
-    box-shadow: 3px 1px 18px -2px rgb(201 201 201);
+    z-index: 1;
+    top: 0px
   }
 `;
 
