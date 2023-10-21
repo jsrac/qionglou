@@ -31,6 +31,7 @@ export type PropsType = {
   api: Prop<string>
   src: Prop<string>
   layout: Prop<string | object>
+  music: Prop<object>
 }
 // Exporting the props.ts with their respective validations and defaults.
 // 导出具有相应验证和默认值的props。
@@ -39,6 +40,9 @@ export const Props = {
   size: {
     type: String as Prop<ButtonSize>,
     default: 'normal'
+  },
+  music: {
+    type: String as Prop<object>
   },
   api: {
     type: String as Prop<string>,

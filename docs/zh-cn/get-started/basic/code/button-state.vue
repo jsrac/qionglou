@@ -24,12 +24,14 @@
         @click="handleClick"
         text="Warning"
         state="warning"
+        :music="music1Url"
     />
     <ql-button
         class="button"
         @click="handleClick"
         text="Danger"
         :state="typeStyles.danger"
+        :music="musicUrl"
     />
   </div>
 </template>
@@ -80,6 +82,22 @@ const handleClick = () => {
   // 在按钮被点击时执行的操作
   console.log('Button Clicked!')
 }
+const musicUrl = {
+  sound: {
+    url: '/media/y1818.mp3'
+  },
+  clickSound: {
+    url: '/media/y2018.mp3'
+  }
+};
+const music1Url = {
+  sound: {
+    url: '/media/y2181.mp3'
+  },
+  clickSound: {
+    url: '/media/y2193.mp3'
+  }
+};
 </script>
 
 <style scoped>

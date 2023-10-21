@@ -7,28 +7,28 @@
     <div v-else
          class="ql-button"
          ref="buttonRef"
-         @mouseenter="applyReactStyles('hover')"
+         @mouseenter="playSound(); applyReactStyles('hover')"
          @mouseleave="applyReactStyles('reset')"
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
-         @click="handleClick"
+         @click="playClickSound(); handleClick"
          :style="[buttonSize, stateStyle, buttonData.apiStyle]"
     >
       <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
     </div>
   </div>
     <!-- Check if alt prop is provided -->
-    <div
-        v-else-if="type === 'font'"
-         class="ql-button"
-         ref="buttonRef"
-         @mouseenter="applyReactStyles('hover')"
-         @mouseleave="applyReactStyles('reset')"
-         @mousedown="applyReactStyles('active')"
-         @mouseup="applyReactStyles('mouseUp')"
-        @click="handleClick"
-         :style="[buttonSize, stateStyle, buttonData.apiStyle]"
-    >
+  <div
+      v-else-if="type === 'font'"
+      class="ql-button"
+      @mouseenter="playSound(); applyReactStyles('hover')"
+      @click="playClickSound(); handleClick"
+      ref="buttonRef"
+      @mouseleave="applyReactStyles('reset')"
+      @mousedown="applyReactStyles('active')"
+      @mouseup="applyReactStyles('mouseUp')"
+      :style="[buttonSize, stateStyle, buttonData.apiStyle]"
+  >
       <ql-icon
           type="font"
           :src="buttonData.text"
@@ -45,11 +45,11 @@
       class="ql-button"
       v-else-if="type === 'text'"
       ref="buttonRef"
-      @mouseenter="applyReactStyles('hover')"
+      @mouseenter="playSound(); applyReactStyles('hover')"
       @mouseleave="applyReactStyles('reset')"
       @mousedown="applyReactStyles('active')"
       @mouseup="applyReactStyles('mouseUp')"
-      @click="handleClick"
+      @click="playClickSound(); handleClick"
       :style="[buttonSize, textStateStyle, buttonData.apiStyle]"
   >
     <ql-text
@@ -62,11 +62,11 @@
   </div>
   <div class="ql-button" v-else
        ref="buttonRef"
-       @mouseenter="applyReactStyles('hover')"
+       @mouseenter="playSound(); applyReactStyles('hover')"
        @mouseleave="applyReactStyles('reset')"
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
-       @click="handleClick"
+       @click="playClickSound(); handleClick"
        :style="[buttonSize, stateStyle, buttonData.apiStyle]"
   >
     <ql-text
@@ -85,7 +85,6 @@ import QlIcon from "../../icon";
 import {computed, ref, onMounted, watch, toRef} from "vue";
 import { Props, Emits } from './props';
 import { MouseEvent } from "happy-dom";
-import {src} from "gulp";
 
 // Define component options
 // 定义组件选项
@@ -108,7 +107,7 @@ const handleClick = (evt: MouseEvent) => {
 
 // Destructure props.ts for easier access
 // 解构属性以便更容易访问
-const { type ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide} = props
+const { type ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide, music } = props
 const propsRef = toRef(props, 'state')
 
 const reactStyles = ref(react);
@@ -313,6 +312,29 @@ const fetchApiData = async () => {
     console.error('Error fetching API data:', error);
   }
 };
+
+const sound = ref(null);
+const clickSound = ref(null);
+
+onMounted(() => {
+  if (music) {
+    sound.value = music.sound ? new Audio(music.sound.url) : null;
+    clickSound.value = music.clickSound ? new Audio(music.clickSound.url) : null;
+  }
+});
+const playSound = () => {
+  if (sound.value) {
+    sound.value.play();
+  }
+};
+
+const playClickSound = () => {
+  if (clickSound.value) {
+    clickSound.value.play();
+  }
+};
+
+
 
 // Call fetchApiData when component is mounted
 // 在组件加载时调用 fetchApiData
