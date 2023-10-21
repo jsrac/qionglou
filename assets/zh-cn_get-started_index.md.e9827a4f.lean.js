@@ -1,1 +1,0 @@
-import{_ as e,c as a,o as t,Q as s}from"./chunks/framework.d70efecd.js";const u=JSON.parse('{"title":"感谢使用琼楼","description":"","frontmatter":{},"headers":[],"relativePath":"zh-cn/get-started/index.md"}'),r={name:"zh-cn/get-started/index.md"},n=s("",14),o=[n];function i(p,c,l,d,h,g){return t(),a("div",null,o)}const _=e(r,[["render",i]]);export{u as __pageData,_ as default};
