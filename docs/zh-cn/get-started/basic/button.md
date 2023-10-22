@@ -25,6 +25,18 @@
 import QlDocAds from '../../../plugins/QlDocAds.vue';
 </script>
 
+## 扩展
+### 交互
+::: tip 🔔 对于鼠标经过的音效反应
+
+在 Chrome 66 中针对音频和视频元素推出了自动播放政策，可有效阻止 Chrome 中大约一半不需要的媒体自动播放。因此在用户没有手动开启浏览器的“自动播放”，详情见：[Autoplay policy in Chrome](https://developer.chrome.com/blog/autoplay/#web-audio)
+
+为了解决这个问题，您可以通过使用琼楼组件的弹出层组件配合按钮组件（开启 music 功能的按钮），**传入一个空的播放文件，或无声的播放文件（音效设置为，按下播放）**，在用户启动应用的时候，弹出一些 “欢迎” 类的弹窗。
+
+这时当用户点击开启带有 music 功能的按钮时，之后的按钮音效（鼠标经过）**将会被浏览器视为：“用户同意了自动播放”**。
+:::
+
+<demo src="./code/button-expand.vue" desc="琼楼支持更多的按钮场景，如游戏、交互音效的应用，您可以通过 `react` 自定义按钮反应，并配合 `music` 完成意想不到的交互效果。" title="按钮反应" name="music"></demo>
 
 ## 属性
 
