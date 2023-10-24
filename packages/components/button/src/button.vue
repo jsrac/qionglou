@@ -11,36 +11,36 @@
          @mouseleave="applyReactStyles('reset')"
          @mousedown="applyReactStyles('active')"
          @mouseup="applyReactStyles('mouseUp')"
-         @click="playClickSound(); handleClick"
+         @click="handleClickAndPlayClickSound"
          :style="[buttonSize, stateStyle, buttonData.apiStyle]"
     >
       <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
     </div>
   </div>
-    <!-- Check if alt prop is provided -->
+  <!-- Check if alt prop is provided -->
   <div
       v-else-if="type === 'font'"
       class="ql-button"
       @mouseenter="playSound(); applyReactStyles('hover')"
-      @click="playClickSound(); handleClick"
+      @click="handleClickAndPlayClickSound"
       ref="buttonRef"
       @mouseleave="applyReactStyles('reset')"
       @mousedown="applyReactStyles('active')"
       @mouseup="applyReactStyles('mouseUp')"
       :style="[buttonSize, stateStyle, buttonData.apiStyle]"
   >
-      <ql-icon
-          type="font"
-          :src="buttonData.text"
-          :weight="weight"
-          :font="font"
-          :url="url"
-          :color="color"
-          :layout="layout"
-      >
-        <slot></slot>
-      </ql-icon>
-    </div>
+    <ql-icon
+        type="font"
+        :src="buttonData.text"
+        :weight="weight"
+        :font="font"
+        :url="url"
+        :color="color"
+        :layout="layout"
+    >
+      <slot></slot>
+    </ql-icon>
+  </div>
   <div
       class="ql-button"
       v-else-if="type === 'text'"
@@ -49,7 +49,7 @@
       @mouseleave="applyReactStyles('reset')"
       @mousedown="applyReactStyles('active')"
       @mouseup="applyReactStyles('mouseUp')"
-      @click="playClickSound(); handleClick"
+      @click="handleClickAndPlayClickSound"
       :style="[buttonSize, textStateStyle, buttonData.apiStyle]"
   >
     <ql-text
@@ -66,7 +66,7 @@
        @mouseleave="applyReactStyles('reset')"
        @mousedown="applyReactStyles('active')"
        @mouseup="applyReactStyles('mouseUp')"
-       @click="playClickSound(); handleClick"
+       @click="handleClickAndPlayClickSound"
        :style="[buttonSize, stateStyle, buttonData.apiStyle]"
   >
     <ql-text
@@ -103,6 +103,11 @@ const emits = defineEmits(Emits)
 // 处理点击事件
 const handleClick = (evt: MouseEvent) => {
   emits('click', evt)
+}
+
+const handleClickAndPlayClickSound = (evt) => {
+  handleClick(evt);
+  playClickSound();
 }
 
 // Destructure props.ts for easier access

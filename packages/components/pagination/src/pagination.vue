@@ -72,24 +72,24 @@ const stateStyles = {
 };
 const pagShowStyle = computed(() => {
   if (typeof site === 'object') {
-  return site;
-} else {
-  const pagStyles = {
-    center: {
-      textAlign: 'center',
-      marginTop: '10px'
-    },
-    right: {
-      textAlign: 'end',
-      marginTop: '10px'
-    },
-    left: {
-      textAlign: 'inherit',
-      marginTop: '10px'
-    }
-  };
-  return pagStyles[site] || {};
-}
+    return site;
+  } else {
+    const pagStyles = {
+      center: {
+        textAlign: 'center',
+        marginTop: '10px'
+      },
+      right: {
+        textAlign: 'end',
+        marginTop: '10px'
+      },
+      left: {
+        textAlign: 'inherit',
+        marginTop: '10px'
+      }
+    };
+    return pagStyles[site] || {};
+  }
 });
 
 const calculateDisplayedPages = () => {
@@ -142,8 +142,6 @@ const goToPage = (page) => changePage(page);
 const prevPage = () => changePage(current - 1);
 
 const nextPage = () => changePage(current + 1);
-
-
 
 const scrollPage = inject('scrollPage');
 
