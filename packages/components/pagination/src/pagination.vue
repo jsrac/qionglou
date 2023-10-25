@@ -39,11 +39,13 @@
     </template>
     <ql-button
         @click="nextPage"
+        v-if="current < total"
         :disabled="current === total"
         type="text"
         text="下一页"
     />
     <ql-button
+        v-if="current < total"
         @click="goToPage(total)"
         type="text"
         text="尾页"

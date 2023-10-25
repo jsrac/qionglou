@@ -11,18 +11,28 @@
             v-for="column in columns"
             :key="column.key"
             class="header-title"
-            :style="{ width: columnWidth(column) }"
-              :class="{
-                'fixed-column': column.fixed
-              }"
+            :style="{ width: columnWidth(column)}"
+            :class="{ 'fixed-column': column.fixed }"
         >
-          {{ column.label }}
+          <ql-text
+              :url="url"
+              :font="font"
+              :color="color"
+              :weight="weight">
+            {{ column.label }}
+          </ql-text>
         </div>
       </div>
       <div class="body-content" :style="{ height: bodyHeight + 'px' }">
         <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
           <div v-for="column in columns" :key="column.key" class="column" :style="{ width: columnWidth(column) }" :class="{ 'fixed-column': column.fixed }">
-            {{ row[column.key] }}
+            <ql-text
+                :url="url"
+                :font="font"
+                :color="color"
+                :weight="weight">
+              {{ row[column.key] }}
+            </ql-text>
           </div>
         </div>
       </div>
@@ -35,13 +45,14 @@
 <script setup lang="ts">
 import {ref, computed, onMounted, onUnmounted, provide} from 'vue';
 import QlPagination from "../../pagination";
+import QlText from "../../text";
+
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, pageShow, site } = props;
+const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight } = props;
 const scrollPage = ref(1);
 
 const rows = ref([]); // 存储表格行
-const isScrolling = ref(false);
 const pageSize: number = +pageNum; // 每页显示的行数
 const currentPage = ref(1); // 当前页数
 const body = ref<HTMLElement | null>(null); // 表体的 DOM 元素
@@ -110,7 +121,6 @@ const getRowHeight = () => {
   return 0;
 };
 
-let isHandlingScroll = false;
 
 const handleScroll = () => {
   if (props.conHig === 'none' || currentPage.value >= totalPages.value) return;
@@ -129,70 +139,6 @@ const handleScroll = () => {
 
 provide('scrollPage', currentPage);
 
-const customStyle = `
-  .table {
-    margin: auto;
-  }
-
-  .header-row {
-    display: flex;
-    background-color: #ffffff;
-    font-weight: bold;
-    height: 57px;
-    box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
-    width: max-content;
-    align-items: center;
-  }
-
-  .header-row .header-title {
-  }
-  .header-row .column {
-    display: flex;
-    background-color: #ffffff;
-    font-weight: bold;
-    height: 57px;
-    align-items: center;
-  }
-
-  .column {
-  }
-  .body-content {
-   }
-  .header-title, .column {
-  }
-  .row {
-    display: flex;
-    height: 58px;
-    width: max-content;
-    align-items: center;
-  }
-
-  button {
-    margin: 0 5px;
-  }
-
-  .fixed-column {
-    position: sticky;
-    left: 0;
-    display: flex;
-    right: 0px;
-    height: inherit;
-    background-color: #ffffff;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 3px 7px 14px -1px rgb(233 231 231);
-  }
-  .fixed-column-true {
-    position: sticky;
-    z-index: 1;
-    top: 0px
-  }
-`;
-
-const style = document.createElement('style');
-style.innerHTML = customStyle;
-document.head.appendChild(style);
-
 const throttle = (func, wait) => {
   let timeout;
   return function() {
@@ -209,6 +155,7 @@ const throttle = (func, wait) => {
 provide('scrollPage', scrollPage);
 
 const handleScrollThrottled = throttle(handleScroll, 200);
+
 </script>
 
 <style scoped>

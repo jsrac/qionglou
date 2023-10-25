@@ -1,6 +1,6 @@
 <template>
   <div class="demo">
-    <ql-table :columns="columns" :data="data" pageNum="10" conHig="none"/>
+    <ql-table :columns="columns" :data="data" pageNum="10" conHig="none" />
     <ql-table :columns="columns" :data="data" pageNum="10" conHig="small"/>
   </div>
 </template>
@@ -27,6 +27,7 @@ const generateRandomData = (count: number) => {
 };
 
 const data = generateRandomData(60);
+
 </script>
 
 <style scoped>

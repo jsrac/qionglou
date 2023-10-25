@@ -127,6 +127,16 @@ export default defineConfig({
               { text: '对话框', link: '/zh-cn/get-started/pop-up/dialog' }
             ]
           },
+          {
+            text: '<b style="color: darkgrey">执行层</b>',
+            items: [
+              { text: '所在地' },
+              { text: '系统项' },
+              { text: '扩展项' },
+              { text: '行为项' },
+              { text: '滚动项' }
+            ]
+          },
         ]
       },
       {

@@ -1,19 +1,11 @@
 <template>
-
-  <!-- Render custom text component -->
-  <!-- 渲染自定义文本组件 -->
   <div
       class="ql-text"
       :class="[fontClass, themeClass, { 'inline-block-layout': props.layout === 'justify' }]"
       :style="{ fontSize: computedSize, color: props.color, fontWeight: weightClass, textAlign: textLayout, lineHeight: lineClass, ...customStyles }"
   >
-
-    <!-- Slot for content -->
-    <!-- 内容插槽 -->
     <slot></slot>
-
   </div>
-
 </template>
 
 <script setup lang="ts">

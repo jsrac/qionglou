@@ -19,6 +19,11 @@ export type PropsType = {
     paging: Prop<string | paginationLayout>
     pageShow: Prop<string>
     site: Prop<string | object>
+    url: Prop<string>
+    font: Prop<string>
+    color: Prop<string>
+    weight: Prop<string>
+    background: Prop<string>
 }
 
 export const Props = {
@@ -49,6 +54,26 @@ export const Props = {
     site: {
         type: String as Prop<string | object>,
         default: 'center'
+    },
+    weight: {
+        type: String as Prop<string>,
+        default: '500'
+    },
+    color: {
+        type: String as Prop<string>,
+        default: '',
+    },
+    font: {
+        type: String as Prop<string>,
+        default: ''
+    },
+    url: {
+        type: String as Prop<string>,
+        default: ''
+    },
+    background: {
+        type: String as Prop<string>,
+        default: 'rgba(255,255,255,0)'
     }
 } as PropsType
 
