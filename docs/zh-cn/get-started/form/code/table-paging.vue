@@ -1,6 +1,13 @@
 <template>
   <div class="demo">
-    <ql-table :columns="columns" :data="data" pageNum="10" conHig="small"/>
+    <ql-table :columns="columns"
+              :data="data"
+              pageNum="10"
+              conHig="small"
+              font="Brithney"
+              url="https://fonts.cdnfonts.com/css/brithney"
+              weight="bold"
+    />
   </div>
 </template>
 

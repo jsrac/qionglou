@@ -11,6 +11,10 @@ export type PropsType = {
     total: Prop<number>
     layout: Prop<string>
     site: Prop<string | PagLayout | object>
+    url: Prop<string>
+    font: Prop<string>
+    color: Prop<string>
+    weight: Prop<string>
 }
 
 // Exporting the props.ts with their respective validations and defaults.
@@ -30,5 +34,21 @@ export const Props = {
     site: {
         type: String as Prop<string | PagLayout | object>,
         default: 'center'
+    },
+    weight: {
+        type: String as Prop<string>,
+        default: '500'
+    },
+    color: {
+        type: String as Prop<string>,
+        default: '',
+    },
+    font: {
+        type: String as Prop<string>,
+        default: ''
+    },
+    url: {
+        type: String as Prop<string>,
+        default: ''
     }
 } as PropsType

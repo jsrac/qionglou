@@ -25,7 +25,6 @@ export type PropsType = {
     weight: Prop<string>
     background: Prop<string>
 }
-
 export const Props = {
     data: {
         type: Array,

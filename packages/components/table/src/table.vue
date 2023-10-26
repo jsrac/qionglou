@@ -38,7 +38,10 @@
       </div>
     </div>
     <!-- 分页 -->
-    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow" :site='site'/>
+    <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow" :site='site' :url="url"
+                   :font="font"
+                   :color="color"
+                   :weight="weight"/>
   </div>
 </template>
 

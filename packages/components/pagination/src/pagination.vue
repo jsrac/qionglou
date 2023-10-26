@@ -5,6 +5,10 @@
         v-if="current !== 1"
         text="首页"
         type="text"
+        :url="url"
+        :font="font"
+        :color="color"
+        :weight="weight"
     />
     <ql-button
         @click="prevPage"
@@ -12,6 +16,10 @@
         v-if="current !== 1"
         text="上一页"
         type="text"
+        :url="url"
+        :font="font"
+        :color="color"
+        :weight="weight"
     />
     <template v-if="layout === 'abridge'">
       <span v-if="displayedPages[0] > 2">...</span>
@@ -23,6 +31,10 @@
           :class="{ active: current === page }"
           type="text"
           :text="page"
+          :url="url"
+          :font="font"
+          :color="color"
+          :weight="weight"
       >
       </ql-button>
       <span v-if="displayedPages[displayedPages.length - 1] < total - 1">...</span>
@@ -35,6 +47,10 @@
           :class="{ active: current === page }"
           type="text"
           :text="page"
+          :url="url"
+          :font="font"
+          :color="color"
+          :weight="weight"
       />
     </template>
     <ql-button
@@ -43,12 +59,20 @@
         :disabled="current === total"
         type="text"
         text="下一页"
+        :url="url"
+        :font="font"
+        :color="color"
+        :weight="weight"
     />
     <ql-button
         v-if="current < total"
         @click="goToPage(total)"
         type="text"
         text="尾页"
+        :url="url"
+        :font="font"
+        :color="color"
+        :weight="weight"
     />
   </div>
 </template>
@@ -60,7 +84,7 @@ import QlButton from "../../button";
 
 const props = defineProps(Props);
 
-let { current, total, layout, site } = props;
+let { current, total, layout, site, url, font, color, weight } = props;
 
 const instance = getCurrentInstance();
 
