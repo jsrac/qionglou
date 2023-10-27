@@ -9,6 +9,6 @@
     "vue": "^3.3.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "@emotion/css": "^11.11.2"
   }
 }

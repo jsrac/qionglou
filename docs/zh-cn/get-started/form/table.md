@@ -13,3 +13,7 @@
 您可以快速了解到琼楼的设计理念，即单组件复用所共同组成的多个组件，在您实际的业务需求中，也可以进行单个组件的组合实现需要的功能。
 
 <demo src="./code/table-paging.vue" desc="表格组件提供了多种方式供您自定义**表头**的显示方式，您可以进行固定也可以进行对表头的高度和功能的自定义。" title="固定及附加功能" name="paging"></demo>
+
+## 自定义
+
+<demo src="./code/table-mate.vue" desc="基于 Emotion 强大特性，您可以通过 `mate` 方法调整表格组件的各项样式，以满足您的业务需求和设计。" title="自定义样式" name="mate"></demo>

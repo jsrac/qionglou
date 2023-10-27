@@ -24,6 +24,7 @@ export type PropsType = {
     color: Prop<string>
     weight: Prop<string>
     background: Prop<string>
+    mate: Prop<object>
 }
 export const Props = {
     data: {
@@ -53,6 +54,9 @@ export const Props = {
     site: {
         type: String as Prop<string | object>,
         default: 'center'
+    },
+    mate: {
+        type: Object as Prop<object>,
     },
     weight: {
         type: String as Prop<string>,

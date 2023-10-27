@@ -54,6 +54,27 @@ const generateRandomData = (count: number) => {
   return data;
 };
 
+const reactStyles = {
+  table: {
+    background: 'rgba(215,215,215,0.28)',
+  },
+  headerRow: {
+    background: 'rgba(215,215,215,0.28)',
+  },
+  row: {
+    border: '1px solid #0000ff47'
+  },
+  column: {
+    border: '1px solid #0000ff47'
+  },
+  fixedColumn: {
+    border: '1px solid red'
+  },
+  fixedColumnTrue: {
+    border: '1px solid red'
+  }
+};
+
 const data = generateRandomData(60);
 </script>
 

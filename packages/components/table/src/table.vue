@@ -1,18 +1,17 @@
 <template>
-  <div class="table">
+  <div :class="applyStyles('table')">
     <div :style="tableHeight" ref="body" @scroll="handleScrollThrottled">
       <div
-          class="header-row"
-          :class="{
-            'fixed-column-true': columns.some(column => column.titleFix)
-          }"
+          :class="[
+            { [applyStyles('fixedColumnTrue')]: columns.some(column => column.titleFix)},
+            applyStyles('headerRow')
+          ]"
       >
         <div
             v-for="column in columns"
             :key="column.key"
-            class="header-title"
             :style="{ width: columnWidth(column)}"
-            :class="{ 'fixed-column': column.fixed }"
+            :class="{ [applyStyles('fixedColumn')]: column.fixed }"
         >
           <ql-text
               :url="url"
@@ -23,9 +22,9 @@
           </ql-text>
         </div>
       </div>
-      <div class="body-content" :style="{ height: bodyHeight + 'px' }">
-        <div v-for="(row, index) in visibleData" :key="row.id" class="row" :ref="'rowRef_' + index">
-          <div v-for="column in columns" :key="column.key" class="column" :style="{ width: columnWidth(column) }" :class="{ 'fixed-column': column.fixed }">
+      <div :style="{ height: bodyHeight + 'px' }">
+        <div v-for="(row, index) in visibleData" :key="row.id" :class="applyStyles('row')" :ref="'rowRef_' + index">
+          <div v-for="column in columns" :key="column.key" :style="{ width: columnWidth(column) }" :class="[{ [applyStyles('fixedColumn')]: column.fixed }, applyStyles('column')]">
             <ql-text
                 :url="url"
                 :font="font"
@@ -49,11 +48,70 @@
 import {ref, computed, onMounted, onUnmounted, provide} from 'vue';
 import QlPagination from "../../pagination";
 import QlText from "../../text";
+import { css } from '@emotion/css';
 
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight } = props;
+const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight, mate } = props;
 const scrollPage = ref(1);
+
+const mateStyles = ref(mate);
+
+console.log('mateStyles',mateStyles)
+const applyStyles = (styleType) => {
+  switch(styleType) {
+    case 'table':
+      return css`
+        margin: auto;
+        ${mate && css(mate.table)}
+      `;
+    case 'headerRow':
+      return css`
+        display: flex;
+        background-color: #ffffff;
+        font-weight: bold;
+        height: 57px;
+        box-shadow: 0px 7px 14px 0px rgb(230 230 230 / 25%);
+        width: max-content;
+        align-items: center;
+        ${mate && css(mate.headerRow)}
+      `;
+    case 'row':
+      return css`
+        display: flex;
+        height: 58px;
+        width: max-content;
+        align-items: center;
+        ${mate && css(mate.row)}
+      `;
+    case 'column':
+      return css`
+        margin: 0;
+        ${mate && css(mate.column)}
+      `;
+    case 'fixedColumn':
+      return css`
+        position: sticky;
+        left: 0;
+        display: flex;
+        right: 0px;
+        height: inherit;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 1px 2px 14px -1px rgb(236 236 236);
+        ${mate && css(mate.fixedColumn)}
+      `;
+    case 'fixedColumnTrue':
+      return css`
+        position: sticky;
+        z-index: 1;
+        top: 0px;
+        ${mate && css(mate.fixedColumnTrue)}
+      `;
+    default:
+      return '';
+  }
+};
 
 const rows = ref([]); // 存储表格行
 const pageSize: number = +pageNum; // 每页显示的行数
