@@ -94,6 +94,9 @@ const stateStyles = {
     color: 'rgb(255,255,255)',
     backgroundColor: 'rgb(0 120 255)',
     borderRadius: '4px !important',
+  },
+  text: {
+
   }
 };
 const pagShowStyle = computed(() => {
@@ -178,7 +181,4 @@ watch(scrollPage, (newPage) => {
 </script>
 
 <style scoped>
-button {
-  margin: 0 5px;
-}
 </style>

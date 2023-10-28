@@ -40,8 +40,7 @@ export const Props = {
         default: '500'
     },
     color: {
-        type: String as Prop<string>,
-        default: '',
+        type: String as Prop<string>
     },
     font: {
         type: String as Prop<string>,

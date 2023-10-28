@@ -98,6 +98,7 @@ const applyStyles = (styleType) => {
         height: inherit;
         align-items: center;
         justify-content: center;
+        background: white;
         box-shadow: 1px 2px 14px -1px rgb(236 236 236);
         ${mate && css(mate.fixedColumn)}
       `;
