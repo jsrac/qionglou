@@ -18,6 +18,7 @@ export type PropsType = {
     btType: Prop<string>
     source: Prop<object>
     arrow: Prop<object>
+    selected: Prop<object>
 }
 
 // Exporting the props.ts with their respective validations and defaults.
@@ -61,6 +62,9 @@ export const Props = {
         type: Object as Prop<object>,
     },
     arrow: {
+        type: Object as Prop<object>,
+    },
+    selected: {
         type: Object as Prop<object>,
     }
 } as PropsType

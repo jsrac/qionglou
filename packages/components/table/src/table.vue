@@ -43,6 +43,7 @@
                    :weight="weight"
                    :source="source"
                    :arrow="arrow"
+                   :selected="selected"
     />
   </div>
 </template>
@@ -55,7 +56,7 @@ import { css } from '@emotion/css';
 
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight, mate, source, arrow} = props;
+const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight, mate, source, arrow, selected} = props;
 const scrollPage = ref(1);
 
 const mateStyles = ref(mate);

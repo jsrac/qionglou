@@ -33,7 +33,7 @@
           :text="page"
           :url="url"
           :font="font"
-          :color="color"
+          :style="{ color: current === page ? stateStyles.primary.color : (current === page ? stateStyles.primary.color : color) }"
           :weight="weight"
       >
       </ql-button>
@@ -109,7 +109,7 @@
           :text="page"
           :url="url"
           :font="font"
-          :color="color"
+          :style="{ color: current === page ? stateStyles.primary.color : (current === page ? stateStyles.primary.color : color) }"
           :weight="weight"
       >
       </ql-button>
@@ -160,7 +160,7 @@ import QlButton from "../../button";
 
 const props = defineProps(Props);
 
-let { current, total, layout, site, url, font, color, weight, arrow } = props;
+let { current, total, layout, site, url, font, color, weight, arrow, selected } = props;
 const propsRef = toRef(props, 'source')
 
 const instance = getCurrentInstance();
@@ -214,17 +214,20 @@ const textSize = computed(() => {
   }
 })
 
-const stateStyles = {
-  primary: {
-    fontWeight: '500',
-    color: 'rgb(255,255,255)',
-    backgroundColor: 'rgb(0 120 255)',
-    borderRadius: '4px !important',
-  },
-  text: {
-
+console.log('selectedStyle',selected)
+const stateStyles = computed(() => {
+  if (typeof selected === 'object') {
+    return selected;
+  } else {
+    const styleOptions = {
+      primary: {
+        fontWeight: '500',
+        color: 'rgb(0 120 255)'
+      }
+    }
+    return styleOptions || {};
   }
-};
+})
 
 const pagShowStyle = computed(() => {
   if (typeof site === 'object') {

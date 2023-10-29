@@ -27,6 +27,7 @@ export type PropsType = {
     mate: Prop<object>
     source: Prop<string>
     arrow: Prop<object>
+    selected: Prop<object>
 }
 // @ts-ignore
 export const Props = {
@@ -67,7 +68,7 @@ export const Props = {
     },
     color: {
         type: String as Prop<string>,
-        default: '',
+        default: '#B3B3B3',
     },
     font: {
         type: String as Prop<string>,
@@ -85,6 +86,9 @@ export const Props = {
         default: 'rgba(255,255,255,0)'
     },
     arrow: {
+        type: Object as Prop<object>,
+    },
+    selected: {
         type: Object as Prop<object>,
     }
 } as PropsType
