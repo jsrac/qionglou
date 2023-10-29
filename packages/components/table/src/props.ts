@@ -25,7 +25,10 @@ export type PropsType = {
     weight: Prop<string>
     background: Prop<string>
     mate: Prop<object>
+    source: Prop<string>
+    arrow: Prop<object>
 }
+// @ts-ignore
 export const Props = {
     data: {
         type: Array,
@@ -74,9 +77,15 @@ export const Props = {
         type: String as Prop<string>,
         default: ''
     },
+    source: {
+        type: Object as Prop<object>
+    },
     background: {
         type: String as Prop<string>,
         default: 'rgba(255,255,255,0)'
+    },
+    arrow: {
+        type: Object as Prop<object>,
     }
 } as PropsType
 

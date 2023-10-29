@@ -1,9 +1,18 @@
 # 感谢使用琼楼
 
 <a href="https://qionglou.jiangxue.org/"><img src="https://github.com/jsrac/qionglou/assets/57232813/1ae5bbcb-62c2-4ccd-9637-429dbba9ad57"></a>
-<img width="1745" alt="image" src="https://github.com/jsrac/qionglou/assets/57232813/8ce1fa91-24c5-449b-ab6e-6d5de33d8e40">
 
-琼楼（Qionglou）是一个灵活且可定制的组件库，使开发人员和创意设计师能够创建独特且个性化的用户界面，进行设计到开发到组件化，从而集成到社区实现组件不同样式和扩展的切换。而并非和其他设计或产品相同的设计元素，专注于设计自由和社区协作，提供精心设计的开发体验。
+<img width="1745" alt="image" src="/home/home-view.jpg">
+
+琼楼（Qionglou）是一个灵活且可深度定制的组件库，使开发人员和创意设计师能够创建独特且个性化的用户界面，进行设计到开发到组件化，从而集成到社区实现组件不同样式和扩展的切换。而并非和其他设计或产品相同的设计元素，专注于设计自由和社区协作，提供精心设计的开发体验。
+
+::: tip ⚠️ 琼楼是否适合您？
+
+**如果您并没有深度定制的要求**，即没有一个完整的设计观念（设计语言）、或您的设计稿符合市面上 “通用设计” 或千篇一律的审美。
+
+建议您使用更加完整、更加通用、对类似通用设计具有大量打磨的组件库：[Element](https://element-plus.org/en-US/)、[Ant Design](https://ant.design/)、[Naive UI](https://www.naiveui.com/en-US/os-theme) 会减少您大量的自定义时间，满足您的需求。
+
+:::
 
 您可以访问[贡献指南](dev_guides.md)或查阅我们的使用文档来开始进一步的操作。
 

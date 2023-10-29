@@ -40,7 +40,10 @@
     <ql-pagination ref="pagination" v-model:current="currentPage" :total="totalPages" :layout="pageShow" :site='site' :url="url"
                    :font="font"
                    :color="color"
-                   :weight="weight"/>
+                   :weight="weight"
+                   :source="source"
+                   :arrow="arrow"
+    />
   </div>
 </template>
 
@@ -52,12 +55,11 @@ import { css } from '@emotion/css';
 
 import { Props } from './props';
 const props = defineProps(Props);
-const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight, mate } = props;
+const { data, columns, pageNum, conHig, pageShow, site, url, font, color, weight, mate, source, arrow} = props;
 const scrollPage = ref(1);
 
 const mateStyles = ref(mate);
 
-console.log('mateStyles',mateStyles)
 const applyStyles = (styleType) => {
   switch(styleType) {
     case 'table':

@@ -15,6 +15,9 @@ export type PropsType = {
     font: Prop<string>
     color: Prop<string>
     weight: Prop<string>
+    btType: Prop<string>
+    source: Prop<object>
+    arrow: Prop<object>
 }
 
 // Exporting the props.ts with their respective validations and defaults.
@@ -49,5 +52,15 @@ export const Props = {
     url: {
         type: String as Prop<string>,
         default: ''
+    },
+    btType: {
+        type: String as Prop<string>,
+        default: ''
+    },
+    source: {
+        type: Object as Prop<object>,
+    },
+    arrow: {
+        type: Object as Prop<object>,
     }
 } as PropsType

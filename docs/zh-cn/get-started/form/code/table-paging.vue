@@ -7,7 +7,7 @@
               font="Brithney"
               url="https://fonts.cdnfonts.com/css/brithney"
               weight="bold"
-              :mate="reactStyles"
+              :arrow="textContent"
     />
   </div>
 </template>
@@ -53,7 +53,12 @@ const generateRandomData = (count: number) => {
 
   return data;
 };
-
+const textContent = {
+  first: 'Home',
+  prev: 'Prev',
+  next: 'Next',
+  last: 'Last',
+};
 const data = generateRandomData(60);
 </script>
 
