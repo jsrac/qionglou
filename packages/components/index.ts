@@ -30,6 +30,13 @@ export * from './table'
 
 import { QlPagination } from './pagination'
 export * from './pagination'
+
+import { QlSkeleton } from './skeleton'
+export * from './skeleton'
+
+import { QlSkeletonItem } from './skeletonItem'
+export * from './skeletonItem'
+
 export default [
   QlFix,
   QlMain,
@@ -41,6 +48,8 @@ export default [
   QlText,
   QlDivide,
   QlTable,
-  QlPagination
+  QlPagination,
+  QlSkeleton,
+  QlSkeletonItem
 ]
 

@@ -35,7 +35,7 @@ const columns = [
   { key: 'name', label: 'Column 9-4' , width: 110},
   { key: 'name', label: 'Column 9-5' , width: 110},
   { key: 'name', label: 'Column 9-6' , width: 110},
-  { key: 'name', label: 'Column 9-7' , width: 110},
+  { key: 'name', label: 'Column 9-7' , width: 110 , fixed: true, titleFix: true},
   { key: 'more', label: 'Column 9', fixed: true, width: 110, titleFix: true}
 ];
 

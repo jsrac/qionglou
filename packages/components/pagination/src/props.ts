@@ -1,4 +1,4 @@
-// Importing the 'Prop' type from Vue for typing props.ts.ts.
+// Importing the 'Prop' type from Vue for typing props.ts
 // 从Vue中导入'Prop'类型，用于为props定义类型。
 import {Prop} from 'vue'
 

@@ -1,8 +1,8 @@
-// Importing the 'Prop' type from Vue for typing props.ts.ts.
+// Importing the 'Prop' type from Vue for typing props
 // 从Vue中导入'Prop'类型，用于为props定义类型。
 import { Prop } from 'vue'
 
-// Defining the types for component props.ts.ts.
+// Defining the types for component props
 // 定义组件props的类型。
 export type PropsType = {    // 用于指定位置的prop。
     position: Prop<string>,  // A prop for specifying the position.
@@ -11,7 +11,7 @@ export type PropsType = {    // 用于指定位置的prop。
                              // 用于指定z-index的prop。
 }
 
-// Exporting the props.ts.ts with their respective types and default values.
+// Exporting the props.ts with their respective types and default values.
 // 使用它们各自的类型和默认值导出props。
 export const Props = {
     position: {

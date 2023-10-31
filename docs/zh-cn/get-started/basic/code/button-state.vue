@@ -101,10 +101,10 @@ const music1Url = {
 </script>
 
 <style scoped>
-  .demo {
-    padding: 0;
-  }
-  .demo .button {
-    margin: 3px !important;
-  }
+.demo {
+  padding: 0;
+}
+.demo .button {
+  margin: 3px !important;
+}
 </style>
