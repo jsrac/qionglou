@@ -12,6 +12,8 @@
 
 建议您使用更加完整、更加通用、对类似通用设计具有大量打磨的组件库：[Element](https://element-plus.org/en-US/)、[Ant Design](https://ant.design/)、[Naive UI](https://www.naiveui.com/en-US/os-theme) 会减少您大量的自定义时间，满足您的需求。
 
+又或者您对某一方面具有极高的专业追求，如表格或其他的 “着重” 点，可以使用例如 [VTable](https://visactor.io/vtable)，无论如何，您需要知道您的需求是什么，以及您想做什么，从而选择趁手项目来完善您的业务或需求。
+
 :::
 
 您可以访问[贡献指南](dev_guides.md)或查阅我们的使用文档来开始进一步的操作。
