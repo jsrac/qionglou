@@ -7,32 +7,33 @@
             applyStyles('headerRow')
           ]"
       >
-        <div
-            v-for="column in columns"
-            :key="column.key"
-            :style="{ width: columnWidth(column)}"
-            :class="{ [applyStyles('fixedColumn')]: column.fixed }"
-        >
-          <ql-text
-              :url="url"
-              :font="font"
-              :color="color"
-              :weight="weight">
-            {{ column.label }}
-          </ql-text>
-        </div>
-      </div>
-      <div :style="{ height: bodyHeight + 'px' }">
-        <div v-for="(row, index) in visibleData" :key="row.id" :class="applyStyles('row')" :ref="'rowRef_' + index">
-          <div v-for="column in columns" :key="column.key" :style="{ width: columnWidth(column) }" :class="[{ [applyStyles('fixedColumn')]: column.fixed }, applyStyles('column')]">
+        <ql-table-column v-for="column in columns" :key="column.key" :column="column">
+          <template #header="{ column }">
             <ql-text
                 :url="url"
                 :font="font"
                 :color="color"
-                :weight="weight">
-              {{ row[column.key] }}
+                :weight="weight"
+            >
+              {{ column.label }}
             </ql-text>
-          </div>
+          </template>
+        </ql-table-column>
+      </div>
+      <div :style="{ height: bodyHeight + 'px' }">
+        <div v-for="(row, index) in visibleData" :key="row.id" :class="applyStyles('row')" :ref="'rowRef_' + index">
+          <ql-table-column v-for="column in columns" :key="column.key" :column="column" :row="row">
+            <template #default="{ row, column }">
+              <ql-text
+                  :url="url"
+                  :font="font"
+                  :color="color"
+                  :weight="weight"
+              >
+                {{ row[column.key] }}
+              </ql-text>
+            </template>
+          </ql-table-column>
         </div>
       </div>
     </div>
@@ -48,11 +49,13 @@
   </div>
 </template>
 
+
 <script setup lang="ts">
 import {ref, computed, onMounted, onUnmounted, provide} from 'vue';
 import QlPagination from "../../pagination";
 import QlText from "../../text";
 import { css } from '@emotion/css';
+import QlTableColumn from './tableColumn'
 
 import { Props } from './props';
 const props = defineProps(Props);

@@ -1,5 +1,6 @@
 <template>
   <div class="demo">
+    <img src="https://qionglou.jiangxue.org/home/home-view.jpg" v-if="!loading">
     <ql-button
         class="button"
         size="large"
@@ -33,17 +34,19 @@
 </template>
 
 <script setup lang="ts">
-import {onMounted, ref} from "vue";
+import {nextTick, onMounted, ref} from "vue";
 import { QlButton } from '@qionglou/components/button'
 import { QlSkeleton } from '@qionglou/components/skeleton'
 import { QlSkeletonItem } from '@qionglou/components/skeletonItem'
-
 const loading = ref(true);
 
 onMounted(() => {
-  setTimeout(() => {
+  // 使用onLoad事件监听图片加载完成
+  const img = new Image();
+  img.src = "https://qionglou.jiangxue.org/home/home-view.jpg";
+  img.onload = () => {
     loading.value = false;
-  }, 10000);
+  };
 });
 
 const reactStyles = {
