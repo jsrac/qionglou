@@ -1,9 +1,14 @@
 <img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/27cc8391-1b7f-468c-8e53-c14494df3ae0" width="200" div align=right>
 <p></p>
+<img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/7fb7287d-73c9-49d7-ada3-243a281036f6" width="500">
 
 <h1>Welcome to Qionglou</h1>
-<a href="https://qionglou.jiangxue.org/"><img src="https://github.com/jsrac/qionglou/assets/57232813/a181882b-d5bc-4bdf-8d6a-3833942ef523"></a>
+
+> [!NOTE] 
+> This component library is still under development. Perhaps when it reaches **1000+** commits, you'll see the real component library.
+
 <p>Qionglou is a flexible and customizable component library that empowers developers to create unique and personalized user interfaces. With a focus on design freedom and community collaboration, Qionglou offers a thoughtfully crafted development experience.</p>
+
 
 [View our roadmap](https://github.com/orgs/jsrac/projects/3/views/1) -
 [English](https://github.com/Jiangxue-team/qionglou/wiki) -
