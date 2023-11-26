@@ -65,4 +65,4 @@ behavior we uphold within our community and promotes a respectful and inclusive 
 
 ## LICENSE
 
-Qionglou is released under the [MIT License](LICENSE)
+Qionglou is released under the [MIT License](LICENSE) <img alt="logo" style="float: right;right: 0px" src="https://github.com/jsrac/qionglou/assets/57232813/cea28bdc-2140-41d0-85c4-ca46b8dad683" width="50" div align=right>
