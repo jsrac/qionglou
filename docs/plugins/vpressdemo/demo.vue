@@ -79,7 +79,6 @@ export default {
         }, 1500);
         timerMap.set(el, timer);
       } catch (err) {
-        console.log("failed to do copy", err);
       }
       // ...style handling logic
     };

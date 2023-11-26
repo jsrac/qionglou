@@ -1,6 +1,7 @@
 ---
 layout: home
-title: An atomic component library for Vue 3
+title: Qionglou
+titleTemplate: An atomic component library for Vue 3
 ---
 
 <Home />

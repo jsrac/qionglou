@@ -4,6 +4,9 @@ import vpressdemo from "../plugins/vpressdemo";
 
 // @ts-ignore
 export default defineConfig({
+  lang: 'en-US',
+  title: 'Qionglou',
+  description: 'An atomic component library for Vue 3,Unlock your creativity with use Qionglou',
   head: [['link', { rel: 'icon', href: '/favicon.svg' }]],
   locales: {
     root: {

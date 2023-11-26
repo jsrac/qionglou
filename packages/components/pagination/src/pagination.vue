@@ -214,7 +214,6 @@ const textSize = computed(() => {
   }
 })
 
-console.log('selectedStyle',selected)
 const stateStyles = computed(() => {
   if (typeof selected === 'object') {
     return selected;
