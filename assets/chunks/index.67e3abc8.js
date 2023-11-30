@@ -1,1 +1,0 @@
-import{w as a,a as o}from"./icon.vue_vue_type_script_setup_true_lang.cc10edec.js";import t from"./table.042dbdbb.js";import{_ as s}from"./tableColumn.vue_vue_type_script_setup_true_lang.8f9d635f.js";const i=a(t);o(s);export{i as Q};
