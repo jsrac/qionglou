@@ -4,11 +4,10 @@
 
 <h1>Welcome to Qionglou</h1>
 
-> [!NOTE] 
+> [!NOTE]
 > This component library is still under development. Perhaps when it reaches **1000+** commits, you'll see the real component library.
 
 <p>Qionglou is a flexible and customizable component library that empowers developers to create unique and personalized user interfaces. With a focus on design freedom and community collaboration, Qionglou offers a thoughtfully crafted development experience.</p>
-
 
 [View our roadmap](https://github.com/orgs/jsrac/projects/3/views/1) -
 [English](https://github.com/Jiangxue-team/qionglou/wiki) -
@@ -61,6 +60,7 @@ We expect all community members to abide by our [Code of Conduct](CODE_OF_CONDUC
 behavior we uphold within our community and promotes a respectful and inclusive environment.
 
 ## Thank
+
 ![image](https://github.com/jsrac/qionglou/assets/57232813/5e7501c8-be58-4d49-ae67-8e394a4df297)
 
 ## LICENSE

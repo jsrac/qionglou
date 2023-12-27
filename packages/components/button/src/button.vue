@@ -1,363 +1,78 @@
 <template>
-  <!-- Conditional div with dynamic class and style bindings
-  条件性的div，带有动态的类和样式绑定 -->
-  <div class="ql-button" v-if="type === 'icon'">
-    <!-- Check if alt prop is provided -->
-    <ql-icon v-if="!text" type="img" :src="src" :wide="wide" />
-    <div v-else
-         class="ql-button"
-         ref="buttonRef"
-         @mouseenter="playSound(); applyReactStyles('hover')"
-         @mouseleave="applyReactStyles('reset')"
-         @mousedown="applyReactStyles('active')"
-         @mouseup="applyReactStyles('mouseUp')"
-         @click="handleClickAndPlayClickSound"
-         :style="[buttonSize, stateStyle, buttonData.apiStyle]"
-    >
-      <ql-icon type="img" :src="src" :wide="wide" :alt="buttonData.text" :url="url" :font="font" :color="color" :weight="weight" :layout="layout"/>
-    </div>
-  </div>
-  <!-- Check if alt prop is provided -->
-  <div
-      v-else-if="type === 'font'"
-      class="ql-button"
-      @mouseenter="playSound(); applyReactStyles('hover')"
-      @click="handleClickAndPlayClickSound"
-      ref="buttonRef"
-      @mouseleave="applyReactStyles('reset')"
-      @mousedown="applyReactStyles('active')"
-      @mouseup="applyReactStyles('mouseUp')"
-      :style="[buttonSize, stateStyle, buttonData.apiStyle]"
+  <component
+    ref="_ref"
+    is="button"
+    :type="attrType"
+    :class="['ql-button', ...typeClass]"
+    @click="handleClick"
+    @keyup="handleKeyup"
+    @keydown="handleKeydown"
+    @blur="handleBlur"
   >
-    <ql-icon
-        type="font"
-        :src="buttonData.text"
-        :weight="weight"
-        :font="font"
-        :url="url"
-        :color="color"
-        :layout="layout"
-    >
-      <slot></slot>
-    </ql-icon>
-  </div>
-  <div
-      class="ql-button"
-      v-else-if="type === 'text'"
-      ref="buttonRef"
-      @mouseenter="playSound(); applyReactStyles('hover')"
-      @mouseleave="applyReactStyles('reset')"
-      @mousedown="applyReactStyles('active')"
-      @mouseup="applyReactStyles('mouseUp')"
-      @click="handleClickAndPlayClickSound"
-      :style="[buttonSize, textStateStyle, buttonData.apiStyle]"
-  >
-    <ql-text
-        :url="url"
-        :font="font"
-        :color="color"
-        :weight="weight">
-      {{ buttonData.text }}
-    </ql-text>
-  </div>
-  <div class="ql-button" v-else
-       ref="buttonRef"
-       @mouseenter="playSound(); applyReactStyles('hover')"
-       @mouseleave="applyReactStyles('reset')"
-       @mousedown="applyReactStyles('active')"
-       @mouseup="applyReactStyles('mouseUp')"
-       @click="handleClickAndPlayClickSound"
-       :style="[buttonSize, stateStyle, buttonData.apiStyle]"
-  >
-    <ql-text
-        :url="url"
-        :font="font"
-        :color="color"
-        :weight="weight">
-      {{ buttonData.text }}
-    </ql-text>
-  </div>
+    <template v-if="loading">
+      <slot v-if="$slots.loading" name="loading" />
+    </template>
+    <span v-if="$slots.default">
+      <slot />
+    </span>
+  </component>
 </template>
 
 <script setup lang="ts">
-import QlText from "../../text";
-import QlIcon from "../../icon";
-import {computed, ref, onMounted, watch, toRef} from "vue";
-import { Props, Emits } from './props';
-import { MouseEvent } from "happy-dom";
+  import { computed, ref, useSlots } from 'vue'
+  import { buttonProps, buttonEmits } from './button'
 
-// Define component options
-// 定义组件选项
-defineOptions({ name: 'QlButton' })
+  const props = defineProps(buttonProps)
+  const emits = defineEmits(buttonEmits)
 
-// Create a reference to the button element
-// 创建对按钮元素的引用
-const buttonRef = ref<HTMLElement | null>(null);
+  defineOptions({
+    name: 'ql-button',
+    inheritAttrs: false
+  })
 
-// Define props.ts.ts and emits
-// 定义属性和发射器
-const props = defineProps(Props)
-const emits = defineEmits(Emits)
+  const _ref = ref<HTMLButtonElement>()
+  const slots = useSlots()
 
-// Handle click event
-// 处理点击事件
-const handleClick = (evt: MouseEvent) => {
-  emits('click', evt)
-}
+  defineExpose({
+    ref: _ref.value
+  })
 
-const handleClickAndPlayClickSound = (evt) => {
-  handleClick(evt);
-  playClickSound();
-}
+  const typeClass = computed(() => {
+    return [
+      `ql-button--` + props.type,
+      `ql-button--` + props.size
+    ]
+  })
 
-// Destructure props.ts for easier access
-// 解构属性以便更容易访问
-const { type ,react, size, src, text, url, weight, font, layout, color, plain, round, circle, disabled, link , api, wide, music } = props
-const propsRef = toRef(props, 'state')
-
-const reactStyles = ref(react);
-
-// Create a reactive object to store button data
-// 创建一个响应式对象来存储按钮数据
-const buttonData = ref({
-  text: "",
-  classes: {},
-  class: "",
-  state: "",
-  apiStyle: {}
-});
-
-// Compute button size based on prop value
-// 根据属性值计算按钮大小
-const buttonSize = computed(() => {
-  if (size === 'normal') {
-    return {
-      padding: '10px 15px 10px 15px'
-    };
-  } else {
-    const sizeOptions = {
-      small: {
-        padding: '7px'
-      },
-      medium: {
-        padding: '16px'
-      },
-      large: {
-        padding: '10px 64px'
-      },
-      mini: {
-        padding: '4px'
-      }
-    };
-    return sizeOptions[size] || 'padding:' + size;
-  }
-})
-
-// Compute button state specific styles
-// 根据按钮类型计算特定样式
-const stateStyle = computed(() => {
-  if (typeof propsRef.value === 'object') {
-    return propsRef.value;
-  } else {
-    const stateStyles = {
-      default: {
-        border: '1.5px solid #DADCE0',
-        fontWeight: '500',
-        color: 'rgb(0 120 255)',
-        borderRadius: '4px !important',
-      },
-      primary: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: 'rgb(0, 120, 255)',
-        borderRadius: '4px !important',
-      },
-      success: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#00dc5c',
-        borderRadius: '4px !important',
-      },
-      warning: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#fdbf00',
-        borderRadius: '4px !important',
-      },
-      danger: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#ff0a0a',
-        borderRadius: '4px !important',
-      }
-    };
-    return stateStyles[propsRef.value] || {};
-  }
-});
-
-const textStateStyle = computed(() => {
-  if (typeof propsRef.value === 'object') {
-    return propsRef.value;
-  } else {
-    const stateStyles = {
-      default: {
-        fontWeight: '500',
-        color: 'rgb(0 120 255)',
-        borderRadius: '4px !important',
-      },
-      primary: {
-        fontWeight: '500',
-        color: 'rgb(0, 120, 255)',
-        borderRadius: '4px !important',
-      },
-      success: {
-        fontWeight: '500',
-        color: '#00dc5c',
-        borderRadius: '4px !important',
-      },
-      warning: {
-        fontWeight: '500',
-        color: '#fdbf00',
-        borderRadius: '4px !important',
-      },
-      danger: {
-        fontWeight: '500',
-        color: '#ff0a0a',
-        borderRadius: '4px !important',
-      }
-    };
-    return stateStyles[propsRef.value] || {};
-  }
-});
-// Compute styles based on the API response
-// 根据 API 响应计算样式
-const computeApiStyle = () => {
-  if (typeof buttonData.value.state === 'object') {
-    return buttonData.value.state;
-  } else {
-    const stateStyles = {
-      default: {
-        border: '1.5px solid #DADCE0',
-        fontWeight: '500',
-        color: 'rgb(0 120 255)',
-        borderRadius: '4px !important',
-      },
-      primary: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: 'rgb(0, 120, 255)',
-        borderRadius: '4px !important',
-      },
-      success: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#00dc5c',
-        borderRadius: '4px !important',
-      },
-      warning: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#fdbf00',
-        borderRadius: '4px !important',
-      },
-      danger: {
-        fontWeight: '500',
-        color: 'rgb(255,255,255)',
-        backgroundColor: '#ff0a0a',
-        borderRadius: '4px !important',
-      }
-    };
-    return stateStyles[buttonData.value.state] || {};
-  }
-};
-
-
-// Apply react styles based on effect
-// 根据效果应用 react 样式
-const applyReactStyles = (effect) => {
-  const target = buttonRef.value;
-  const styles = reactStyles.value;
-  if (styles && styles[effect]) {
-    Object.assign(target.style, styles[effect]);
-  }
-};
-
-// Create a reactive variable to store API response data
-// 创建一个响应式变量来存储 API 响应数据
-const apiData = ref({});
-
-// Define a function to handle API data
-// 定义一个函数来处理 API 数据
-const handleApiData = (data) => {
-  if (type === "api") {
-    buttonData.value.text = data.name;
-    buttonData.value.class = data.message;
-    buttonData.value.state = data.state;
-    if (data.message === "200") {
-      buttonData.value.apiStyle = computeApiStyle();
-    } else {
-      buttonData.value.text = text;
+  const handleClick = (e: MouseEvent): void => {
+    if (!props.disabled && !props.loading) {
+      emits('click', e)
     }
-  } else {
-    buttonData.value.text = text;
   }
-};
-// Fetch API data asynchronously
-// 异步获取 API 数据
-const fetchApiData = async () => {
-  try {
-    if (!api) {
-      buttonData.value.text = text;
-      return;
+
+  const enterPressedRef = ref(false)
+
+  const handleKeyup = (e: KeyboardEvent): void => {
+    switch (e.key) {
+      case 'Enter':
+        if (!props.keyboard)
+          return
+        enterPressedRef.value = false
     }
-    const response = await fetch(api);
-    const data = await response.json();
-    handleApiData(data);
-  } catch (error) {
-    console.error('Error fetching API data:', error);
   }
-};
 
-const sound = ref(null);
-const clickSound = ref(null);
-
-onMounted(() => {
-  if (music) {
-    sound.value = music.sound ? new Audio(music.sound.url) : null;
-    clickSound.value = music.clickSound ? new Audio(music.clickSound.url) : null;
+  const handleKeydown = (e: KeyboardEvent): void => {
+    switch (e.key) {
+      case 'Enter':
+        if (!props.keyboard || props.loading) {
+          e.preventDefault()
+          return
+        }
+        enterPressedRef.value = true
+    }
   }
-});
-const playSound = () => {
-  if (sound.value) {
-    sound.value.play();
+
+  const handleBlur = (): void => {
+    enterPressedRef.value = false
   }
-};
-
-const playClickSound = () => {
-  if (clickSound.value) {
-    clickSound.value.play();
-  }
-};
-
-
-
-// Call fetchApiData when component is mounted
-// 在组件加载时调用 fetchApiData
-onMounted(() => {
-  fetchApiData();
-});
-
-// Watch for changes in apiData, apply button name if message is 200
-// 监听 apiData 的变化，如果 message 为 200，则应用按钮的 name
-watch(apiData, (newData) => {
-  if (newData.message === '200') {
-    // Apply button name
-    // You can perform further operations with newData.name here
-    // For example, assign newData.name to props.ts of the text component
-    // 应用按钮的 name
-    // 你可以在这里使用 newData.name 做进一步的操作
-    // 例如将 newData.name 赋值给文本组件的 props.ts
-    text.value = newData.name;
-  }
-});
 </script>

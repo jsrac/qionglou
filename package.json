@@ -35,10 +35,12 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/compiler-sfc": "^3.3.4",
     "@vue/test-utils": "^2.3.2",
+    "@vue/typescript": "^1.8.20",
     "commitizen": "^4.3.0",
     "eslint": "^8.40.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.19.2",
     "fast-glob": "^3.3.0",
     "gsap": "^3.11.4",
     "happy-dom": "^9.10.9",
@@ -59,14 +61,14 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,ts,tsx,jsx,vue,json}": [
       "prettier --write"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
