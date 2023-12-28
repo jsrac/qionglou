@@ -12,6 +12,10 @@
     <template v-if="loading">
       <slot v-if="$slots.loading" name="loading" />
     </template>
+    <ql-icon v-if="icon || $slots.icon">
+      {{ icon }}
+      <slot v-if="!icon" name="icon" />
+    </ql-icon>
     <span v-if="$slots.default">
       <slot />
     </span>
@@ -21,6 +25,7 @@
 <script setup lang="ts">
   import { computed, ref, useSlots } from 'vue'
   import { buttonProps, buttonEmits } from './button'
+  import { QlIcon } from '@qionglou/components/icon'
 
   const props = defineProps(buttonProps)
   const emits = defineEmits(buttonEmits)

@@ -14,6 +14,7 @@ export const buttonProps = {
   textColor: String,
   loading: Boolean,
   keyboard: Boolean,
+  icon: String,
   type: {
     type: String as PropType<Type>,
     default: 'default'

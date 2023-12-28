@@ -1,25 +1,17 @@
-/* Styling for Font Icon container */
-.ql-icon_font div {
-  display: flex;
-  align-items: center;
-  align-content: center;
-  flex-direction: column-reverse;
-}
-
-/* Styling for Image Icon container */
 .ql-icon {
-  display: flex;
-  align-items: center;
-  height: auto;
-  width: max-content;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 1.5rem;
 }
 
-/* CSS animation for rotating icons */
 .rotate-animation {
   animation: rotate 2s linear infinite;
 }
 
-/* Keyframes for rotation animation */
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -29,12 +21,10 @@
   }
 }
 
-/* CSS animation for linear icons */
 .linear-animation {
   animation: linear 2s linear 0.1s infinite alternate;
 }
 
-/* Keyframes for linear animation */
 @keyframes linear {
   0% {
     transform: translateX(0);

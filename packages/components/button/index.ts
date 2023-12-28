@@ -5,3 +5,5 @@ export const QlButton = withInstall(Button)
 
 export default QlButton
 export type { ButtonProps } from './src/button'
+
+export * from './src/button'
