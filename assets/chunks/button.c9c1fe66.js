@@ -1,1 +1,0 @@
-const o={color:String,disabled:Boolean,bordered:Boolean,textColor:String,loading:Boolean,keyboard:Boolean,type:{type:String,default:"default"},attrType:{type:String,default:"button"},size:{type:String,default:"normal"}},e={click:t=>t instanceof MouseEvent};export{e as a,o as b};
