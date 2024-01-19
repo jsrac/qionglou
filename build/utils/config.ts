@@ -21,7 +21,7 @@ export const buildPathConfig: BuildConfigType = {
   packagesConfig: {
     input: path.resolve(projectRoot, 'packages/components'),
     output: path.resolve(outputPath, 'components')
-  }
+  },
 } as const
 
 export const modules = ['esm', 'cjs'] as const
@@ -35,11 +35,12 @@ export interface BuildInfo {
     name: string
     path: string
   }
-
   bundle: {
     path: string
   }
 }
+
+// 重写打包配置方案
 export const buildConfig: Record<Module, BuildInfo> = {
   esm: {
     module: 'ESNext',
@@ -72,7 +73,7 @@ export const buildCdnConfig: OutputOptions[] = [
     format: 'umd',
     name: 'Qionglou',
     exports: 'named',
-    file: path.resolve(outputPath, 'cdn/index.cdn.js'),
+    file: path.resolve(outputPath, 'dist/index.cdn.js'),
     globals: {
       vue: 'Vue'
     },
@@ -80,11 +81,13 @@ export const buildCdnConfig: OutputOptions[] = [
   },
   {
     format: 'esm',
-    file: path.resolve(outputPath, 'cdn/qionglou.esm.js'),
+    file: path.resolve(outputPath, 'dist/qionglou.esm.js'),
     sourcemap: true
   }
 ]
+
 export type BuildConfigEntries = [Module, BuildInfo][]
+
 export const buildConfigEntries = Object.entries(
   buildConfig
 ) as BuildConfigEntries

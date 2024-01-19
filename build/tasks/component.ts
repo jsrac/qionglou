@@ -3,7 +3,7 @@ import { pkgRoot, projectEntry } from '../utils/paths'
 import { rollup } from 'rollup'
 import type { OutputOptions } from 'rollup'
 import { buildCdnConfig, buildConfigEntries } from '../utils/config'
-import { rollupBuildPlugin, generateExternal } from '../utils/rollup'
+import { rollupBuildPlugin } from '../utils/rollup'
 import { resolve } from 'path'
 
 // 排除
@@ -14,7 +14,7 @@ export const excludeFiles = (files: string[]) => {
   )
 }
 
-// 构建包
+// 构建package目录
 export const buildPackage = async () => {
   const input = excludeFiles(
     await glob('**/*.{js,ts,vue}', {
@@ -43,6 +43,7 @@ export const buildPackage = async () => {
     plugins: rollupBuildPlugin(),
     treeshake: false
   })
+
   const options = buildConfigEntries.map(
     ([module, config]): OutputOptions => ({
       format: config.format,

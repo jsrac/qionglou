@@ -9,7 +9,6 @@
   "scripts": {
     "start": "pnpm run -C start dev",
     "start:docs": "pnpm run -C docs dev",
-    "build": "pnpm run clean && vite build",
     "build:docs": "pnpm run -C docs build",
     "build:gulp": "pnpm run -C build build",
     "lint": "prettier --write .",
@@ -61,14 +60,14 @@
   "engines": {
     "node": ">=16.0.0"
   },
-  "lint-staged": {
-    "*.{js,ts,tsx,jsx,vue,json}": [
-      "prettier --write"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,jsx,vue,json}": [
+      "prettier --write"
+    ]
   }
 }

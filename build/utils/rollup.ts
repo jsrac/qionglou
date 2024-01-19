@@ -6,7 +6,7 @@ import esbuild from 'rollup-plugin-esbuild'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import image from '@rollup/plugin-image'
 import { resolve } from 'path'
-import { projectEntry } from './paths'
+import { projectEntry, projectRoot } from './paths'
 import json from '@rollup/plugin-json'
 
 const __defProp = Object.defineProperty
@@ -15,6 +15,7 @@ const __name = (target: any, value: any) =>
 ;(globalThis as any).__name = __name
 
 export const epPackage = resolve(projectEntry, 'package.json')
+export const epTsconfig = resolve(projectRoot, 'tsconfig.web.json')
 
 /**
  * 获取package.json文件内容
