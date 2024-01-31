@@ -1,1 +1,0 @@
-import{b as o}from"./button.ad4702b1.js";import{d as e,o as s,c as r,r as n}from"./framework.9358ee34.js";const p={size:o.size,type:o.type},a={class:"ql-button-group"},_=e({name:"QlButtonGroup",__name:"button-group",props:p,setup(u){return(t,c)=>(s(),r("div",a,[n(t.$slots,"default")]))}});export{_ as default};
