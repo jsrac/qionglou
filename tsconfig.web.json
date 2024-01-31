@@ -3,11 +3,23 @@
   "compilerOptions": {
     "composite": true,
     "jsx": "preserve",
-    "lib": ["ESNext", "Dom"],
+    "lib": ["ESNext", "Dom", "DOM.Iterable"],
     "types": ["vite/client"],
     "typeRoots": ["./node_modules", "./typings"],
     "skipLibCheck": true
   },
-  "include": ["packages", "typings/vue-shim.d.ts"],
-  "exclude": ["node_modules", "dist", "*.js", "lib", "build"]
+  "include": [
+    "packages",
+    "packages/qionglou/*",
+    "typings/vue-shim.d.ts",
+    "typings/vue-env.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "**/__tests__/**/*",
+    "**/gulpfile.ts",
+    "**/test-helper",
+    "**/*.md"
+  ]
 }

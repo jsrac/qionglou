@@ -1,25 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es2019",
+    "outDir": "dist",
+    "target": "es2018",
     "module": "esnext",
-    "moduleResolution": "node",
-    "removeComments": true,
-    "noLib": false,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "strictFunctionTypes": false,
-    "jsx": "preserve",
+    "baseUrl": ".",
     "sourceMap": false,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "useDefineForClassFields": true,
-    "isolatedModules": true,
-    "lib": ["ESNext", "DOM"],
-    "noImplicitAny": true,
-    "skipLibCheck": true
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "rootDir": ".",
+    "types": [],
+    "paths": {
+      "@qionglou/*": ["packages/*"]
+    }
   }
 }

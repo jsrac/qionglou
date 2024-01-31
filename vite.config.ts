@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import { resolve } from 'path'
-import { copyFileSync } from 'fs'
 
 export default defineConfig({
   mode: 'production',
@@ -12,24 +11,10 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      staticImport: true,
-      outputDir: ['./dist/lib', './dist/es'],
-      include: ['./packages/qionglou'],
-      afterBuild: () => {
-        // 将固定文件复制到dist目录
-        const files = [
-          { input: './README.md', output: 'dist/README.md' },
-          {
-            input: './packages/qionglou/package.json',
-            output: 'dist/package.json'
-          },
-          { input: './LICENSE', output: 'dist/LICENSE' }
-        ]
-
-        files.forEach((file) => {
-          copyFileSync(file.input, file.output)
-        })
-      }
+      entryRoot: 'packages',
+      outputDir: ['dist/types', 'dist/types'],
+      //指定使用的tsconfig.json为我们整个项目根目录下,如果不配置,你也可以在components下新建tsconfig.json
+      tsConfigFilePath: 'tsconfig.web.json'
     })
   ],
   build: {
@@ -44,36 +29,11 @@ export default defineConfig({
     rollupOptions: {
       external: ['vue'],
       input: resolve(__dirname, 'packages/qionglou/index.ts'),
-      output: [
-        {
-          format: 'umd',
-          dir: 'dist/dist',
-          exports: 'named',
-          name: 'qionglou',
-          entryFileNames: 'index.umd.js',
-          chunkFileNames: '[name].js',
-          generatedCode: { symbols: true },
-          inlineDynamicImports: false,
-          globals: { vue: 'Vue' }
-        },
-        {
-          format: 'cjs',
-          dir: 'dist/lib',
-          exports: 'named',
-          entryFileNames: '[name].js',
-          generatedCode: { symbols: true },
-          inlineDynamicImports: false,
-          preserveModules: true
-        },
-        {
-          format: 'es',
-          dir: 'dist/es',
-          exports: 'named',
-          entryFileNames: '[name].mjs',
-          preserveModules: true,
-          inlineDynamicImports: false
-        }
-      ]
+      output: {
+        entryFileNames: '[name].d.ts',
+        chunkFileNames: '[name].d.ts',
+        format: 'es'
+      }
     }
   }
 })
