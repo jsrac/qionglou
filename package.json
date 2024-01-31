@@ -73,5 +73,6 @@
     "*.{js,ts,tsx,jsx,vue,json}": [
       "prettier --write"
     ]
-  }
+  },
+  "version": "1.1.0"
 }
